@@ -1,5 +1,5 @@
 {
-    "name": "escape/application",
+    "name": "laravel/laravel",
     "description": "The Escape Application.",
     "type": "project",
     "require": {
