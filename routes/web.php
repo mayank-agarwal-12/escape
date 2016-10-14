@@ -11,6 +11,46 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/about', function () {
+    return view('pages.about');
+});
+
+Route::get('/contact', function () {
+    return view('pages.contact');
+});
+
+Route::get('adminpanel1', function () {
+    return view('vendor.iron-summit-media.index');
+})->middleware('guest');
+
+Auth::routes();
+
+//Route::group(['middleware' => 'auth'], function () {
+
+    Route::group(['namespace' => 'Adminpanel'], function () {
+
+        Route::get('/adminpanel', 'HomeController@index');
+
+
+        Route::get('/adminpanel/login', function () {
+            return view('pages.adminpanel.login');
+        });
+
+        Route::resource('adminpanel/category','Category');
+        Route::resource('adminpanel/experts','Experts');
+    });
+
+//});
+
+
+
+
+
+
+
+
