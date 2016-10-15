@@ -17,7 +17,7 @@ class Experts extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->mediumInteger('mobile')->nullable();
+            $table->bigInteger('mobile')->nullable();
             $table->timestamps();
         });
     }

@@ -25,6 +25,7 @@
                                     <th>S No</th>
                                     <th>Category Name</th>
                                     <th>Parent Category</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -38,6 +39,17 @@
                                     @else
                                         <td> NULL</td>
                                     @endif
+                                    <td> {!! Form::open(['method'=>'DELETE' , 'action'=>['Adminpanel\Category@destroy',$category->id]]) !!}
+                                        {{csrf_field()}}
+
+                                        <div class="form-group col-md-12  ">
+
+                                            {!! Form::submit('Delete',['class'=>'btn btn-danger col-sm-6']) !!}
+                                        </div>
+
+
+                                        {!! Form::close() !!}
+                                    </td>
                                     @endforeach
                                 </tr>
                                 @endif

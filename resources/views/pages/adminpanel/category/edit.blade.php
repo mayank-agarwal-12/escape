@@ -16,34 +16,38 @@
                             <div class="col-lg-6">
                                 {!! Form::model ($category,['method'=>'PATCH' , 'action'=>['Adminpanel\Category@update',$category->id]]) !!}
                                 {{csrf_field()}}
-                                <div class="form-group">
+                                <div class="form-group ">
                                     {!! Form::label('name','Category Name') !!}
                                     {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Enter category Name']) !!}
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group ">
                                     {!! Form::label('parent_id','Parent Category') !!}
                                     {!! Form::select('parent_id',['0'=>'Parent Selection'] + $catLists,null,['class'=>'form-control']) !!}
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group  ">
 
-                                    {!! Form::submit('Update ',['class'=>'btn btn-default col-sm-6']) !!}
+                                    {!! Form::submit('Update ',['class'=>'btn btn-success col-sm-6']) !!}
+
+                                </div>
+
+                                {!! Form::close() !!}
+
+
+                                {!! Form::open(['method'=>'GET' , 'action'=>'Adminpanel\Category@index']) !!}
+
+                                <div class="form-group ">
+
+                                    {!! Form::submit('Cancel',['class'=>'btn btn-default col-sm-6']) !!}
                                 </div>
 
 
                                 {!! Form::close() !!}
+                          
 
-                                {!! Form::open(['method'=>'DELETE' , 'action'=>['Adminpanel\Category@destroy',$category->id]]) !!}
-                                {{csrf_field()}}
-
-                                <div class="form-group">
-
-                                    {!! Form::submit('Delete',['class'=>'btn btn-default col-sm-6']) !!}
-                                </div>
-
-
-                                {!! Form::close() !!}
+                                   
+                              
 
 
                             </div>

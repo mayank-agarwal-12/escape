@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Adminpanel;
 
 
-use App\CategoryModel;
+use App\Models\CategoryModel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -65,7 +65,7 @@ class Category extends Controller
      */
     public function show($id)
     {
-        //
+        //return redirect('adminpanel/category');
     }
 
     /**
@@ -111,6 +111,7 @@ class Category extends Controller
     public function destroy($id)
     {
         CategoryModel::findorFail($id)->delete();
+        CategoryModel::where('parent_id',$id)->update(['parent_id'=>0]);
         return redirect('adminpanel/category');
     }
 }

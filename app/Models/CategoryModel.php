@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,12 +19,12 @@ class CategoryModel extends Model
 
     public function parent()
     {
-        return $this->belongsTo('App\CategoryModel');
+        return $this->belongsTo('App\Models\CategoryModel');
     }
 
     public function category()
     {
-        return $this->hasMany('App\CategoryModel');
+        return $this->hasMany('App\Models\CategoryModel');
     }
 
 

@@ -14,7 +14,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        DataTables Advanced Tables
+                       Expert Details
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -23,24 +23,37 @@
                                 <thead>
                                 <tr>
                                     <th>S No</th>
-                                    <th>Category Name</th>
-                                    <th>Parent Category</th>
+                                    <th> Name</th>
+                                    <th>Email</th>
+                                    <th>Mobile</th>
+                                    <th>Category</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @if($categoryArr)
-                                    @foreach($categoryArr as $category)
-                                <tr>
-                                    <td>{{$category->id}}</td>
-                                    <td><a href="{{route('category.edit',$category->id)}}">{{$category->name}}</a></td>
-                                    @if($category->parent)
-                                    <td>{{$category->parent->name}}</td>
-                                    @else
-                                        <td> NULL</td>
-                                    @endif
-                                    @endforeach
-                                </tr>
-                                @endif
+                                @if($expertList)
+                                    @foreach($expertList as $expert)
+                                        <tr>
+                                            <td>{{$expert->id}}</td>
+                                            <td><a href="{{route('experts.edit',$expert->id)}}">{{$expert->name}}</a></td>
+                                            <td>{{$expert->email}}</td>
+                                            <td>{{$expert->mobile}}</td>
+                                                <td> NULL</td>
+
+                                            <td> {!! Form::open(['method'=>'DELETE' , 'action'=>['Adminpanel\Experts@destroy',$expert->id]]) !!}
+                                                {{csrf_field()}}
+
+                                                <div class="form-group col-md-12  ">
+
+                                                    {!! Form::submit('Delete',['class'=>'btn btn-danger col-sm-6']) !!}
+                                                </div>
+
+
+                                                {!! Form::close() !!}
+                                            </td>
+                                            @endforeach
+                                        </tr>
+                                        @endif
                                 </tbody>
                             </table>
                         </div>
@@ -58,22 +71,30 @@
             <div class="col-lg-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                      Category Uploader
+                      Input Expert Details
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                {!! Form::open(['method'=>'POST' , 'action'=>'Adminpanel\Category@store']) !!}
+                                {!! Form::open(['method'=>'POST' , 'action'=>'Adminpanel\Experts@store']) !!}
                                     {{csrf_field()}}
                                     <div class="form-group">
-                                        {!! Form::label('name','Category Name') !!}
-                                        {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Enter category Name']) !!}
+                                        {!! Form::label('name','Name') !!}
+                                        {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Name']) !!}
                                         </div>
+                                <div class="form-group">
+                                    {!! Form::label('email','Email Id') !!}
+                                    {!! Form::email('email',null,['class'=>'form-control','placeholder'=>'abc@xyz.com']) !!}
+                                </div>
+                                <div class="form-group">
+                                    {!! Form::label('mobile','Mobile') !!}
+                                    {!! Form::number('mobile',null,['class'=>'form-control','placeholder'=>'9712XXXXXX']) !!}
+                                </div>
 
                                 <div class="form-group">
-                                    {!! Form::label('parent_id','Parent Category') !!}
-                                    {!! Form::select('parent_id',['0'=>'Parent Selection'] + $catLists,null,['class'=>'form-control']) !!}
+                                    {!! Form::label('category_id','Category') !!}
+                                    {!! Form::select('category_id',$categoryList,null,['class'=>'form-control','multiple'=>'']) !!}
                                 </div>
 
                                 <div class="form-group">

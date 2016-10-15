@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Adminpanel;
 
+use App\Models\CategoryModel;
+use App\Models\ExpertsModel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -23,7 +25,8 @@ class Experts extends Controller
         {
             $catLists[$cat->id] = $cat->name;
         }
-        return view('pages.adminpanel.category.index',compact('categoryArr')+['catLists'=>$catLists]);
+        $expertList = ExpertsModel::all();
+        return view('pages.adminpanel.experts.index',compact('expertList'),['categoryList'=>$catLists]);
     }
 
     /**
@@ -44,7 +47,13 @@ class Experts extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        ExpertsModel::create($input);
+        /* DB::table(static::$tableName)->insert([
+             'name'=>$input['name'],
+             'parent_id'=>$input['parent_id']
+         ]);*/
+        return redirect('adminpanel/experts');
     }
 
     /**
@@ -89,6 +98,8 @@ class Experts extends Controller
      */
     public function destroy($id)
     {
-        //
+        ExpertsModel::findorFail($id)->delete();
+
+        return redirect('adminpanel/experts');
     }
 }
