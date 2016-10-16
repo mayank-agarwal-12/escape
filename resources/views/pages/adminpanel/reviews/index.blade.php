@@ -5,7 +5,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Category</h1>
+                <h1 class="page-header">Tables</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -14,7 +14,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Category View
+                        Review List
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -23,23 +23,34 @@
                                 <thead>
                                 <tr>
                                     <th>S No</th>
-                                    <th>Category Name</th>
-                                    <th>Parent Category</th>
+                                    <th>Title</th>
+                                    <th>Content</th>
+                                    <th>Category</th>
+                                    <th>User</th>
+                                    <th>Image</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @if($categoryArr)
-                                    @foreach($categoryArr as $category)
+                                @if($reviewObj)
+                                    @foreach($reviewObj as $review)
                                 <tr>
-                                    <td>{{$category->id}}</td>
-                                    <td><a href="{{route('category.edit',$category->id)}}">{{$category->name}}</a></td>
-                                    @if($category->parent)
-                                    <td>{{$category->parent->name}}</td>
-                                    @else
-                                        <td> NULL</td>
+                                    <td>{{$review->id}}</td>
+                                    <td><a href="{{route('reviews.edit',$review->id)}}">{{$review->title}}</a></td>
+                                    <td>{{$review->content}}</td>
+                                    <td>{{$review->category->name}}</td>
+                                    <td>{{$review->user_id}}</td>
+                                    @if($review->upload_id)
+                                        <td>
+                                            {!! Form::image($review->image->url,'Image') !!}
+                                        </td>
+                                        @else
+                                        <td>NULL</td>
                                     @endif
-                                    <td> {!! Form::open(['method'=>'DELETE' , 'action'=>['Adminpanel\Category@destroy',$category->id]]) !!}
+
+
+
+                                    <td> {!! Form::open(['method'=>'DELETE' , 'action'=>['Adminpanel\Reviews@destroy',$review->id]]) !!}
                                         {{csrf_field()}}
 
                                         <div class="form-group col-md-12  ">
@@ -66,50 +77,7 @@
             <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                      Category Uploader
-                    </div>
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                {!! Form::open(['method'=>'POST' , 'action'=>'Adminpanel\Category@store']) !!}
-                                    {{csrf_field()}}
-                                    <div class="form-group">
-                                        {!! Form::label('name','Category Name') !!}
-                                        {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Enter category Name']) !!}
-                                        </div>
 
-                                <div class="form-group">
-                                    {!! Form::label('parent_id','Parent Category') !!}
-                                    {!! Form::select('parent_id',['0'=>'Parent Selection'] + $catLists,null,['class'=>'form-control']) !!}
-                                </div>
-
-                                <div class="form-group">
-
-                                    {!! Form::submit('Submit ',['class'=>'btn btn-default']) !!}
-                                </div>
-
-
-                                {!! Form::close() !!}
-
-                            </div>
-                            <!-- /.col-lg-6 (nested) -->
-
-
-                        </div>
-                        <!-- /.row (nested) -->
-                    </div>
-                    <!-- /.panel-body -->
-                </div>
-                <!-- /.panel -->
-                </div>
-                <!-- /.panel -->
-            </div>
-            <!-- /.col-lg-6 -->
 
         </div>
         <!-- /.row -->

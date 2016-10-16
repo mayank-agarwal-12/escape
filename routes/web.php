@@ -43,6 +43,9 @@ Auth::routes();
 
         Route::resource('adminpanel/category','Category');
         Route::resource('adminpanel/experts','Experts');
+        Route::resource('adminpanel/reviews','Reviews');
+/*        Route::resource('adminpanel/users','Users');
+        Route::resource('adminpanel/comparison','Comparison');*/
     });
 
 //});

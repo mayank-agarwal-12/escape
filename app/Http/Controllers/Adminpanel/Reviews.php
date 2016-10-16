@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers\Adminpanel;
 
-
 use App\Models\CategoryModel;
+use App\Models\ReviewsModel;
+use App\Models\UploadModel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 
-class Category extends Controller
+class Reviews extends Controller
 {
-    //protected static $tableName = 'categories';
     /**
      * Display a listing of the resource.
      *
@@ -20,14 +21,14 @@ class Category extends Controller
      */
     public function index()
     {
-       // $categoryArr = DB::table(self::$tableName)->get();
-        $categoryArr = CategoryModel::all();
+        $reviewObj = ReviewsModel::all();
+        /*$categoryArr = CategoryModel::all();
         $catLists = [];
         foreach($categoryArr as $cat)
         {
             $catLists[$cat->id] = $cat->name;
-        }
-        return view('pages.adminpanel.category.index',compact('categoryArr')+['catLists'=>$catLists]);
+        }*/
+        return view('pages.adminpanel.reviews.index',compact('reviewObj'));
     }
 
     /**
@@ -37,7 +38,15 @@ class Category extends Controller
      */
     public function create()
     {
-        //
+        $categoryArr = CategoryModel::all();
+        $catLists = [];
+        $userLists = ['1'=>'admin'];
+        foreach($categoryArr as $cat)
+        {
+            $catLists[$cat->id] = $cat->name;
+        }
+
+        return view('pages.adminpanel.reviews.create',['catLists'=>$catLists,'userLists'=>$userLists]);
     }
 
     /**
@@ -48,13 +57,24 @@ class Category extends Controller
      */
     public function store(Request $request)
     {
+        $uploadId = 0;
+        if($request->file('image'))
+        {
+            $path = $request->file('image')->storePublicly('review_image','public');
+
+            $uploadArr = [
+                'url'=> Storage::url($path),
+                'type'=>'image',
+                'storage'=>'filesystem\public',
+                'path'=>$path
+            ];
+            $uploadId = UploadModel::firstOrCreate($uploadArr)->id;
+        }
+
         $input = $request->all();
-        CategoryModel::create($input);
-       /* DB::table(static::$tableName)->insert([
-            'name'=>$input['name'],
-            'parent_id'=>$input['parent_id']
-        ]);*/
-        return redirect('adminpanel/category');
+        $input['upload_id'] = $uploadId;
+        ReviewsModel::create($input);
+        return redirect('adminpanel/reviews');
     }
 
     /**
@@ -65,7 +85,7 @@ class Category extends Controller
      */
     public function show($id)
     {
-        //return redirect('adminpanel/category');
+        //
     }
 
     /**
@@ -76,14 +96,16 @@ class Category extends Controller
      */
     public function edit($id)
     {
-        $category = CategoryModel::findorFail($id);
+        $review = ReviewsModel::findorFail($id);
         $categoryArr = CategoryModel::all();
+        $catLists = [];
+        $userLists = ['1'=>'admin'];
         foreach($categoryArr as $cat)
         {
             $catLists[$cat->id] = $cat->name;
         }
-        return view('pages.adminpanel.category.edit',compact('category')+['catLists'=>$catLists]);
 
+        return view('pages.adminpanel.reviews.edit',compact('review')+['catLists'=>$catLists,'userLists'=>$userLists]);
     }
 
     /**
@@ -95,11 +117,7 @@ class Category extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category = CategoryModel::findorFail($id);
-
-        $input = $request->all();
-        $category->update($input);
-        return redirect('adminpanel/category');
+        //
     }
 
     /**
@@ -110,8 +128,10 @@ class Category extends Controller
      */
     public function destroy($id)
     {
-        CategoryModel::findorFail($id)->delete();
-        CategoryModel::where('parent_id',$id)->update(['parent_id'=>0]);
-        return redirect('adminpanel/category');
+        $review = ReviewsModel::findorFail($id);
+      //  $review->image()->dissociate();
+        $review->delete();
+
+        return redirect('adminpanel/reviews');
     }
 }

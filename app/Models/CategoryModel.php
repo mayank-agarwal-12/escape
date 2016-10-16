@@ -32,6 +32,11 @@ class CategoryModel extends Model
         return $this->belongsToMany('App\Models\ExpertsModel','category_expert','category_id','expert_id');
     }
 
+    public function reviews()
+    {
+        return $this->hasMany('App\Models\ReviewsModel');
+    }
+
 
 
 }
