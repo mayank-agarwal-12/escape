@@ -166,6 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
+        /**HTML Forms**/
         Collective\Html\HtmlServiceProvider::class,
         //
 

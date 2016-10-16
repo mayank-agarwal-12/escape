@@ -82,6 +82,7 @@ class Category extends Controller
         {
             $catLists[$cat->id] = $cat->name;
         }
+
         return view('pages.adminpanel.category.edit',compact('category')+['catLists'=>$catLists]);
 
     }

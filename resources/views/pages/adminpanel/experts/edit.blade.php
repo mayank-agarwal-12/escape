@@ -8,22 +8,30 @@
             <div class="col-lg-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Category Uploader
+                        Expert Edit
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                {!! Form::model ($category,['method'=>'PATCH' , 'action'=>['Adminpanel\Category@update',$category->id]]) !!}
+                                {!! Form::model ($expert,['method'=>'PATCH' , 'action'=>['Adminpanel\Experts@update',$expert->id]]) !!}
                                 {{csrf_field()}}
                                 <div class="form-group">
-                                    {!! Form::label('name','Category Name') !!}
-                                    {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Enter category Name']) !!}
+                                    {!! Form::label('name','Name') !!}
+                                    {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Name']) !!}
+                                </div>
+                                <div class="form-group">
+                                    {!! Form::label('email','Email Id') !!}
+                                    {!! Form::email('email',null,['class'=>'form-control','placeholder'=>'abc@xyz.com']) !!}
+                                </div>
+                                <div class="form-group">
+                                    {!! Form::label('mobile','Mobile') !!}
+                                    {!! Form::number('mobile',null,['class'=>'form-control','placeholder'=>'9712XXXXXX']) !!}
                                 </div>
 
                                 <div class="form-group">
-                                    {!! Form::label('parent_id','Parent Category') !!}
-                                    {!! Form::select('parent_id',['0'=>'Parent Selection'] + $catLists,null,['class'=>'form-control']) !!}
+                                    {!! Form::label('categories','Category') !!}
+                                    {!! Form::select('categories[]',$categoryList,$selectedCat,['class'=>'form-control','multiple'=>'']) !!}
                                 </div>
 
                                 <div class="form-group">
@@ -34,12 +42,11 @@
 
                                 {!! Form::close() !!}
 
-                                {!! Form::open(['method'=>'DELETE' , 'action'=>['Adminpanel\Category@destroy',$category->id]]) !!}
-                                {{csrf_field()}}
+                                {!! Form::open(['method'=>'GET' , 'action'=>'Adminpanel\Experts@index']) !!}
 
-                                <div class="form-group">
+                                <div class="form-group ">
 
-                                    {!! Form::submit('Delete',['class'=>'btn btn-default col-sm-6']) !!}
+                                    {!! Form::submit('Cancel',['class'=>'btn btn-default col-sm-6']) !!}
                                 </div>
 
 

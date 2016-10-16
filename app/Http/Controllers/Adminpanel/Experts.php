@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Adminpanel;
 
+use App\Models\CategoryExpertModel;
 use App\Models\CategoryModel;
 use App\Models\ExpertsModel;
 use Illuminate\Http\Request;
@@ -26,6 +27,8 @@ class Experts extends Controller
             $catLists[$cat->id] = $cat->name;
         }
         $expertList = ExpertsModel::all();
+
+
         return view('pages.adminpanel.experts.index',compact('expertList'),['categoryList'=>$catLists]);
     }
 
@@ -48,11 +51,16 @@ class Experts extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        ExpertsModel::create($input);
-        /* DB::table(static::$tableName)->insert([
-             'name'=>$input['name'],
-             'parent_id'=>$input['parent_id']
-         ]);*/
+        $expertId = ExpertsModel::create($input)->id;
+        foreach($input['categories'] as $category)
+        {
+            $insertArr = [
+                'category_id'=>$category,
+                'expert_id'=>$expertId
+            ];
+
+            CategoryExpertModel::create($insertArr);
+        }
         return redirect('adminpanel/experts');
     }
 
@@ -75,7 +83,19 @@ class Experts extends Controller
      */
     public function edit($id)
     {
-        //
+        $expert = ExpertsModel::findorFail($id);
+        $categoryArr = CategoryModel::all();
+        $catLists = [];
+        $selectedCat = [];
+        foreach($categoryArr as $cat)
+        {
+            $catLists[$cat->id] = $cat->name;
+        }
+        foreach ($expert->category as $category)
+        {
+            $selectedCat[] = $category->id;
+        }
+        return view('pages.adminpanel.experts.edit',compact('expert'),['categoryList'=>$catLists,'selectedCat'=>$selectedCat]);
     }
 
     /**
@@ -87,7 +107,19 @@ class Experts extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $expert = ExpertsModel::findorFail($id);
+        $input = $request->all();
+        $expert->update($input);
+        $expert->category()->sync($input['categories']);
+        /*foreach($input['categories'] as $category)
+        {
+            $insertArr = [
+                'category_id'=>$category,
+                'expert_id'=>$id
+            ];
+            CategoryExpertModel::create($insertArr);
+        }*/
+            return redirect('adminpanel/experts');
     }
 
     /**
@@ -98,7 +130,9 @@ class Experts extends Controller
      */
     public function destroy($id)
     {
-        ExpertsModel::findorFail($id)->delete();
+        $expert = ExpertsModel::findorFail($id);
+        $expert->category()->detach();
+       $expert->delete();
 
         return redirect('adminpanel/experts');
     }

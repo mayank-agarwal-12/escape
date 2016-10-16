@@ -38,7 +38,34 @@
                                             <td><a href="{{route('experts.edit',$expert->id)}}">{{$expert->name}}</a></td>
                                             <td>{{$expert->email}}</td>
                                             <td>{{$expert->mobile}}</td>
-                                                <td> NULL</td>
+                                            @if($expert->category->count())
+
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                            <i>Categories </i>
+                                                            <i class="fa fa-caret-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-messages">
+                                                            @foreach($expert->category as $category)
+                                                                <li>
+                                                                    <a href="#">
+                                                                    <div>
+                                                                        <strong> {{$category->name}}</strong>
+
+                                                                    </div>
+                                                                        </a>
+
+                                                                </li>
+                                                                <li class="divider"></li>
+                                                            @endforeach
+                                                        </ul>
+                                                        <!-- /.dropdown-messages -->
+                                                    </div>
+                                                </td>
+                                            @else
+                                                <td>NULL</td>
+                                            @endif
 
                                             <td> {!! Form::open(['method'=>'DELETE' , 'action'=>['Adminpanel\Experts@destroy',$expert->id]]) !!}
                                                 {{csrf_field()}}
@@ -93,8 +120,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    {!! Form::label('category_id','Category') !!}
-                                    {!! Form::select('category_id',$categoryList,null,['class'=>'form-control','multiple'=>'']) !!}
+                                    {!! Form::label('categories','Category') !!}
+                                    {!! Form::select('categories[]',$categoryList,null,['class'=>'form-control','multiple'=>'']) !!}
                                 </div>
 
                                 <div class="form-group">

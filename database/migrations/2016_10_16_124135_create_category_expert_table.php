@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CategoryDetails extends Migration
+class CreateCategoryExpertTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CategoryDetails extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('category_expert', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
-            $table->integer('parent_id')->default(0)->index();
-            $table->timestamps();
+            $table->mediumInteger('expert_id')->index();
+            $table->mediumInteger('category_id')->index();
+            $table->unique(['expert_id','category_id']);
         });
     }
 
@@ -28,6 +28,6 @@ class CategoryDetails extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('category_expert');
     }
 }

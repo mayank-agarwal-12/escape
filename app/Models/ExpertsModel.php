@@ -8,5 +8,10 @@ class ExpertsModel extends Model
 {
     protected $table = 'experts';
     //protected $fillable = ['name','email','mobile'];
-    protected $guarded = ['category_id'];
+    protected $guarded = ['categories'];
+
+    public function category()
+    {
+        return $this->belongsToMany('App\Models\CategoryModel','category_expert','expert_id','category_id');
+    }
 }

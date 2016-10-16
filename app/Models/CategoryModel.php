@@ -19,13 +19,19 @@ class CategoryModel extends Model
 
     public function parent()
     {
-        return $this->belongsTo('App\Models\CategoryModel');
+        return $this->hasOne('App\Models\CategoryModel');
     }
 
     public function category()
     {
-        return $this->hasMany('App\Models\CategoryModel');
+        return $this->belongsTo('App\Models\CategoryModel');
     }
+
+    public function experts()
+    {
+        return $this->belongsToMany('App\Models\ExpertsModel','category_expert','category_id','expert_id');
+    }
+
 
 
 }
