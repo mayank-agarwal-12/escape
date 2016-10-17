@@ -117,7 +117,33 @@ class Reviews extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $review = ReviewsModel::findorFail($id);
+        $uploadId= $review->upload_id;
+
+
+        $input = $request->all();
+
+        if(!empty($input['remove_image']))
+        {
+           $uploadId = 0;
+            unset($input['remove_image']);
+        }
+
+        if($request->file('image'))
+        {
+            $path = $request->file('image')->storePublicly('review_image','public');
+
+            $uploadArr = [
+                'url'=> Storage::url($path),
+                'type'=>'image',
+                'storage'=>'filesystem\public',
+                'path'=>$path
+            ];
+            $uploadId = UploadModel::firstOrCreate($uploadArr)->id;
+        }
+        $input['upload_id'] = $uploadId;
+        $review->update($input);
+        return redirect('adminpanel/reviews');
     }
 
     /**

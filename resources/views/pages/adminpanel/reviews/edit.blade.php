@@ -14,7 +14,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                {!! Form::model ($review,['method'=>'PATCH' , 'action'=>['Adminpanel\Reviews@update',$review->id]]) !!}
+                                {!! Form::model ($review,['method'=>'PATCH' , 'action'=>['Adminpanel\Reviews@update',$review->id],'enctype'=>"multipart/form-data"]) !!}
                                 {{csrf_field()}}
                                 <div class="form-group">
                                     {!! Form::label('title','Review Title') !!}
@@ -35,7 +35,13 @@
                                     {!! Form::label('user_id','User') !!}
                                     {!! Form::select('user_id',['0'=>'Select User'] + $userLists,null,['class'=>'form-control']) !!}
                                 </div>
-
+                                @if($review->upload_id)
+                                <div class="form-group">
+                                    {!! Form::image($review->image->url,'Image') !!}
+                                    {!! Form::label('remove_image','Remove Image') !!}
+                                    {!! Form::checkbox('remove_image','1',null,[]) !!}
+                                </div>
+                                @endif
                                 <div class="form-group">
                                     {!! Form::label('image','Image Uploader') !!}
                                     {!! Form::file('image',['class'=>'form-control']) !!}
