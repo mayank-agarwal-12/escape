@@ -24,13 +24,11 @@ Route::get('/contact', function () {
     return view('pages.contact');
 });
 
-Route::get('adminpanel1', function () {
-    return view('vendor.iron-summit-media.index');
-})->middleware('guest');
 
-Auth::routes();
 
-//Route::group(['middleware' => 'auth'], function () {
+
+
+Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['namespace' => 'Adminpanel'], function () {
 
@@ -44,11 +42,12 @@ Auth::routes();
         Route::resource('adminpanel/category','Category');
         Route::resource('adminpanel/experts','Experts');
         Route::resource('adminpanel/reviews','Reviews');
+        Auth::routes();
 /*        Route::resource('adminpanel/users','Users');
         Route::resource('adminpanel/comparison','Comparison');*/
     });
 
-//});
+});
 
 
 
