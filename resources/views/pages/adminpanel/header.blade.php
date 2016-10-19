@@ -63,7 +63,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Escape Admin 1.0</a>
+            <a class="navbar-brand" href="/adminpanel">Escape Admin 1.0</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -76,7 +76,7 @@
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="{{ url('adminpanel/login') }}">Login</a></li>
-                    <li><a href="{{ url('adminpanel/register') }}">Register</a></li>
+
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

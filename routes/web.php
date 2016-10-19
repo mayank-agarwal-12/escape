@@ -11,9 +11,10 @@
 |
 */
 
-
-Route::get('/', function () {
-    return view('home');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', function () {
+        return view('home');
+    });
 });
 
 Route::get('/about', function () {
@@ -25,27 +26,44 @@ Route::get('/contact', function () {
 });
 
 
+Auth::routes();
 
 
-
-Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['namespace' => 'Adminpanel'], function () {
 
+        // Authentication Routes...
+        Route::get('adminpanel/login', 'Auth\LoginController@showLoginForm')->name('adminpanel/login');
+        Route::post('adminpanel/login', 'Auth\LoginController@login');
+        Route::post('adminpanel/logout', 'Auth\LoginController@logout');
+
+       /* // Registration Routes...
+        Route::get('adminpanel/register', 'Auth\RegisterController@showRegistrationForm');
+        Route::post('adminpanel/register', 'Auth\RegisterController@register');*/
+
+        // Password Reset Routes...
+        Route::get('adminpanel/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+        Route::post('adminpanel/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+        Route::get('adminpanel/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+        Route::post('adminpanel/password/reset', 'Auth\ResetPasswordController@reset');
+
+
+
+
+
+      //  Route::group(['middleware' => 'auth.adminpanel'], function () {
         Route::get('/adminpanel', 'HomeController@index');
 
 
-        Route::get('/adminpanel/login', function () {
-            return view('pages.adminpanel.login');
-        });
+
 
         Route::resource('adminpanel/category','Category');
         Route::resource('adminpanel/experts','Experts');
         Route::resource('adminpanel/reviews','Reviews');
-        Auth::routes();
+
 /*        Route::resource('adminpanel/users','Users');
         Route::resource('adminpanel/comparison','Comparison');*/
-    });
+   // });
 
 });
 
