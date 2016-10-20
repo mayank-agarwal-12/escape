@@ -60,6 +60,8 @@ Auth::routes();
         Route::resource('adminpanel/category','Category');
         Route::resource('adminpanel/experts','Experts');
         Route::resource('adminpanel/reviews','Reviews');
+        Route::resource('adminpanel/adminuser','AdminPanelUser');
+        Route::resource('adminpanel/user','User');
 
 /*        Route::resource('adminpanel/users','Users');
         Route::resource('adminpanel/comparison','Comparison');*/

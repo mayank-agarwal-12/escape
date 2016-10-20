@@ -13,10 +13,29 @@
                 <a href="\adminpanel\comparison"><i class="fa fa-edit fa-fw"></i> Comparison Uploader</a>
             </li>
             <li>
+                <a href="#"><i class="fa fa-user fa-fw arrow"></i> AdminPanel User</a>
+                <ul class="nav nav-third-level">
+                    <li>
+                        <a href="\adminpanel\adminuser"><i class="fa fa-eye fa-fw"></i>View Users</a>
+                    </li>
+                    <li>
+                        <a href="\adminpanel\adminuser\create"><i class="fa fa-edit   fa-fw"></i>Create User</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a href="#"> Main Site<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="\adminpanel\users"><i class="fa fa-user fa-fw"></i>Users</a>
+                        <a href="#"><i class="fa fa-user fa-fw arrow"></i> User</a>
+                        <ul class="nav nav-third-level">
+                            <li>
+                                <a href="\adminpanel\user"><i class="fa fa-eye fa-fw"></i>View Users</a>
+                            </li>
+                            <li>
+                                <a href="\adminpanel\user\create"><i class="fa fa-edit   fa-fw"></i>Create User</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-star fa-fw arrow"></i>Reviews</a>

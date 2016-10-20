@@ -18,6 +18,7 @@ class CreateApUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('status');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -30,6 +31,6 @@ class CreateApUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('users');
+        Schema::drop('ap_users');
     }
 }
