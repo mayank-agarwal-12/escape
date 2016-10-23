@@ -10,7 +10,7 @@
                 <a href="\adminpanel\experts"><i class="fa fa-user fa-fw"></i> Expert List</a>
             </li>
             <li>
-                <a href="\adminpanel\comparison"><i class="fa fa-edit fa-fw"></i> Comparison Uploader</a>
+                <a href="\adminpanel\applicationdevices"><i class="fa fa-edit fa-fw"></i> Application Tests</a>
             </li>
             <li>
                 <a href="\adminpanel\testcases"><i class="fa fa-edit fa-fw"></i> Test Cases</a>

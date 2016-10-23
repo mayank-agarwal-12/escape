@@ -51,7 +51,7 @@ Auth::routes();
 
 
 
-        Route::group(['middleware' => 'auth.adminpanel'], function () {
+       // Route::group(['middleware' => 'auth.adminpanel'], function () {
 
         Route::get('/adminpanel', 'HomeController@index');
         Route::post('adminpanel/logout', 'Auth\LoginController@logout');
@@ -64,10 +64,11 @@ Auth::routes();
         Route::resource('adminpanel/adminuser','AdminPanelUser');
         Route::resource('adminpanel/user','User');
         Route::resource('adminpanel/testcases','TestCases');
+        Route::resource('adminpanel/applicationdevices','ApplicationDevices');
 
 /*        Route::resource('adminpanel/users','Users');
         Route::resource('adminpanel/comparison','Comparison');*/
-    });
+   // });
 
 });
 

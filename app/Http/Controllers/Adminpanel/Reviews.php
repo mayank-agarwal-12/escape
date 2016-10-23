@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Adminpanel;
 use App\Models\CategoryModel;
 use App\Models\ReviewsModel;
 use App\Models\UploadModel;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -40,12 +41,17 @@ class Reviews extends Controller
     {
         $categoryArr = CategoryModel::all();
         $catLists = [];
-        $userLists = ['1'=>'admin'];
+        $userObj = User::all();
+        $userLists = [];
         foreach($categoryArr as $cat)
         {
             $catLists[$cat->id] = $cat->name;
         }
 
+        foreach($userObj as $user)
+        {
+            $userLists[$user->id] = $user->name;
+        }
         return view('pages.adminpanel.reviews.create',['catLists'=>$catLists,'userLists'=>$userLists]);
     }
 
@@ -99,10 +105,15 @@ class Reviews extends Controller
         $review = ReviewsModel::findorFail($id);
         $categoryArr = CategoryModel::all();
         $catLists = [];
-        $userLists = ['1'=>'admin'];
+        $userLists = [];
+        $userObj = User::all();
         foreach($categoryArr as $cat)
         {
             $catLists[$cat->id] = $cat->name;
+        }
+        foreach($userObj as $user)
+        {
+            $userLists[$user->id] = $user->name;
         }
 
         return view('pages.adminpanel.reviews.edit',compact('review')+['catLists'=>$catLists,'userLists'=>$userLists]);
