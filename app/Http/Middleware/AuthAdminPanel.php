@@ -21,16 +21,20 @@ class AuthAdminPanel extends Authenticate
     public function __construct(Auth $auth)
     {
         parent::__construct($auth);
-        $this->guard = ['adminpanel'];
+        $this->guard = 'adminpanel';
 
     }
 
     public function handle($request, Closure $next,...$guards)
     {
-        return $this->authenticate($this->guard);
-        //return $next($request);
+        if($this->auth->guard($this->guard)->guest())
+        {
+            return redirect()->guest('adminpanel/login');
+        }
+      //  return $this->authenticate($this->guard);
+        return $next($request);
     }
-    protected function authenticate(array $guards)
+    /*protected function authenticate(array $guards)
     {
         if (empty($guards)) {
             return $this->auth->authenticate();
@@ -43,6 +47,6 @@ class AuthAdminPanel extends Authenticate
         }
         return redirect()->guest('adminpanel/login');
 
-    }
+    }*/
 
 }

@@ -13,6 +13,9 @@
                 <a href="\adminpanel\comparison"><i class="fa fa-edit fa-fw"></i> Comparison Uploader</a>
             </li>
             <li>
+                <a href="\adminpanel\testcases"><i class="fa fa-edit fa-fw"></i> Test Cases</a>
+            </li>
+            <li>
                 <a href="#"><i class="fa fa-user fa-fw arrow"></i> AdminPanel User</a>
                 <ul class="nav nav-third-level">
                     <li>

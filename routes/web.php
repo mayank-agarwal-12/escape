@@ -35,7 +35,7 @@ Auth::routes();
         // Authentication Routes...
         Route::get('adminpanel/login', 'Auth\LoginController@showLoginForm')->name('adminpanel/login');
         Route::post('adminpanel/login', 'Auth\LoginController@login');
-        Route::post('adminpanel/logout', 'Auth\LoginController@logout');
+
 
        /* // Registration Routes...
         Route::get('adminpanel/register', 'Auth\RegisterController@showRegistrationForm');
@@ -51,9 +51,10 @@ Auth::routes();
 
 
 
-      //  Route::group(['middleware' => 'auth.adminpanel'], function () {
-        Route::get('/adminpanel', 'HomeController@index');
+        Route::group(['middleware' => 'auth.adminpanel'], function () {
 
+        Route::get('/adminpanel', 'HomeController@index');
+        Route::post('adminpanel/logout', 'Auth\LoginController@logout');
 
 
 
@@ -62,10 +63,11 @@ Auth::routes();
         Route::resource('adminpanel/reviews','Reviews');
         Route::resource('adminpanel/adminuser','AdminPanelUser');
         Route::resource('adminpanel/user','User');
+        Route::resource('adminpanel/testcases','TestCases');
 
 /*        Route::resource('adminpanel/users','Users');
         Route::resource('adminpanel/comparison','Comparison');*/
-   // });
+    });
 
 });
 

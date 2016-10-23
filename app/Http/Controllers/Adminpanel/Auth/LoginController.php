@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Adminpanel\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -57,5 +58,16 @@ class LoginController extends Controller
     {
         return Auth::guard('adminpanel');
 
+    }
+
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->flush();
+
+        $request->session()->regenerate();
+
+        return redirect($this->redirectTo);
     }
 }
