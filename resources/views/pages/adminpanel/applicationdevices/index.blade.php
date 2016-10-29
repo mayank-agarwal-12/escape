@@ -68,7 +68,7 @@
 
                                                 <div class="form-group col-md-12  ">
 
-                                                    {!! Form::submit('Delete',['class'=>'btn btn-danger col-sm-6']) !!}
+                                                    {!! Form::submit('Delete',['class'=>'btn btn-danger col-md-12']) !!}
                                                 </div>
 
 
