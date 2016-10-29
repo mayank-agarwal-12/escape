@@ -7,6 +7,7 @@ use App\Models\TestCasesModel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TestCases extends Controller
 {
@@ -39,8 +40,31 @@ class TestCases extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        TestCasesModel::create($input);
+        if($request->hasFile('import_file')) {
+            $path = $request->file('import_file')->getRealPath();
+
+            $data = Excel::load($path, function ($reader) {
+            })->get();
+            if (!empty($data) && $data->count()) {
+                foreach ($data->toArray() as $key => $value) {
+                    if (!empty($value)) {
+                        $value = array_filter($value);
+                        foreach ($value as $v) {
+                            $insert['name'] = $v;
+                        }
+                    }
+                    if (!empty($insert)) {
+                        TestCasesModel::create($insert);
+                    }
+                }
+            }
+        }
+        else
+        {
+            $input = $request->all();
+            TestCasesModel::create($input);
+
+        }
         return redirect('adminpanel/testcases');
     }
 

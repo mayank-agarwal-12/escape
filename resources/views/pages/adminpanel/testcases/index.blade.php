@@ -70,12 +70,19 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                {!! Form::open(['method'=>'POST' , 'action'=>'Adminpanel\TestCases@store']) !!}
+                                {!! Form::open(['method'=>'POST' , 'action'=>'Adminpanel\TestCases@store','enctype'=>"multipart/form-data"]) !!}
                                     {{csrf_field()}}
                                     <div class="form-group">
                                         {!! Form::label('name','Test Cases Name') !!}
                                         {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Enter Test Cases Name']) !!}
                                         </div>
+
+                                OR
+
+                                <div class="form-group">
+                                    {!! Form::label('import_file','Excel Uploader') !!}
+                                    {!! Form::file('import_file',['class'=>'form-control']) !!}
+                                </div>
 
                                 <div class="form-group">
 
