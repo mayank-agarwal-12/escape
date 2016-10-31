@@ -50,7 +50,7 @@ Auth::routes();
 
 
 
-       // Route::group(['middleware' => 'auth.adminpanel'], function () {
+        Route::group(['middleware' => 'auth.adminpanel'], function () {
 
         Route::get('/adminpanel', 'HomeController@index');
         Route::post('adminpanel/logout', 'Auth\LoginController@logout');
@@ -67,9 +67,7 @@ Auth::routes();
         Route::resource('adminpanel/knowledgebase','KnowledgeBase');
         Route::resource('adminpanel/comparison','Comparison');
 
-/*        Route::resource('adminpanel/users','Users');
-        Route::resource('adminpanel/comparison','Comparison');*/
-   // });
+    });
 
 });
 
