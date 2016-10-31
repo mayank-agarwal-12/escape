@@ -16,6 +16,12 @@
                 <a href="\adminpanel\testcases"><i class="fa fa-edit fa-fw"></i> Test Cases</a>
             </li>
             <li>
+                <a href="\adminpanel\knowledgebase"><i class="fa fa-edit fa-fw"></i> Knowledge Base</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-edit fa-fw"></i> Comparison Uploader</a>
+            </li>
+            <li>
                 <a href="#"><i class="fa fa-user fa-fw arrow"></i> AdminPanel User</a>
                 <ul class="nav nav-third-level">
                     <li>
