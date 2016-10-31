@@ -11,11 +11,10 @@
 |
 */
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', function () {
-        return view('home');
-    });
-});
+//Route::group(['middleware' => 'auth'], function () {
+
+Route::get('/', 'HomeController@index');
+//});
 
 Route::get('/about', function () {
     return view('pages.about');
@@ -65,6 +64,8 @@ Auth::routes();
         Route::resource('adminpanel/user','User');
         Route::resource('adminpanel/testcases','TestCases');
         Route::resource('adminpanel/applicationdevices','ApplicationDevices');
+        Route::resource('adminpanel/knowledgebase','KnowledgeBase');
+        Route::resource('adminpanel/comparison','Comparison');
 
 /*        Route::resource('adminpanel/users','Users');
         Route::resource('adminpanel/comparison','Comparison');*/
