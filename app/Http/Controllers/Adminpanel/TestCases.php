@@ -49,13 +49,15 @@ class TestCases extends Controller
                 foreach ($data->toArray() as $key => $value) {
                     if (!empty($value)) {
                         $value = array_filter($value);
-                        foreach ($value as $v) {
-                            $insert['name'] = $v;
+                        foreach ($value as $v)
+                        {
+                            $insert['name'] = !empty($v['testcases']) ? $v['testcases']: '';
+                            if (!empty($insert)) {
+                                TestCasesModel::create($insert);
+                            }
                         }
                     }
-                    if (!empty($insert)) {
-                        TestCasesModel::create($insert);
-                    }
+
                 }
             }
         }

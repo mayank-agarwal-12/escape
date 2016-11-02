@@ -19,7 +19,15 @@
                 <a href="\adminpanel\knowledgebase"><i class="fa fa-edit fa-fw"></i> Knowledge Base</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-edit fa-fw"></i> Comparison Uploader</a>
+                <a href="#"><i class="fa fa-star fa-fw arrow"></i>Comparison</a>
+                <ul class="nav nav-third-level">
+                    <li>
+                        <a href="\adminpanel\comparison"><i class="fa fa-eye fa-fw"></i>View Comparisons</a>
+                    </li>
+                    <li>
+                        <a href="\adminpanel\comparison\create"><i class="fa fa-edit   fa-fw"></i>Create Comparison</a>
+                    </li>
+                </ul>
             </li>
             <li>
                 <a href="#"><i class="fa fa-user fa-fw arrow"></i> AdminPanel User</a>

@@ -3,9 +3,15 @@
 namespace App\Http\Controllers\Adminpanel;
 
 use App\Http\Controllers\Controller;
+use App\Models\ComparisonModel;
+use App\Models\TagsMappingModel;
+use App\Models\TagsModel;
+use App\Models\UploadModel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Comparison extends Controller
 {
@@ -16,7 +22,8 @@ class Comparison extends Controller
      */
     public function index()
     {
-        //
+        $comparisonObj = ComparisonModel::all();
+        return view('pages.adminpanel.comparison.index',compact('comparisonObj'));
     }
 
     /**
@@ -26,7 +33,7 @@ class Comparison extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.adminpanel.comparison.create',[]);
     }
 
     /**
@@ -37,7 +44,27 @@ class Comparison extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $uploadId = 0;
+        if($request->file('upload_file'))
+        {
+            $requestObj = $request->file('upload_file');
+            $name = md5_file($requestObj->getRealPath()).'.'.$requestObj->guessClientExtension();
+            $path = $requestObj->storeAs('comparison_device',$name);
+
+            $uploadArr = [
+                'url'=> Storage::url($path),
+                'type'=>'file',
+                'storage'=>'filesystem\comparison_device',
+                'path'=>$path
+            ];
+            $uploadId = UploadModel::firstOrCreate($uploadArr)->id;
+        }
+        if(!empty($uploadId))
+        {
+            $input['upload_id'] = $uploadId;
+        }
+        ComparisonModel::create($input);
+        return redirect('adminpanel/comparison');
     }
 
     /**
@@ -71,7 +98,38 @@ class Comparison extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comparisonObj = ComparisonModel::findorFail($id);
+        $uploadId = $comparisonObj->upload_id;
+        $path = storage_path('app/'.$comparisonObj->upload->path);
+        $tags = [];
+        $data = Excel::load($path, function ($reader) {
+        })->get();
+        if (!empty($data) && $data->count())
+        {
+            foreach($data->toArray() as $key=>$value)
+            {
+                if (!empty($value))
+                {
+                    foreach($value as $v)
+                    {
+                            $tags[] = !empty($v['model']) ? $v['model']: '';
+                            $tags[] = !empty($v['manufacturer']) ? $v['manufacturer']: '';
+                    }
+                }
+            }
+        }
+        $tags = array_unique($tags);
+        foreach($tags as $tag)
+        {
+            $input['name'] = $tag;
+            $tagId = TagsModel::create($input)->id;
+            $inputArr = [
+                'tags_id'=>$tagId,
+                'comparison_id'=>$id
+            ];
+            TagsMappingModel::create($inputArr);
+        }
+        return redirect('adminpanel/comparison');
     }
 
     /**
@@ -82,6 +140,10 @@ class Comparison extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comparison = ComparisonModel::findorFail($id);
+        $comparison->tags()->detach();
+        $comparison->delete();
+
+        return redirect('adminpanel/comparison');
     }
 }
