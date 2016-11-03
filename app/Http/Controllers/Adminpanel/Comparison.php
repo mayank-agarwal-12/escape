@@ -119,10 +119,11 @@ class Comparison extends Controller
             }
         }
         $tags = array_unique($tags);
+        $tags = array_filter($tags);
         foreach($tags as $tag)
         {
             $input['name'] = $tag;
-            $tagId = TagsModel::create($input)->id;
+            $tagId = TagsModel::firstOrCreate($input)->id;
             $inputArr = [
                 'tags_id'=>$tagId,
                 'comparison_id'=>$id
