@@ -2,6 +2,10 @@ const elixir = require('laravel-elixir');
 
 require('laravel-elixir-vue');
 
+var paths = {
+    'bootstrap': './node_modules/bootstrap-sass/assets/'
+}
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -15,5 +19,6 @@ require('laravel-elixir-vue');
 
 elixir(mix => {
     mix.sass('app.scss')
-       .webpack('app.js');
+       .scripts('app.js')
+    .copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts/bootstrap');
 });
