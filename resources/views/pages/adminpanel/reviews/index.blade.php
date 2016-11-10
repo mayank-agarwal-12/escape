@@ -42,7 +42,7 @@
                                     <td>{{$review->user_id}}</td>
                                     @if($review->upload_id)
                                         <td>
-                                            {!! Form::image($review->image->url,'Image') !!}
+                                            {!! Form::image($review->image->url,'Image',['height'=>'125px','width'=>'90px']) !!}
                                         </td>
                                         @else
                                         <td>NULL</td>

@@ -3,7 +3,7 @@
         <ul class="nav" id="side-menu">
 
             <li>
-                <a href="\adminpanel\category"><i class="fa fa-angle-double-right fa-fw"></i> Category</a>
+                <a href="\adminpanel\category"><i class="fa fa-edit fa-fw"></i> Category</a>
             </li>
 
             <li>

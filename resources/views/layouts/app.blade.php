@@ -13,6 +13,8 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
 
+    <link href="/vendor/iron-summit-media/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -35,7 +37,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Theinstreview') }}
                 </a>
             </div>
 

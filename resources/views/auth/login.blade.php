@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                <div class="panel-heading">
+                    <h2><b>Login</b></h2>
+                </div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
@@ -38,6 +40,8 @@
                             </div>
                         </div>
 
+
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
@@ -45,7 +49,11 @@
                                         <input type="checkbox" name="remember"> Remember Me
                                     </label>
                                 </div>
+
+
                             </div>
+
+
                         </div>
 
                         <div class="form-group">
@@ -53,9 +61,11 @@
                                 <button type="submit" class="btn btn-primary">
                                     Login
                                 </button>
-
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">
-                                    Forgot Your Password?
+                                <a class="btn btn-link" style="padding-right: 1px" href="{{ url('/password/reset') }}">
+                                    Forgot Your Password/
+                                </a>
+                                <a class="btn btn-link" style="padding-left: 1px" href="{{ url('/register') }}">
+                                    Sign Up
                                 </a>
                             </div>
                         </div>

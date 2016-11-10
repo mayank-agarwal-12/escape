@@ -2,11 +2,13 @@
 
 <!-- Main Content -->
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+                <div class="panel-heading">
+                    <h2><b>Reset Password</b></h2>
+                </div>
                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">
@@ -36,6 +38,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     Send Password Reset Link
                                 </button>
+                                <a class="btn btn-link" style="padding-left: 1px" href="{{ url('/login') }}">
+                                    Cancel?
+                                </a>
                             </div>
                         </div>
                     </form>

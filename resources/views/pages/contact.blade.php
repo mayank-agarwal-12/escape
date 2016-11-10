@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
@@ -11,7 +11,9 @@
                             {{ session('status') }}
                         </div>
                         @else
-                        <div class="panel-heading">Write to Us</div>
+                        <div class="panel-heading text-center">
+                            <h1><b>Write to Us</b></h1>
+                        </div>
 
                     <div class="panel-body">
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/contact') }}">
