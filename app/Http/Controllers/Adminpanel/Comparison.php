@@ -45,6 +45,7 @@ class Comparison extends Controller
     public function store(Request $request)
     {
         $uploadId = 0;
+        $input = $request->all();
         if($request->file('upload_file'))
         {
             $requestObj = $request->file('upload_file');

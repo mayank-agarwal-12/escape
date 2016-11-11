@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ComparisonModel extends Model
 {
     public $timestamps = false;
-    protected $fillable = ['upload_id'];
+    protected $fillable = ['upload_id','name'];
     protected $table = 'comparison';
 
     public function upload()

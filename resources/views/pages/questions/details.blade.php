@@ -1,0 +1,77 @@
+@extends('layouts.app')
+
+@section('content')
+    <ol class="breadcrumb">
+        <li><a href="{{ url('/') }}">Home</a></li>
+        <li><a href="{{ url('/questions') }}">Questions</a></li>
+        <li class="active">{{$question->title}}</li>
+    </ol>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 ">
+
+
+
+                <div class="panel panel-primary  text-center">
+                    <h3 class="panel-title panel-heading"><b>Questions</b></h3>
+                </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+
+                           
+                            <div style="display: table-cell; vertical-align: top;padding-left: 10px">
+                                <a class="text-primary"><h3>{{$question->title}}</h3></a>
+                                <ul class="list-inline">
+                                    <li class="fa fa-filter">{{$question->category->name}}</li>
+                                    <li class="fa fa-user"> {{$question->user->name}} </li>
+                                    <li class="fa fa-clock-o"> {{$question->updated_at}} </li>
+                                </ul>
+                                <p>{{$question->content}}</p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                            <div class="page-header">
+                                <h1><small class="pull-right">{{count($answers)}} answers</small> Answers </h1>
+                            </div>
+
+                            @foreach($answers as $answer)
+                            <div class="answers-list" style="padding: 10px">
+                                <div class="media" style="border-bottom: 1px dotted #ccc;">
+                                    <p class="pull-right"><small>{{$answer->created_at}}</small></p>
+
+                                    <div class="media-body">
+
+                                        <h4 class="media-heading" style=" font-size:14px;
+    font-weight: bold;">{{$answer->user->name}}</h4>
+                                        {{$answer->content}}
+
+                                    </div>
+                                </div>
+                            </div>
+                                @endforeach
+            </div>
+            <div class="col-md-4 ">
+                <div class="panel panel-info">
+
+
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><b>Popular Questions</b></h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <ul>
+                            @foreach($popularObj as $question)
+                                <a href="{{url('questions/'.$question->title)}}"> <li class="text-primary">{{$question->title}}</li></a>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+@endsection

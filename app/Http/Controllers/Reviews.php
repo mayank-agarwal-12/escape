@@ -18,26 +18,23 @@ class Reviews extends Controller
 {
     public function index()
     {
-        $reviewObj = ReviewsModel::paginate(10);
-        return view('pages.reviews.reviews',compact('reviewObj'));
+        $reviewModel = new ReviewsModel();
+        $reviewObj = $reviewModel->latest()->paginate(10);
+        $popularReview = $this->getPopularReviews();
+        return view('pages.reviews.reviews',compact('reviewObj'),['popularReview'=>$popularReview]);
     }
 
     public function create()
     {
         $categoryArr = CategoryModel::all();
         $catLists = [];
-        $userObj = User::all();
-        $userLists = [];
+
         foreach($categoryArr as $cat)
         {
             $catLists[$cat->id] = $cat->name;
         }
 
-        foreach($userObj as $user)
-        {
-            $userLists[$user->id] = $user->name;
-        }
-        return view('pages.reviews.create',['catLists'=>$catLists,'userLists'=>$userLists]);
+        return view('pages.reviews.create',['catLists'=>$catLists]);
     }
 
     public function store(Request $request)
@@ -93,6 +90,13 @@ class Reviews extends Controller
         }
         $reviewObj = ReviewsModel::paginate(10);
         $comments = CommentsModel::where('review_id',$review->id)->orderBy('created_at','desc')->get();
-        return view('pages.reviews.details',compact('reviewObj'),['review'=>$review,'comments'=>$comments]);
+        $popularReview = $this->getPopularReviews();
+        return view('pages.reviews.details',compact('reviewObj'),['review'=>$review,'comments'=>$comments,'popularReview'=>$popularReview]);
+    }
+
+    protected function getPopularReviews()
+    {
+        $reviewModel = new ReviewsModel();
+        return $reviewModel->orderBy('created_at','asc')->take(5)->get();
     }
 }

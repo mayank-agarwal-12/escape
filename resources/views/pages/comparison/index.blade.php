@@ -3,15 +3,15 @@
 @section('content')
     <ol class="breadcrumb">
         <li><a href="{{ url('/') }}">Home</a></li>
-        <li class="active">Application Helper</li>
+        <li class="active">Comparisons</li>
     </ol>
     <div class="container-fluid">
         <!-- /.row -->
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8 ">
                 <div class="panel panel-primary" style="font-size: 16px">
                     <div class="panel-heading">
-                        <h1><b>Application Helper</b></h1>
+                        <h1><b>Comparisons</b></h1>
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -19,31 +19,27 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                 <tr>
-                                    <th>S No</th>
                                     <th>Name</th>
-                                    <th>Test Cases</th>
+                                    <th>Tags</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @if($deviceList)
-                                    @foreach($deviceList as $device)
+                                @if($comparisonObj)
+                                    @foreach($comparisonObj as $compare)
                                         <tr>
-                                            <td>{{$device->id}}</td>
-                                            <td>{{$device->name}}</td>
-                                            @if($device->testcases->count())
-
+                                            <td><a href="{{url('comparisons/'.$compare->name)}}">{{$compare->name}}</a></td>
+                                            @if($compare->tags->count())
                                                 <td>
-                                                        <ul >
-                                                            @foreach($device->testcases as $testcase)
-                                                                <li>
-                                                                        <div>
-                                                                            <strong> {{$testcase->name}}</strong>
+                                                    <ul>
+                                                        @foreach($compare->tags as $tag)
+                                                            <li>
+                                                                <div>
+                                                                    <em> {{$tag->name}}</em>
+                                                                </div>
 
-                                                                        </div>
-
-                                                                </li>
-                                                            @endforeach
-                                                        </ul>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
                                                 </td>
                                             @else
                                                 <td>NULL</td>
@@ -63,6 +59,27 @@
                 <!-- /.panel -->
             </div>
             <!-- /.col-lg-12 -->
+
+            <div class="col-md-4 ">
+                <div class="panel panel-info">
+
+
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><b>Top Comparisons</b></h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <ul>
+                            @foreach($popularComparison as $comparison)
+                                <a href="{{url('comparisons/'.$comparison->name)}}"><li class="text-primary">{{$comparison->name}}</li></a>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
         <!-- /.row -->
     </div>

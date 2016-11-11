@@ -34,7 +34,7 @@ class CategoryModel extends Model
 
     public function reviews()
     {
-        return $this->hasMany('App\Models\ReviewsModel');
+        return $this->hasMany('App\Models\ReviewsModel','category_id','id');
     }
 
 

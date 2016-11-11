@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+    <ol class="breadcrumb">
+        <li><a href="{{ url('/') }}">Home</a></li>
+        <li class="active">T&C</li>
+    </ol>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">

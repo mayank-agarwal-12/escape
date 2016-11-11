@@ -24,6 +24,11 @@
                                 {{csrf_field()}}
 
                                 <div class="form-group">
+                                    {!! Form::label('name','Name') !!}
+                                    {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Enter comparison Name']) !!}
+                                </div>
+
+                                <div class="form-group">
                                     {!! Form::label('upload_file','Comparison Uploader') !!}
                                     {!! Form::file('upload_file',['class'=>'form-control']) !!}
                                 </div>

@@ -3,8 +3,8 @@
 @section('content')
     <ol class="breadcrumb">
         <li><a href="{{ url('/') }}">Home</a></li>
-        <li><a href="{{ url('/reviews') }}">Reviews</a></li>
-        <li class="active">Create a review</li>
+        <li><a href="{{ url('/questions') }}">Questions</a></li>
+        <li class="active">Ask an expert</li>
     </ol>
     <div class="container-fluid">
         <div class="row">
@@ -12,13 +12,13 @@
                 <div class="panel panel-primary">
 
                     <div class="panel-heading text-center">
-                        <h1><b>New Review</b></h1>
+                        <h1><b>Post a Query</b></h1>
                     </div>
 
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
-                            <a href="{{ url('/reviews') }}">Click to see your review</a>
+                            <a href="{{ url('/questions') }}">Click to see your question</a>
                         </div>
                     @else
                         @if (Auth::guest())
@@ -30,11 +30,11 @@
                         @else
 
                         <div class="panel-body">
-                            <form class="form-horizontal" role="form" method="POST" action="{{ url('/reviews') }}" enctype="multipart/form-data">
+                            <form class="form-horizontal" role="form" method="POST" action="{{ url('/questions') }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
 
                                 <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                                    <label for="title" class="col-md-4 control-label">Review Title</label>
+                                    <label for="title" class="col-md-4 control-label">Question Title</label>
 
                                     <div class="col-md-6">
                                         <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" required autofocus placeholder="Enter Title">
@@ -74,23 +74,6 @@
                                         @endif
                                     </div>
                                 </div>
-
-                                <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
-                                    <label for="image" class="col-md-4 control-label">Image Uploader</label>
-
-                                    <div class="col-md-6">
-
-                                        {!! Form::file('image',['class'=>'form-control','required'=>'true']) !!}
-                                        @if ($errors->has('image'))
-                                            <span class="help-block">
-                                        <strong>{{ $errors->first('image') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div>
-                                </div>
-
-
-
 
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-4">

@@ -13,7 +13,7 @@
 
 
                 <div class="panel panel-primary  text-center">
-                    <h3 class="panel-title panel-heading"><b>Reviews</b></h3>
+                    <h3 class="panel-title panel-heading"><b>Review</b></h3>
                 </div>
 
                     <div class="panel panel-default">
@@ -81,6 +81,13 @@
             </div>
             <div class="col-md-4 ">
                 <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class=" text-center"><b>
+                                <a href="{{url('reviews/create')}}">Post a Review!!</a></b></h3>
+                    </div>
+                </div>
+
+                <div class="panel panel-info">
 
 
                     <div class="panel-heading">
@@ -89,7 +96,7 @@
 
                     <div class="panel-body">
                         <ul>
-                            @foreach($reviewObj as $review)
+                            @foreach($popularReview as $review)
                                 <a href="{{url('reviews/'.$review->title)}}"> <li class="text-primary">{{$review->title}}</li></a>
                             @endforeach
                         </ul>
