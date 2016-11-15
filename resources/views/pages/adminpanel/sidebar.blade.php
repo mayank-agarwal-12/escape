@@ -20,7 +20,7 @@
             </li>
             <li>
                 <a href="#"><i class="fa fa-star fa-fw arrow"></i>Comparison</a>
-                <ul class="nav nav-third-level">
+                <ul class="nav nav-second-level">
                     <li>
                         <a href="\adminpanel\comparison"><i class="fa fa-eye fa-fw"></i>View Comparisons</a>
                     </li>
@@ -31,7 +31,7 @@
             </li>
             <li>
                 <a href="#"><i class="fa fa-user fa-fw arrow"></i> AdminPanel User</a>
-                <ul class="nav nav-third-level">
+                <ul class="nav nav-second-level">
                     <li>
                         <a href="\adminpanel\adminuser"><i class="fa fa-eye fa-fw"></i>View Users</a>
                     </li>
@@ -66,11 +66,22 @@
                             </ul>
                     </li>
                     <li>
-                        <a href="\adminpanel\comments"><i class="fa fa-comments  a-fw"></i>Comments</a>
+                        <a href="#"><i class="fa fa-comments  a-fw"></i>Comments</a>
                     </li>
-s
+
                 </ul>
                 <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-edit fa-fw arrow"></i> Q&A</a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="#"><i class="fa fa-edit  a-fw"></i>Questions</a>
+                    </li>
+                    <li>
+                        <a href="\adminpanel\answers"><i class="fa fa-edit  a-fw"></i>Answers</a>
+                    </li>
+                    </ul>
             </li>
 
 

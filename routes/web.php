@@ -13,19 +13,46 @@
 
 //Route::group(['middleware' => 'auth'], function () {
 
-Route::get('/', 'HomeController@index');
+
 //});
 
 Route::get('/about', function () {
     return view('pages.about');
 });
 
-Route::get('/contact', function () {
-    return view('pages.contact');
-});
 
 
-Auth::routes();
+
+
+    Route::get('/', 'HomeController@index');
+    Route::get('/contact', function () {
+        return view('pages.contact');
+    });
+    Route::get('/disclaimer', function () {
+        return view('pages.disclaimer');
+    });
+    Route::get('/about', function () {
+        return view('pages.about');
+    });
+    Route::post('/contact','ContactUs@store');
+    Route::get('/reviews', 'Reviews@index');
+    Route::post('/reviews', 'Reviews@store');
+    Route::get('/reviews/create', 'Reviews@create');
+    Route::get('/reviews/{name}', 'Reviews@show');
+    Route::post('/comments', 'Comments@store');
+    Route::get('/applicationhelper', 'ApplicationDevices@index');
+
+    Route::get('/questions', 'Questions@index');
+    Route::post('/questions', 'Questions@store');
+    Route::get('/questions/create', 'Questions@create');
+    Route::get('/questions/{id}', 'Questions@show');
+    Route::get('/comparisons', 'Comparison@index');
+    Route::get('/comparisons/{name}', 'Comparison@show');
+
+    Auth::routes();
+
+
+
 
 
 
@@ -66,6 +93,8 @@ Auth::routes();
         Route::resource('adminpanel/applicationdevices','ApplicationDevices');
         Route::resource('adminpanel/knowledgebase','KnowledgeBase');
         Route::resource('adminpanel/comparison','Comparison');
+        Route::resource('adminpanel/answers','Answers');
+
 
     });
 

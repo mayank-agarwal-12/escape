@@ -45,7 +45,7 @@
                                     <div class="media-body">
 
                                         <h4 class="media-heading" style=" font-size:14px;
-    font-weight: bold;">{{$answer->user->name}}</h4>
+    font-weight: bold;">{{$answer->expert->name}}</h4>
                                         {{$answer->content}}
 
                                     </div>

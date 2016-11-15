@@ -37,6 +37,10 @@ class CategoryModel extends Model
         return $this->hasMany('App\Models\ReviewsModel','category_id','id');
     }
 
+    public function questions()
+    {
+        return $this->hasMany('App\Models\QuestionsModel','category_id','id');
+    }
 
 
 }
