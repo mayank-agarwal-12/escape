@@ -32,7 +32,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
+                                @if($questionObj)
                                     @foreach($questionObj as $question)
                                         <tr>
                                             <td>{{$question->id}}</td>
@@ -46,7 +46,9 @@
                                                 @endif
                                         </tr>
                                             @endforeach
-
+                                @else
+                                No Questions to answer
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
