@@ -8,7 +8,7 @@
     <div class="container-fluid">
         <!-- /.row -->
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8 col-xs-12 col-sm-12 col-md-offset-2">
                 <div class="panel panel-primary" style="font-size: 16px">
                     <div class="panel-heading">
                         <h1><b>Application Helper</b></h1>

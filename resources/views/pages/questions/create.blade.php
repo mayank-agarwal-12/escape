@@ -8,7 +8,7 @@
     </ol>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-12">
                 <div class="panel panel-primary">
 
                     <div class="panel-heading text-center">

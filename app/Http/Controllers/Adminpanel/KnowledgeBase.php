@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Adminpanel;
 
 use App\Http\Controllers\Controller;
+use App\Models\CategoryModel;
 use App\Models\KnowledgeBaseModel;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,14 @@ class KnowledgeBase extends Controller
     public function index()
     {
         $knowledgeBaseList = KnowledgeBaseModel::all();
-        return view('pages.adminpanel.knowledgebase.index',compact('knowledgeBaseList'));
+        $categoryArr = CategoryModel::all();
+        $catLists = [];
+
+        foreach($categoryArr as $cat)
+        {
+            $catLists[$cat->id] = $cat->name;
+        }
+        return view('pages.adminpanel.knowledgebase.index',compact('knowledgeBaseList'),['catLists'=>$catLists]);
     }
 
     /**
@@ -40,6 +48,10 @@ class KnowledgeBase extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+        if(empty($input['category_id']))
+        {
+            return back()->with('status', trans('Please select Category'));
+        }
         KnowledgeBaseModel::create($input);
         return redirect('adminpanel\knowledgebase');
     }
@@ -64,7 +76,14 @@ class KnowledgeBase extends Controller
     public function edit($id)
     {
         $knowledgeBaseList = KnowledgeBaseModel::findorFail($id);
-        return view('pages.adminpanel.knowledgebase.edit',compact('knowledgeBaseList'));
+        $categoryArr = CategoryModel::all();
+        $catLists = [];
+
+        foreach($categoryArr as $cat)
+        {
+            $catLists[$cat->id] = $cat->name;
+        }
+        return view('pages.adminpanel.knowledgebase.edit',compact('knowledgeBaseList'),['catLists'=>$catLists]);
     }
 
     /**
@@ -78,6 +97,10 @@ class KnowledgeBase extends Controller
     {
         $knowledgeBaseObj = KnowledgeBaseModel::findorFail($id);
         $input = $request->all();
+        if(empty($input['category_id']))
+        {
+            return back()->with('status', trans('Please select Category'));
+        }
         $knowledgeBaseObj->update($input);
         return redirect('adminpanel\knowledgebase');
     }

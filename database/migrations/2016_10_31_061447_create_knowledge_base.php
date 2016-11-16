@@ -18,6 +18,7 @@ class CreateKnowledgeBase extends Migration
             $table->string('title')->unique();
             $table->string('description');
             $table->string('link')->unique();
+            $table->bigInteger('category_id')->index();
         });
     }
 

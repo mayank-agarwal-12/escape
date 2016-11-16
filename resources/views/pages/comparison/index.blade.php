@@ -8,9 +8,9 @@
     <div class="container-fluid">
         <!-- /.row -->
         <div class="row">
-            <div class="col-md-8 ">
+            <div class="col-md-8 col-xs-12 col-sm-12">
                 <div class="panel panel-primary" style="font-size: 16px">
-                    <div class="panel-heading">
+                    <div class="panel-heading text-center">
                         <h1><b>Comparisons</b></h1>
                     </div>
                     <!-- /.panel-heading -->
@@ -60,12 +60,12 @@
             </div>
             <!-- /.col-lg-12 -->
 
-            <div class="col-md-4 ">
+            <div class="col-md-4 col-xs-12 col-sm-12">
                 <div class="panel panel-info">
 
 
                     <div class="panel-heading">
-                        <h3 class="panel-title"><b>Top Comparisons</b></h3>
+                        <h3 class="panel-title text-center"><b>Top Comparisons</b></h3>
                     </div>
 
                     <div class="panel-body">

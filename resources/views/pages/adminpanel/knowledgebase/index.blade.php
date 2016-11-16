@@ -25,6 +25,7 @@
                                     <th>S No</th>
                                     <th>Title</th>
                                     <th>Description</th>
+                                    <th>Category</th>
                                     <th>Link</th>
                                     <th>Action</th>
                                 </tr>
@@ -36,6 +37,7 @@
                                             <td>{{$knowledgeBase->id}}</td>
                                             <td><a href="{{route('knowledgebase.edit',$knowledgeBase->id)}}">{{$knowledgeBase->title}}</a></td>
                                             <td>{{$knowledgeBase->description}}</td>
+                                            <td>{{$knowledgeBase->category->name}}</td>
                                             <td>{{$knowledgeBase->link}}</td>
 
                                             <td> {!! Form::open(['method'=>'DELETE' , 'action'=>['Adminpanel\KnowledgeBase@destroy',$knowledgeBase->id]]) !!}
@@ -84,6 +86,10 @@
                                 <div class="form-group">
                                     {!! Form::label('description','Description') !!}
                                     {!! Form::textarea('description',null,['class'=>'form-control','placeholder'=>'Description']) !!}
+                                </div>
+                                <div class="form-group">
+                                    {!! Form::label('category_id','Category') !!}
+                                    {!! Form::select('category_id',['0'=>'Select Category']+$catLists,null,['class'=>'form-control']) !!}
                                 </div>
                                 <div class="form-group">
                                     {!! Form::label('link','Link') !!}

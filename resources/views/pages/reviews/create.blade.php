@@ -8,7 +8,7 @@
     </ol>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-12">
                 <div class="panel panel-primary">
 
                     <div class="panel-heading text-center">
@@ -93,7 +93,7 @@
 
 
                                 <div class="form-group">
-                                    <div class="col-md-6 col-md-offset-4">
+                                    <div class="col-md-6 col-md-offset-4 col-xs-12 col-sm-12">
                                         <button type="submit" class="btn btn-primary">
                                             Submit
                                         </button>

@@ -25,6 +25,10 @@
                                     {!! Form::textarea('description',null,['class'=>'form-control','placeholder'=>'Description']) !!}
                                 </div>
                                 <div class="form-group">
+                                    {!! Form::label('category_id','Category') !!}
+                                    {!! Form::select('category_id',['0'=>'Select Category']+$catLists,null,['class'=>'form-control']) !!}
+                                </div>
+                                <div class="form-group">
                                     {!! Form::label('link','Link') !!}
                                     {!! Form::url('link',null,['class'=>'form-control','placeholder'=>'https://abc.com']) !!}
                                 </div>

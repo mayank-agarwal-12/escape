@@ -13,7 +13,7 @@
     </ol>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-19 ">
+            <div class="col-md-19 col-xs-19 col-sm-19">
 
 
 

@@ -8,14 +8,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default" style="font-size: 16px">
+                <div class="panel panel-primary" style="font-size: 16px">
 
 
-                        <div class="panel-heading">
+                        <div class="panel-heading text-center">
                           <h1><b>Terms & Conditions</b></h1>
                         </div>
 
-                        <div class="panel-body">
+                        <div class="panel-body text-info">
                            <p> This Website will not be held responsible in any manner at any point of time if the user finds the information provided on this site not applicable and/or not useful or in any manner found incorrect for any reason. All the information given on this site is based on the data collected at/from various sources and the website does not claim the accuracy of the information as per the usage of the user. In this regard, the website cannot be held responsible if the information provided on this site is not useful to the user in any manner. The user will use the information at their own risk and cost.</p>
 
                         <p>All the information obtained by this site from the user, either by way of data/photograph/information/document may be used by the website for its promotional purposes for which the user shall have no claim and/or interest. The user shall not claim any compensation either by way of fees/charges/damages/compensation/renumeration from the website and the information shall remain within the exclusive domain of this website.</p>
