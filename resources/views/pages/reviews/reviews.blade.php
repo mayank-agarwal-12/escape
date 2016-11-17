@@ -7,6 +7,30 @@
     </ol>
     <div class="container-fluid">
         <div class="row">
+            <div class="col-md-4 col-xs-12 col-sm-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class=" text-center"><b>
+                                <a href="{{url('reviews/create')}}">Post a Review!!</a></b></h3>
+                    </div>
+                </div>
+
+                <div class="panel panel-info">
+
+
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><b>Popular Reviews</b></h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <ul>
+                            @foreach($popularReview as $review)
+                                <a href="{{url('reviews/'.$review->title)}}"><li class="text-primary">{{$review->title}}</li></a>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-8 col-xs-12 col-sm-12 ">
 
 
@@ -42,30 +66,7 @@
 
 
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-12">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class=" text-center"><b>
-                                <a href="{{url('reviews/create')}}">Post a Review!!</a></b></h3>
-                    </div>
-                </div>
 
-                <div class="panel panel-info">
-
-
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><b>Popular Reviews</b></h3>
-                    </div>
-
-                    <div class="panel-body">
-                        <ul>
-                            @foreach($popularReview as $review)
-                                <a href="{{url('reviews/'.$review->title)}}"><li class="text-primary">{{$review->title}}</li></a>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>
             </div>
 
     </div>

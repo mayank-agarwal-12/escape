@@ -17,8 +17,17 @@ var paths = {
  |
  */
 
-elixir(mix => {
-    mix.sass('app.scss')
-       .scripts('app.js')
-    .copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts/bootstrap');
+elixir(function(mix) {
+    mix.sass('app.scss');
+
+    mix.copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts/bootstrap');
+});
+
+Elixir.webpack.mergeConfig({
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            loader: 'babel-loader',
+        }]
+    }
 });

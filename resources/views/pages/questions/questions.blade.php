@@ -7,6 +7,32 @@
     </ol>
     <div class="container-fluid">
         <div class="row">
+            <div class="col-md-4 col-xs-12 col-sm-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class=" text-center"><b>
+                                <a href="{{url('questions/create')}}">Click to Ask!!</a></b></h3>
+                    </div>
+                </div>
+
+
+
+                <div class="panel panel-info">
+
+
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center"><b>Popular Questions</b></h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <ul>
+                            @foreach($popularObj as $question)
+                                <a href="{{url('questions/'.$question->title)}}"><li class="text-primary">{{$question->title}}</li></a>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-8 col-xs-12 col-sm-12">
 
 
@@ -40,32 +66,7 @@
 
 
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-12">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class=" text-center"><b>
-                                <a href="{{url('questions/create')}}">Click to Ask!!</a></b></h3>
-                    </div>
-                    </div>
 
-
-
-                <div class="panel panel-info">
-
-
-                    <div class="panel-heading">
-                        <h3 class="panel-title text-center"><b>Popular Questions</b></h3>
-                    </div>
-
-                    <div class="panel-body">
-                        <ul>
-                            @foreach($popularObj as $question)
-                                <a href="{{url('questions/'.$question->title)}}"><li class="text-primary">{{$question->title}}</li></a>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>
             </div>
 
     </div>
