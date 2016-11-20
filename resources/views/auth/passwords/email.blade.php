@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('pages.nonsearchscript')
+@extends('pages.footer')
+@extends('pages.header')
 
 <!-- Main Content -->
 @section('content')
@@ -39,7 +41,7 @@
                                     Send Password Reset Link
                                 </button>
                                 <a class="btn btn-link" style="padding-left: 1px" href="{{ url('/login') }}">
-                                    Cancel?
+                                    Cancel ?
                                 </a>
                             </div>
                         </div>

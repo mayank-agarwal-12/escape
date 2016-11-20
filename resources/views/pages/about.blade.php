@@ -1,4 +1,7 @@
-@extends('layouts.app')
+@extends('pages.nonsearchscript')
+@extends('pages.footer')
+@extends('pages.header')
+
 
 @section('content')
     <ol class="breadcrumb">

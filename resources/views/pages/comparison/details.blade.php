@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('pages.nonsearchscript')
+@extends('pages.footer')
+@extends('pages.header')
 
 @section('content')
     <style type="text/css" rel="stylesheet">
@@ -9,7 +11,7 @@
     <ol class="breadcrumb">
         <li><a href="{{ url('/') }}">Home</a></li>
         <li><a href="{{ url('/comparisons') }}">Comparisons</a></li>
-        <li class="active">{{$comparisonObj->name}}</li>
+        <li class="active">@if($comparisonObj) {{$comparisonObj->name}} @else NULL @endif</li>
     </ol>
     <div class="container-fluid">
         <div class="row">
@@ -21,6 +23,12 @@
                     <h3 class="panel-title panel-heading"><b>Comparison</b></h3>
                 </div>
 
+                @if (session('status'))
+                    <div class="alert alert-danger">
+                        {{ session('status') }}
+                        <a href="{{ url('/comparisons') }}">Go Back</a>
+                    </div>
+                @else
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="table-responsive">
@@ -53,7 +61,7 @@
 </div>
                     </div>
                 </div>
-
+@endif
             </div>
 
         </div>

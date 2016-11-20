@@ -1,11 +1,12 @@
-@extends('pages.searchscript')
+@extends('pages.nonsearchscript')
 @extends('pages.footer')
 @extends('pages.header')
 
 @section('content')
     <ol class="breadcrumb">
         <li><a href="{{ url('/') }}">Home</a></li>
-        <li class="active">Application Helper</li>
+        <li><a href="{{ url('/applicationhelper')}}">Application Helper</a></li>
+        <li class="active"> @if($device) {{$device->name}} @else NULL @endif</li>
     </ol>
     <div class="container-fluid">
         <!-- /.row -->
@@ -15,6 +16,13 @@
                     <div class="panel-heading">
                         <h1><b>Application Helper</b></h1>
                     </div>
+
+                    @if (session('status'))
+                        <div class="alert alert-danger">
+                            {{ session('status') }}
+                            <a href="{{ url('/applicationhelper') }}">Go Back</a>
+                        </div>
+                    @else
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
@@ -23,17 +31,35 @@
                                 <tr>
                                     <th>S No</th>
                                     <th>Name</th>
+                                    <th>Test Cases</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @if($deviceList)
-                                    @foreach($deviceList as $device)
+                                @if($device)
                                         <tr>
                                             <td>{{$device->id}}</td>
-                                            <td><a href="{{url('applicationhelper/'.$device->name)}}">{{$device->name}}</a></td>
+                                            <td>{{$device->name}}</td>
+                                            @if($device->testcases->count())
+
+                                                <td>
+                                                    <ul >
+                                                        @foreach($device->testcases as $testcase)
+                                                            <li>
+                                                                <div>
+                                                                    <strong> {{$testcase->name}}</strong>
+
+                                                                </div>
+
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+
+                                                </td>
+                                            @else
+                                                <td>NULL</td>
+                                            @endif
 
 
-                                            @endforeach
                                         </tr>
                                         @endif
                                 </tbody>
@@ -42,6 +68,7 @@
                         <!-- /.table-responsive -->
 
                     </div>
+                    @endif
                     <!-- /.panel-body -->
                 </div>
                 <!-- /.panel -->

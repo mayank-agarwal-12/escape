@@ -79,6 +79,10 @@ class Questions extends Controller
     public function show($title)
     {
         $questionObj = QuestionsModel::where('title',$title)->get();
+        if(empty($questionObj->first()))
+        {
+            return back()->with('status', trans('No Questions found'));
+        }
         foreach($questionObj as $questionRow)
         {
             $question = $questionRow;

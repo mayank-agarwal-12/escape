@@ -26,6 +26,10 @@ class Comparison extends Controller
     public function show($name)
     {
         $comparisonObj = ComparisonModel::where('name',$name)->get()->first();
+        if(empty($comparisonObj))
+        {
+            return back()->with('status', trans('No Comparison Found'));
+        }
         $uploadId = $comparisonObj->upload_id;
         $path = storage_path('app/'.$comparisonObj->upload->path);
         $comparisonArr = [];

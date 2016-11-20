@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('pages.nonsearchscript')
+@extends('pages.footer')
+@extends('pages.header')
 
 @section('content')
     <ol class="breadcrumb">
@@ -43,7 +45,7 @@
                         <div class="panel panel-default">
                                 <div class="panel-body">
 
-                                    <div class="panel-left" style="display: table-cell;vertical-align: middle;padding-right: 10px">
+                                    <div class="panel-left " style="display: table-cell;vertical-align: middle;padding-right: 10px">
                                         <img  height="175px" width="125px" src="{{$review->image->url}}" alt="...">
                                     </div>
                                     <div class="panel-right" style="display: table-cell; vertical-align: top;padding-left: 10px">

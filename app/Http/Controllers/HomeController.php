@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 
 
+use App\Models\ComparisonModel;
+use App\Models\QuestionsModel;
+use App\Models\ReviewsModel;
+
 class HomeController extends Controller
 {
 
@@ -27,6 +31,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.homepage');
+        $comparisonObj = new ComparisonModel();
+        $comparisonList = $comparisonObj->orderBy('id','asc')->take(4)->get();
+
+        $questionModel = new QuestionsModel();
+        $questionList =  $questionModel->orderBy('created_at','asc')->take(4)->get();
+
+        $reviewModel = new ReviewsModel();
+        $reviewList = $reviewModel->orderBy('created_at','asc')->take(4)->get();
+
+        return view('pages.homepage',[],['comparisonList'=>$comparisonList,'questionList'=>$questionList,'reviewList'=>$reviewList]);
     }
 }

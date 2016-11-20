@@ -84,6 +84,10 @@ class Reviews extends Controller
     public function show($title)
     {
         $reviewObj = ReviewsModel::where('title',$title)->get();
+        if(empty($reviewObj->first()))
+        {
+            return back()->with('status', trans('No Reviews found'));
+        }
         foreach($reviewObj as $reviewRow)
         {
             $review = $reviewRow;

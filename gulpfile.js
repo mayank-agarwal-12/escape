@@ -20,7 +20,7 @@ var paths = {
 elixir(function(mix) {
     mix.sass('app.scss');
 
-    mix.copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts/bootstrap');
+    //mix.copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts/bootstrap');
 });
 
 Elixir.webpack.mergeConfig({

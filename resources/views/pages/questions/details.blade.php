@@ -1,10 +1,12 @@
-@extends('layouts.app')
+@extends('pages.nonsearchscript')
+@extends('pages.footer')
+@extends('pages.header')
 
 @section('content')
     <ol class="breadcrumb">
         <li><a href="{{ url('/') }}">Home</a></li>
         <li><a href="{{ url('/questions') }}">Questions</a></li>
-        <li class="active">{{$question->title}}</li>
+        <li class="active">@if($question ) {{$question->title}} @else NULL @endif</li>
     </ol>
     <div class="container-fluid">
         <div class="row">
@@ -16,6 +18,12 @@
                     <h3 class="panel-title panel-heading"><b>Questions</b></h3>
                 </div>
 
+                @if (session('status'))
+                    <div class="alert alert-danger">
+                        {{ session('status') }}
+                        <a href="{{ url('/questions') }}">Go Back</a>
+                    </div>
+                @else
                     <div class="panel panel-default">
                         <div class="panel-body">
 
@@ -70,6 +78,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
 
     </div>

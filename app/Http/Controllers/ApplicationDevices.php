@@ -20,4 +20,20 @@ class ApplicationDevices extends Controller
         return view('pages.applicationdevices.index',compact('deviceList'));
 
     }
+
+    public function show($name)
+    {
+        $deviceList = ApplicationDevicesModel::where('name',$name)->get();
+        $device = [];
+        foreach($deviceList as $deviceRow)
+        {
+            $device = $deviceRow;
+        }
+        if(empty($device))
+        {
+            return back()->with('status', trans('No Application Helper found'));
+        }
+        return view('pages.applicationdevices.details',compact('device'));
+
+    }
 }
