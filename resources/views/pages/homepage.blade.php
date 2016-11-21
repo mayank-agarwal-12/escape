@@ -6,15 +6,35 @@
 
 <!-- Image
 ================================================== -->
-<div class="container" xmlns:color="http://www.w3.org/1999/xhtml">
+<div class="container-fluid">
+<img src="images/img4-main-page.png" id="bg" alt="">
+<style>
+#bg {
+position: absolute;
+top: 75px;
+left: 0;
+    height: 685px;
+    width: 100%;
+
+/* Preserve aspet ratio */
+min-width: 100%;
+min-height: 685px;
+}
+</style>
+
+    <div style="bottom: 0px; min-height:750px"></div>
+</div>
+
+
+{{--<div class="container" xmlns:color="http://www.w3.org/1999/xhtml">
 <div class="row">
-    <div class="col-xs-12 col-md-10 col-sm-12 col-md-offset-1 col-lg-10">
+    <div class="col-xs-12 col-md-12 col-sm-12 col-md-offset-0 col-lg-12">
         <a href="/" class="thumbnail">
             <img src="images/img4-main-page.png" >
         </a>
     </div>
 </div>
-    </div>
+    </div>--}}
 
 
 <!-- Marketing messaging and featurettes
@@ -29,10 +49,10 @@
     font-size: large;
     background-color:#222222">Post a Review</a>
 
-<div class="container marketing">
+<div class="container-fluid marketing" style="position: relative;display: block">
 
     <!-- Three columns of text below the carousel -->
-    <div class="row">
+    <div class="row" style="top: 685px">
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
             <a href="/questions">
             <img class="img-circle  center-block" src="images/img-expert.jpg" alt="Generic placeholder image" width="auto" height="140">

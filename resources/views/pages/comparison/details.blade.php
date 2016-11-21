@@ -20,7 +20,7 @@
 
 
                 <div class="panel panel-primary  text-center">
-                    <h3 class="panel-title panel-heading"><b>Comparison</b></h3>
+                    <h3 class="panel-title panel-heading"><b>@if($comparisonObj) {{$comparisonObj->name}} @else NULL @endif</b></h3>
                 </div>
 
                 @if (session('status'))

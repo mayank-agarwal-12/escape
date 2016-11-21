@@ -23,6 +23,9 @@
     <style>
         body {
             padding: 75px;
+            min-height: 100%;
+            box-sizing: border-box;
+            background-color: lightgrey;
         }
     </style>
 </head>
