@@ -28,65 +28,65 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default  navbar-inverse1 navbar-fixed-top">
+<nav class="navbar navbar-default1  navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
-        <div class="row navbar-header navbar-fixed-top">
-            <div class="col-xs-2 col-md-2 col-sm-2 col-lg-2">
+        <div class="navbar-header">
+        {{--<div class="row navbar-header navbar-fixed-top">
+            <div class="col-xs-3 col-md-3 col-sm-3 col-lg-3">--}}
 
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-header">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-
-                <a class="navbar-brand1" href="/">
-                    <img alt="Brand" src="/images/logo-2.jpg" height="45px" width="auto">
+                <a class="navbar-brand" href="/" style="color: #ffffff">
+                    Instreview
+                    {{--<img alt="Brand" src="/images/logo-2.jpg" height="45px" width="auto">--}}
                 </a>
-            </div>
-            <div class="col-xs-0 col-md-0 col-sm-0 col-lg-0">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-header">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+            {{--</div>
+            <div class="col-xs-0 col-md-0 col-sm-0 col-lg-0">--}}
+
             </div>
 
 
 
 
 
-            <div class="collapse navbar-collapse navbar-default navbar-inverse1 col-xs-12  col-md-8 col-sm-10 col-lg-10 col-md-offset-0 col-md-push-3" id="collapse-header">
-                <ul class="nav navbar-nav ">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="/">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
+            <div class="collapse navbar-collapse navbar-default1 navbar-inverse" id="collapse-header">
+                <ul class="nav navbar-nav navbar-right" >
+                    <li>
+                        <a href="/" style="color: #ffffff">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/reviews">Reviews</a>
+                    <li >
+                        <a  href="/reviews" style="color: #ffffff">Reviews</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/questions">Ask an Expert</a>
+                    <li >
+                        <a  href="/questions" style="color: #ffffff">Ask an Expert</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/comparisons">Comparisons</a>
+                    <li >
+                        <a  href="/comparisons" style="color: #ffffff">Comparisons</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/applicationhelper">Application Helper</a>
+                    <li >
+                        <a  href="/applicationhelper" style="color: #ffffff">Application Helper</a>
                     </li>
 
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li class="nav-item"><a href="{{ url('/login') }}">Login</a></li>
+                        <li ><a href="{{ url('/login') }}" style="color: #ffffff">Login</a></li>
 
                     @else
-                        <li class="dropdown nav-item">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <li class="dropdown  ">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: #ffffff">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
-                            <ul class="dropdown-menu" role="menu">
+                            <ul class="dropdown-menu navbar-inverse" role="menu">
                                 <li>
                                     <a href="{{ url('/logout') }}"
                                        onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
+                                                 document.getElementById('logout-form').submit();" style="color: #ffffff">
                                         Logout
                                     </a>
 

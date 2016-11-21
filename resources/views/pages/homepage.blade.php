@@ -6,11 +6,11 @@
 
 <!-- Image
 ================================================== -->
-<div class="container-fluid">
+<div class="container" xmlns:color="http://www.w3.org/1999/xhtml">
 <div class="row">
     <div class="col-xs-12 col-md-10 col-sm-12 col-md-offset-1 col-lg-10">
         <a href="/" class="thumbnail">
-            <img src="images/img1-main-page.jpg" >
+            <img src="images/img4-main-page.png" >
         </a>
     </div>
 </div>
@@ -25,8 +25,9 @@
     right:5px;
     z-index:1030;
     padding:5px;
+    color:#ffffff;
     font-size: large;
-    background-color:darkslategray">Post a Review</a>
+    background-color:#222222">Post a Review</a>
 
 <div class="container marketing">
 
@@ -97,11 +98,11 @@
     <div class="row panel-body">
         @foreach($comparisonList as $comparison)
         <div class="col-sm-6 col-md-3 col-xs-6">
-            <div class="thumbnail ">
+            <div class="thumbnail">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 
                 <div class="caption text-center text-primary">
-                    <h5><a href="{{url('comparisons/'.$comparison->name)}}"> {{$comparison->name}}</a></h5>
+                    <h5 style="word-wrap: break-word;"><a href="{{url('comparisons/'.$comparison->name)}}"> {{$comparison->name}}</a></h5>
                 </div>
             </div>
         </div>

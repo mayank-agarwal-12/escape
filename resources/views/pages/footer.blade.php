@@ -11,7 +11,7 @@
 
 </div>
 
-      <div class="col-md-3  col-sm-4 col-xs-4 col-md-offset-2">
+      {{--<div class="col-md-3  col-sm-4 col-xs-4 col-md-offset-2">
       <ul>
           <li >
               <a class="nav-link" href="/">Home
@@ -51,21 +51,21 @@
 
 
 
-        <a class="navbar-brand1" href="/">
+        --}}{{--<a class="navbar-brand1" href="/">
             <img alt="Brand" src="/images/logo-2.jpg" height="110px" width="auto">
-        </a>
-    </div>
+        </a>--}}{{--
+    </div>--}}
 
 
-     {{--   <div class="col-md-3 col-md-offset-1 col-sm-12 col-xs-12">
-            &middot; <a href="/about"></a>&middot;
+      <div class="col-md-3 col-md-offset-1 col-sm-12 col-xs-12">
+            &middot; <a href="/about">About</a>&middot;
         </div>
         <div class="col-md-3 col-md-offset-1 col-sm-12 col-xs-12">
             &middot;<a href="/contact">Contact Us</a>&middot;
         </div>
         <div class="col-md-3 col-md-offset-1 col-sm-12 col-xs-12">
             &middot;<a href="/disclaimer">Terms</a>&middot;
-        </div>--}}
+        </div>
 </div>
     <div class=" text-center">@2016. Instreview Company</div>
     </div>
