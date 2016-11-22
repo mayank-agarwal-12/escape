@@ -25,10 +25,10 @@
                     </div>
                 @else
                     <div class="panel panel-default">
-                        <div class="panel-body">
+                        <div class="panel-body text-center">
 
                            
-                            <div style="display: table-cell; vertical-align: top;padding-left: 10px">
+                            <div class="panel-right1 col-md-12 col-xs-12 col-sm-12" style="display: table-cell; vertical-align: top;padding-left: 10px;word-break: break-all">
                                 <a class="text-primary"><h3>{{$question->title}}</h3></a>
                                 <ul class="list-inline">
                                     <li class="fa fa-filter">{{$question->category->name}}</li>
@@ -69,7 +69,7 @@
                         <h3 class="panel-title"><b>Popular Questions</b></h3>
                     </div>
 
-                    <div class="panel-body">
+                    <div class="panel-body" style="word-break: break-all">
                         <ul>
                             @foreach($popularObj as $question)
                                 <a href="{{url('questions/'.$question->title)}}"> <li class="text-primary">{{$question->title}}</li></a>

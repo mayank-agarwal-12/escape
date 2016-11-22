@@ -13,7 +13,7 @@
             <div class="col-md-8 col-xs-12 col-sm-12 col-md-offset-2">
                 <div class="panel panel-primary" style="font-size: 16px">
                     <div class="panel-heading">
-                        <h1><b>Application Helper</b></h1>
+                        <h4><b>Application Helper</b></h4>
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">

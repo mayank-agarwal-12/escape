@@ -14,7 +14,7 @@
             <div class="col-md-8 col-xs-12 col-sm-12 col-md-offset-2">
                 <div class="panel panel-primary" style="font-size: 16px">
                     <div class="panel-heading">
-                        <h1><b>Application Helper</b></h1>
+                        <h3><b>Application Helper</b></h3>
                     </div>
 
                     @if (session('status'))
@@ -25,8 +25,8 @@
                     @else
                     <!-- /.panel-heading -->
                     <div class="panel-body">
-                        <div class="dataTable_wrapper">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <div class="table-responsive">
+                            <table width="100%" class="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
                                     <th>S No</th>

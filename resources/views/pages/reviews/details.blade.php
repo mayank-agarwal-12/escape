@@ -25,12 +25,12 @@
                 </div>
                 @else
                     <div class="panel panel-default">
-                        <div class="panel-body">
+                        <div class="panel-body text-center">
 
-                            <div style="display: table-cell;vertical-align: middle;padding-right: 10px">
+                            <div class="panel-left col-md-4 col-xs-12 col-sm-12"  style="display: table-cell;vertical-align: middle;padding-right: 10px">
                                 <img  height="175px" width="125px" src="{{$review->image->url}}" alt="...">
                             </div>
-                            <div style="display: table-cell; vertical-align: top;padding-left: 10px">
+                            <div class="panel-right col-md-8 col-xs-12 col-sm-12" style="display: table-cell; vertical-align: top;padding-left: 10px;word-break: break-all">
                                 <a class="text-primary"><h3>{{$review->title}}</h3></a>
                                 <ul class="list-inline">
                                     <li class="fa fa-filter">{{$review->category->name}}</li>
@@ -102,7 +102,7 @@
                         <h3 class="panel-title"><b>Popular Reviews</b></h3>
                     </div>
 
-                    <div class="panel-body">
+                    <div class="panel-body" style="word-break: break-all">
                         <ul>
                             @foreach($popularReview as $review)
                                 <a href="{{url('reviews/'.$review->title)}}"> <li class="text-primary">{{$review->title}}</li></a>

@@ -7,22 +7,29 @@
 <!-- Image
 ================================================== -->
 <div class="container-fluid">
-<img src="images/img4-main-page.png" id="bg" alt="">
+<img class="img-responsive" src="images/img3-main-page.png" id="bg" alt="" usemap="#mainmap">
 <style>
 #bg {
 position: absolute;
+
 top: 75px;
 left: 0;
-    height: 685px;
-    width: 100%;
 
-/* Preserve aspet ratio */
+
+
+/* Preserve aspect ratio */
 min-width: 100%;
-min-height: 685px;
+max-height: 500px;
 }
 </style>
 
-    <div style="bottom: 0px; min-height:750px"></div>
+    <map name="mainmap">
+        <area shape="rect" coords="0,0,508,315" alt="" href="/comparisons">
+
+    </map>
+
+
+    <div style="bottom: 0px; min-height:550px"></div>
 </div>
 
 
@@ -117,8 +124,8 @@ min-height: 685px;
 
     <div class="row panel-body">
         @foreach($comparisonList as $comparison)
-        <div class="col-sm-6 col-md-3 col-xs-6">
-            <div class="thumbnail">
+        <div class="col-sm-12 col-md-4 col-xs-12 ">
+            <div class="thumbnail1">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 
                 <div class="caption text-center text-primary">
@@ -139,13 +146,13 @@ min-height: 685px;
 
         <div class="row panel-body">
             @foreach($questionList as $key=>$question)
-                <div class="col-sm-6 col-md-3 col-xs-6">
+                <div class="col-sm-12 col-md-4 col-xs-12">
                     <div class="thumbnail ">
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 
                         <div class="caption text-center text-primary ">
                             <p class="collapse" id="{{"viewdetails".$key}}" style="word-wrap: break-word;"><a href="{{url('questions/'.$question->title)}}"> {{$question->title}}</a></p>
-                            <p><a class="btn" data-toggle="collapse" data-target="{{"#viewdetails".$key}}">View Query &raquo;</a></p>
+                            <p ><a class="btn" data-toggle="collapse" data-target="{{"#viewdetails".$key}}">Query&raquo;</a></p>
                         </div>
                     </div>
                 </div>
@@ -162,7 +169,7 @@ min-height: 685px;
 
         <div class="row panel-body">
             @foreach($reviewList as $review)
-                <div class="col-sm-6 col-md-3 col-xs-6">
+                <div class="col-sm-12 col-md-4 col-xs-12">
                     <div class="thumbnail1 ">
                         @if($review->image)
                         <img  height="175px" width="100%" src="{{$review->image->url}}" alt="...">

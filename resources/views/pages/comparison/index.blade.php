@@ -13,7 +13,7 @@
             <div class="col-md-8 col-xs-12 col-sm-12">
                 <div class="panel panel-primary" style="font-size: 16px">
                     <div class="panel-heading text-center">
-                        <h1><b>Comparisons</b></h1>
+                        <h3><b>Comparisons</b></h3>
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -70,7 +70,7 @@
                         <h3 class="panel-title text-center"><b>Top Comparisons</b></h3>
                     </div>
 
-                    <div class="panel-body">
+                    <div class="panel-body" style="word-break: break-all">
                         <ul>
                             @foreach($popularComparison as $comparison)
                                 <a href="{{url('comparisons/'.$comparison->name)}}"><li class="text-primary">{{$comparison->name}}</li></a>
