@@ -28,7 +28,15 @@
                         <div class="panel-body text-center">
 
                             <div class="panel-left col-md-4 col-xs-12 col-sm-12"  style="display: table-cell;vertical-align: middle;padding-right: 10px">
-                                <img  height="175px" width="125px" src="{{$review->image->url}}" alt="...">
+                                @if($review->image)
+
+                                    <img  height="175px" width="125px" src="{{$review->image->url}}" alt="...">
+
+                                @else
+                                    <div style="height:175px;width:125px;border:1px solid #000;display: inline-block">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </div>
+                                @endif
                             </div>
                             <div class="panel-right col-md-8 col-xs-12 col-sm-12" style="display: table-cell; vertical-align: top;padding-left: 10px;word-break: break-all">
                                 <a class="text-primary"><h3>{{$review->title}}</h3></a>

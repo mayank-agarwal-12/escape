@@ -82,7 +82,7 @@
 
                                     <div class="col-md-6">
 
-                                        {!! Form::file('image',['class'=>'form-control','required'=>'true']) !!}
+                                        {!! Form::file('image',['class'=>'form-control']) !!}
                                         @if ($errors->has('image'))
                                             <span class="help-block">
                                         <strong>{{ $errors->first('image') }}</strong>

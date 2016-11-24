@@ -77,7 +77,7 @@ class Reviews extends Controller
             'title' => 'required|max:255|min:5|unique:reviews',
             'content' => 'required|max:255|min:10',
             'category_id'=>'required|not_in:0',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
     }
 

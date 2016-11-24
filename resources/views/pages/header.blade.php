@@ -7,7 +7,8 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="images/favicon.ico">
+
 
     <title>Instrument Review &#8211; One-stop solution for your Instrument needs</title>
 
@@ -45,7 +46,7 @@
             </button>
 
                 <a class="navbar-brand" href="/" style="color: #ffffff">
-                    Instreview
+                   <p>INSTREVIEW</p>
                     {{--<img alt="Brand" src="/images/logo-2.jpg" height="45px" width="auto">--}}
                 </a>
             {{--</div>

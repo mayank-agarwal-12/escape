@@ -6,14 +6,18 @@
 
 <!-- Image
 ================================================== -->
-<div class="container-fluid">
-<img class="img-responsive" src="images/img3-main-page.png" id="bg" alt="" usemap="#mainmap">
+<div class="container-fluid hidden-xs hidden-sm">
+    <div class="hidden-xs hidden-sm">
+
+
+<img class="img-responsive" src="images/img5-main-page.png" id="bg" alt="" usemap="#mainmap">
 <style>
 #bg {
-position: absolute;
+position: relative;
 
-top: 75px;
-left: 0;
+top: 0px;
+left: 0%;
+    padding-bottom: 20px;
 
 
 
@@ -23,13 +27,13 @@ max-height: 500px;
 }
 </style>
 
-    <map name="mainmap">
+   {{-- <map name="mainmap">
         <area shape="rect" coords="0,0,508,315" alt="" href="/comparisons">
 
-    </map>
+    </map>--}}
 
-
-    <div style="bottom: 0px; min-height:550px"></div>
+    </div>
+    {{--<div style="bottom: 0px; min-height:550px"></div>--}}
 </div>
 
 
@@ -52,6 +56,9 @@ max-height: 500px;
     right:5px;
     z-index:1030;
     padding:5px;
+    border: solid 1px;
+    height: auto;
+    width: auto;
     color:#ffffff;
     font-size: large;
     background-color:#222222">Post a Review</a>
@@ -64,7 +71,7 @@ max-height: 500px;
             <a href="/questions">
             <img class="img-circle  center-block" src="images/img-expert.jpg" alt="Generic placeholder image" width="auto" height="140">
                 </a>
-            <h2>Expert's Corner</h2>
+            <h2><a  href="/questions" >Expert's Corner</a></h2>
             <p>Do you have a query about your test
 
                 application or your Electronic T&amp;M
@@ -75,7 +82,7 @@ max-height: 500px;
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
             <a href="/reviews">
             <img class="img-circle  center-block" src="/images/img-reviews.jpg" alt="Generic placeholder image" width="212" height="140"></a>
-            <h2>Instrument Reviews</h2>
+            <h2><a href="/reviews">Instrument Reviews</a></h2>
             <p>Excited about a product? Go ahead
 
                 and use our platform to write about
@@ -91,7 +98,7 @@ max-height: 500px;
             <a href="/comparisons">
             <img class="img-circle  center-block" src="images/img-comparison.jpg" alt="Generic placeholder image" width="auto" height="140">
                 </a>
-            <h2>Instrument Comparison</h2>
+            <h2><a href="/comparisons">Instrument Comparison</a></h2>
             <p>Planning to buy a T&amp;M instrument?
 
                 Compare instruments from multiple
@@ -103,7 +110,7 @@ max-height: 500px;
             <a href="/applicationhelper">
             <img class="img-circle  center-block" src="/images/img-application-helper.jpg" alt="Generic placeholder image" width="auto" height="140">
                 </a>
-            <h2>Application Assistant</h2>
+            <h2><a href="/applicationhelper">Application Assistant</a></h2>
             <p>There are some tests absolutely
 
                 required before your product is ready
