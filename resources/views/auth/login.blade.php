@@ -59,10 +59,12 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4 col-xs-12 col-sm-12 text-center">
+                            <div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-12 text-center">
                                 <button type="submit" class="btn btn-primary">
                                     Login
                                 </button>
+                                </div>
+                            <div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-12 text-center">
                                 <a class="btn btn-link" style="padding-right: 1px" href="{{ url('/password/reset') }}">
                                     Forgot Your Password/
                                 </a>
