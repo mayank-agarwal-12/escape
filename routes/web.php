@@ -40,8 +40,8 @@ Route::get('/about', function () {
     Route::get('/reviews/create', 'Reviews@create');
     Route::get('/reviews/{name}', 'Reviews@show');
     Route::post('/comments', 'Comments@store');
-    Route::get('/applicationhelper', 'ApplicationDevices@index');
-    Route::get('/applicationhelper/{name}', 'ApplicationDevices@show');
+    Route::get('/applicationassistant', 'ApplicationDevices@index');
+    Route::get('/applicationassistant/{name}', 'ApplicationDevices@show');
 
     Route::get('/questions', 'Questions@index');
     Route::post('/questions', 'Questions@store');
@@ -51,6 +51,8 @@ Route::get('/about', function () {
     Route::get('/comparisons/{name}', 'Comparison@show');
 
     Auth::routes();
+    Route::get('/redirect/{provider}', 'Auth\SocialAuth@redirectToProvider');
+    Route::get('/callback/{provider}', 'Auth\SocialAuth@handleProviderCallback');
 
 
 

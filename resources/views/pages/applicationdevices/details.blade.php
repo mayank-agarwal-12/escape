@@ -5,7 +5,7 @@
 @section('content')
     <ol class="breadcrumb">
         <li><a href="{{ url('/') }}">Home</a></li>
-        <li><a href="{{ url('/applicationhelper')}}">Application Helper</a></li>
+        <li><a href="{{ url('/applicationassistant')}}">Application Assistant</a></li>
         <li class="active"> @if($device) {{$device->name}} @else NULL @endif</li>
     </ol>
     <div class="container-fluid">
@@ -14,13 +14,13 @@
             <div class="col-md-8 col-xs-12 col-sm-12 col-md-offset-2">
                 <div class="panel panel-primary" style="font-size: 16px">
                     <div class="panel-heading">
-                        <h3><b>Application Helper</b></h3>
+                        <h3><b>Application Assistant</b></h3>
                     </div>
 
                     @if (session('status'))
                         <div class="alert alert-danger">
                             {{ session('status') }}
-                            <a href="{{ url('/applicationhelper') }}">Go Back</a>
+                            <a href="{{ url('/applicationassistant') }}">Go Back</a>
                         </div>
                     @else
                     <!-- /.panel-heading -->

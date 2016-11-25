@@ -73,7 +73,7 @@
                         <a  href="/comparisons" style="color: #ffffff">Comparisons</a>
                     </li>
                     <li >
-                        <a  href="/applicationhelper" style="color: #ffffff">Application Helper</a>
+                        <a  href="/applicationassistant" style="color: #ffffff">Application Assistant</a>
                     </li>
 
                     <!-- Authentication Links -->

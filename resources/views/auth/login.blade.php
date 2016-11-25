@@ -59,7 +59,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
+                            <div class="col-md-8 col-md-offset-4 col-xs-12 col-sm-12 text-center">
                                 <button type="submit" class="btn btn-primary">
                                     Login
                                 </button>
@@ -72,6 +72,56 @@
                             </div>
                         </div>
                     </form>
+
+                    <div class="row text-center" style="padding-bottom: 10px">
+                        <h4>OR</h4>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-12 text-center" style="padding-bottom: 10px">
+                            <a href="{{url('/redirect/facebook')}}" title="Login with facebook">
+                                <div class="icon-facebook">
+                                    <i class="fa fa-facebook"></i>
+                                    <span>Login</span>
+                                </div>
+                            </a>
+                            </div>
+                        <div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-12 text-center">
+                            <a href="/redirect/google" title="Login with google">
+                                <div class="icon-google">
+                                    <i class="fa fa-google"></i>
+                                    <span >Login</span>
+                                </div>
+                            </a>
+                            </div>
+                    </div>
+<style>
+div.icon-facebook
+{
+    background: #48629b none repeat scroll 0 0;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: 13px;
+    line-height: 22px;
+    padding: 7px 15px;
+    vertical-align: middle;
+    display: inline-block;
+}
+    div.icon-google
+    {
+        background: #dc4b38 none repeat scroll 0 0;
+        border-radius: 3px;
+        color: #ffffff;
+        font-size: 13px;
+        line-height: 22px;
+        padding: 7px 15px;
+        vertical-align: middle;
+        display: inline-block;
+    }
+</style>
+
+
+
                 </div>
             </div>
         </div>

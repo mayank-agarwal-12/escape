@@ -38,7 +38,7 @@
               <a class="nav-link" href="/comparisons">Comparisons</a>
           </li>
           <li >
-              <a class="nav-link" href="/applicationhelper">Application Helper</a>
+              <a class="nav-link" href="/applicationassistant">Application Helper</a>
           </li>
           </ul>
 

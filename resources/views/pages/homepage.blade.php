@@ -25,6 +25,13 @@ left: 0%;
 min-width: 100%;
 max-height: 500px;
 }
+
+
+.img-circle {
+    border-radius: 90%;
+    box-shadow: 0px 0px 9px #444;
+    border: 2px solid #fff;
+}
 </style>
 
    {{-- <map name="mainmap">
@@ -69,7 +76,7 @@ max-height: 500px;
     <div class="row" style="top: 685px">
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
             <a href="/questions">
-            <img class="img-circle  center-block" src="images/img-expert.jpg" alt="Generic placeholder image" width="auto" height="140">
+            <img class="img-circle  center-block" src="images/img-expert.jpg" alt="Generic placeholder image" width="170" height="170">
                 </a>
             <h2><a  href="/questions" >Expert's Corner</a></h2>
             <p>Do you have a query about your test
@@ -81,7 +88,7 @@ max-height: 500px;
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
             <a href="/reviews">
-            <img class="img-circle  center-block" src="/images/img-reviews.jpg" alt="Generic placeholder image" width="212" height="140"></a>
+            <img class="img-circle  center-block" src="/images/img-reviews.jpg" alt="Generic placeholder image" width="170" height="170"></a>
             <h2><a href="/reviews">Instrument Reviews</a></h2>
             <p>Excited about a product? Go ahead
 
@@ -96,7 +103,7 @@ max-height: 500px;
 
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
             <a href="/comparisons">
-            <img class="img-circle  center-block" src="images/img-comparison.jpg" alt="Generic placeholder image" width="auto" height="140">
+            <img class="img-circle  center-block" src="images/img-comparison.jpg" alt="Generic placeholder image" width="170" height="170">
                 </a>
             <h2><a href="/comparisons">Instrument Comparison</a></h2>
             <p>Planning to buy a T&amp;M instrument?
@@ -107,16 +114,16 @@ max-height: 500px;
             <p><a class="btn btn-secondary" href="/comparisons" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
-            <a href="/applicationhelper">
-            <img class="img-circle  center-block" src="/images/img-application-helper.jpg" alt="Generic placeholder image" width="auto" height="140">
+            <a href="/applicationassistant">
+            <img class="img-circle  center-block" src="/images/img-application-helper.jpg" alt="Generic placeholder image" width="170" height="170">
                 </a>
-            <h2><a href="/applicationhelper">Application Assistant</a></h2>
+            <h2><a href="/applicationassistant">Application Assistant</a></h2>
             <p>There are some tests absolutely
 
                 required before your product is ready
 
                 for the market. Know what they are!</p>
-            <p><a class="btn btn-secondary" href="/applicationhelper" role="button">View details &raquo;</a></p>
+            <p><a class="btn btn-secondary" href="/applicationassistant" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
 
 

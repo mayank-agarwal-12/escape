@@ -5,7 +5,7 @@
 @section('content')
     <ol class="breadcrumb">
         <li><a href="{{ url('/') }}">Home</a></li>
-        <li class="active">Application Helper</li>
+        <li class="active">Application Assistant</li>
     </ol>
     <div class="container-fluid">
         <!-- /.row -->
@@ -13,7 +13,7 @@
             <div class="col-md-8 col-xs-12 col-sm-12 col-md-offset-2">
                 <div class="panel panel-primary" style="font-size: 16px">
                     <div class="panel-heading">
-                        <h4><b>Application Helper</b></h4>
+                        <h4><b>Application Assistant</b></h4>
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -30,7 +30,7 @@
                                     @foreach($deviceList as $device)
                                         <tr>
                                             <td>{{$device->id}}</td>
-                                            <td><a href="{{url('applicationhelper/'.$device->name)}}">{{$device->name}}</a></td>
+                                            <td><a href="{{url('applicationassistant/'.$device->name)}}">{{$device->name}}</a></td>
 
 
                                             @endforeach
