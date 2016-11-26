@@ -28,7 +28,7 @@ class SocialAuth extends Controller
     {
         if(in_array($provider,static::$socialLoginArr))
         {
-            return Socialite::driver($provider)->redirect();
+            return Socialite::driver($provider)->stateless()->redirect();
         }
         return redirect()->to('/login');
     }
@@ -50,7 +50,7 @@ class SocialAuth extends Controller
         }
        // $request['code'] = preg_replace('/#_=_/','',$request['code']);
         $service = new SocialAccountService();
-        $user = $service->createOrGetUser(Socialite::driver($provider));
+        $user = $service->createOrGetUser(Socialite::driver($provider)->stateless());
 
         Auth::login($user);
         //auth()->login($user);
