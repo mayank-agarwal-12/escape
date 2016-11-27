@@ -67,7 +67,7 @@
                         <a  href="/reviews" style="color: #ffffff">Reviews</a>
                     </li>
                     <li >
-                        <a  href="/questions" style="color: #ffffff">Ask an Expert</a>
+                        <a  href="/questions" style="color: #ffffff">Expert Corner</a>
                     </li>
                     <li >
                         <a  href="/comparisons" style="color: #ffffff">Comparisons</a>

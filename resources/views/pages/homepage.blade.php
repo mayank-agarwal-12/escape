@@ -6,7 +6,7 @@
 
 <!-- Image
 ================================================== -->
-<div class="container-fluid hidden-xs hidden-sm">
+<div class="container-fluid ">
     <div class="hidden-xs hidden-sm">
 
 
