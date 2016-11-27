@@ -53,7 +53,7 @@
                                     <div class="media-body">
 
                                         <h4 class="media-heading" style=" font-size:14px;
-    font-weight: bold;">Expert</h4>
+    font-weight: bold;">InstReview</h4>
                                         {{$answer->content}}
 
                                     </div>

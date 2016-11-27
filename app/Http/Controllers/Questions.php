@@ -28,7 +28,7 @@ class Questions extends Controller
 
     public function create()
     {
-        $categoryArr = CategoryModel::all();
+        $categoryArr = CategoryModel::where('parent_id',0)->get();
         $catLists = [];
 
         foreach($categoryArr as $cat)
