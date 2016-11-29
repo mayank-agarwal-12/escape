@@ -33,7 +33,7 @@
                                 <ul class="list-inline">
                                     <li class="fa fa-filter">{{$question->category->name}}</li>
                                     <li class="fa fa-user"> {{$question->user->name}} </li>
-                                    <li class="fa fa-clock-o"> {{$question->updated_at}} </li>
+                                    {{--<li class="fa fa-clock-o"> {{$question->updated_at}} </li>--}}
                                 </ul>
                                 <p>{{$question->content}}</p>
                             </div>
@@ -46,16 +46,17 @@
                             </div>
 
                             @foreach($answers as $answer)
-                            <div class="answers-list" style="padding: 10px">
+                            <div class="answers-list panel panel-default" style="padding: 10px">
                                 <div class="media" style="border-bottom: 1px dotted #ccc;">
-                                    <p class="pull-right"><small>{{$answer->created_at}}</small></p>
+                                    {{--<p class="pull-right"><small>{{$answer->created_at}}</small></p>--}}
 
                                     <div class="media-body">
 
-                                        <h4 class="media-heading" style=" font-size:14px;
-    font-weight: bold;">InstReview</h4>
+                                        <h4 class="media-heading fa fa-user" style=" font-size:14px;
+    font-weight: bold;"> InstReview </h4>
+                                        <div>
                                         {{$answer->content}}
-
+                                        </div>
                                     </div>
                                 </div>
                             </div>

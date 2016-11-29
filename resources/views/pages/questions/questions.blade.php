@@ -49,11 +49,11 @@
 
 
                                     <div class="panel-right1 col-md-12 col-xs-12 col-sm-12" style="display: table-cell; vertical-align: top;padding-left: 10px;word-break: break-all">
-                                        <a href="{{url('questions/'.$question->title)}}" class="text-primary"><h3>{{$question->title}}</h3></a>
+                                        <a href="{{url('questions/'.$question->id)}}" class="text-primary"><h4>{{$question->title}}</h4></a>
                                         <ul class="list-inline">
                                             <li class="fa fa-filter">{{$question->category->name}}</li>
                                             <li class="fa fa-user"> {{$question->user->name}} </li>
-                                            <li class="fa fa-clock-o"> {{$question->updated_at}} </li>
+                                            {{--<li class="fa fa-clock-o"> {{$question->updated_at}} </li>--}}
                                         </ul>
                                         <p>{{$question->content}}</p>
                                     </div>
