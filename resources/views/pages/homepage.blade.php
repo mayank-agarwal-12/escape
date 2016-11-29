@@ -161,12 +161,13 @@ max-height: 500px;
         <div class="row panel-body">
             @foreach($questionList as $key=>$question)
                 <div class="col-sm-12 col-md-4 col-xs-12">
-                    <div class="thumbnail ">
+                    <div class="thumbnail1 ">
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 
                         <div class="caption text-center text-primary ">
-                            <p class="collapse" id="{{"viewdetails".$key}}" style="word-wrap: break-word;"><a href="{{url('questions/'.$question->title)}}"> {{$question->title}}</a></p>
-                            <p ><a class="btn" data-toggle="collapse" data-target="{{"#viewdetails".$key}}">Query&raquo;</a></p>
+                            <h5 style="word-wrap: break-word;"><a href="{{url('questions/'.$question->id)}}"> {{$question->title}}</a></h5>
+                            {{--<p class="collapse" id="{{"viewdetails".$key}}" style="word-wrap: break-word;"><a href="{{url('questions/'.$question->id)}}"> {{$question->title}}</a></p>
+                            <p ><a class="btn" data-toggle="collapse" data-target="{{"#viewdetails".$key}}">Query&raquo;</a></p>--}}
                         </div>
                     </div>
                 </div>
