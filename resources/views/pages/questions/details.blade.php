@@ -73,7 +73,7 @@
                     <div class="panel-body" style="word-break: break-all">
                         <ul>
                             @foreach($popularObj as $question)
-                                <a href="{{url('questions/'.$question->title)}}"> <li class="text-primary">{{$question->title}}</li></a>
+                                <a href="{{url('questions/'.$question->id)}}"> <li class="text-primary">{{$question->title}}</li></a>
                             @endforeach
                         </ul>
                     </div>
