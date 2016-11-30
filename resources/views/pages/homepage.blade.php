@@ -230,7 +230,7 @@ max-height: 500px;
                     <div class="panel-body" style="word-break: break-all">
                         <ul>
                             @foreach($comparisonList as $comparison)
-                                <a href="{{url('questions/'.$comparison->name)}}"><li class="text-primary">{{$comparison->name}}</li></a>
+                                <a href="{{url('comparisons/'.$comparison->name)}}"><li class="text-primary">{{$comparison->name}}</li></a>
                             @endforeach
                         </ul>
                     </div>
@@ -247,7 +247,7 @@ max-height: 500px;
                     <div class="panel-body" style="word-break: break-all">
                         <ul>
                             @foreach($reviewList as $review)
-                                <a href="{{url('questions/'.$review->title)}}"><li class="text-primary">{{$review->title}}</li></a>
+                                <a href="{{url('reviews/'.$review->title)}}"><li class="text-primary">{{$review->title}}</li></a>
                             @endforeach
                         </ul>
                     </div>
