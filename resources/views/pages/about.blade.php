@@ -6,7 +6,7 @@
 @section('content')
     <ol class="breadcrumb">
         <li><a href="{{ url('/') }}">Home</a></li>
-        <li class="active">About</li>
+        <li class="active">What are we?</li>
     </ol>
     <div class="container-fluid">
         <div class="row">

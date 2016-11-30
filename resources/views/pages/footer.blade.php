@@ -16,7 +16,7 @@
 
     <div class="nav-default navbar-fixed-bottom1 panel-footer">
         <div class="pull-left">&copy;2016. Instreview Company.All Rights Reserved.</div>&nbsp;&nbsp;
-        <p class=""> <a href="/about">About</a>  &middot;&nbsp <a href="/contact">Contact Us</a> &middot; <a href="/disclaimer">Terms</a></p>
+        <p class="">  <a href="/contact">Contact Us</a> &middot; <a href="/disclaimer">Terms</a></p>
     </div>
 {{--<div class="col-md-12  col-sm-12 col-xs-12 panel panel-default">
 

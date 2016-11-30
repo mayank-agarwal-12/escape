@@ -75,6 +75,9 @@
                     <li >
                         <a  href="/applicationassistant" style="color: #ffffff">Application Assistant</a>
                     </li>
+                    <li >
+                        <a  href="/about" style="color: #ffffff">What are we?</a>
+                    </li>
 
                     <!-- Authentication Links -->
                     @if (Auth::guest())

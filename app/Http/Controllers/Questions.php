@@ -21,7 +21,7 @@ class Questions extends Controller
     public function index()
     {
         $questionModel = new QuestionsModel();
-        $questionObj = $questionModel->latest()->paginate(10);
+        $questionObj = $questionModel->inRandomOrder()->paginate(10);
         $popularObj = $this->getPopularQuestions();
         return view('pages.questions.questions',compact('questionObj'),['popularObj'=>$popularObj]);
     }

@@ -9,11 +9,11 @@
     </ol>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4 col-xs-12 col-sm-12">
-                <div class="panel panel-info">
+            <div class="col-md-3 col-xs-12 col-sm-12">
+                <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class=" text-center"><b>
-                                <a href="{{url('questions/create')}}">Click to Ask!!</a></b></h3>
+                                <a style="color: #ffffff;" href="{{url('questions/create')}}">Click to Ask!!</a></b></h3>
                     </div>
                 </div>
 
@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8 col-xs-12 col-sm-12">
+            <div class="col-md-9 col-xs-12 col-sm-12">
 
 
 

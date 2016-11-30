@@ -10,7 +10,7 @@
     </ol>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8 col-xs-12 col-sm-12">
+            <div class="col-md-9 col-xs-12 col-sm-12">
 
 
 
@@ -95,7 +95,7 @@
                             </div>
                                 @endforeach
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-12 ">
+            <div class="col-md-3 col-xs-12 col-sm-12 ">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class=" text-center"><b>

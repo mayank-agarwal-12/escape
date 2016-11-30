@@ -129,7 +129,7 @@ max-height: 500px;
 
     </div><!-- /.row -->
 
-    <div class="container-fluid panel panel-default text-center">
+   {{-- <div class="container-fluid panel panel-default text-center">
         <div class="panel-heading">
             <h3>Top Comparisons</h3>
         </div>
@@ -166,8 +166,8 @@ max-height: 500px;
 
                         <div class="caption text-center text-primary ">
                             <h5 style="word-wrap: break-word;"><a href="{{url('questions/'.$question->id)}}"> {{$question->title}}</a></h5>
-                            {{--<p class="collapse" id="{{"viewdetails".$key}}" style="word-wrap: break-word;"><a href="{{url('questions/'.$question->id)}}"> {{$question->title}}</a></p>
-                            <p ><a class="btn" data-toggle="collapse" data-target="{{"#viewdetails".$key}}">Query&raquo;</a></p>--}}
+                            --}}{{--<p class="collapse" id="{{"viewdetails".$key}}" style="word-wrap: break-word;"><a href="{{url('questions/'.$question->id)}}"> {{$question->title}}</a></p>
+                            <p ><a class="btn" data-toggle="collapse" data-target="{{"#viewdetails".$key}}">Query&raquo;</a></p>--}}{{--
                         </div>
                     </div>
                 </div>
@@ -198,9 +198,63 @@ max-height: 500px;
                 </div>
             @endforeach
         </div>
-    </div>
+    </div>--}}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 col-xs-12 col-sm-12">
+                <div class="panel panel-info">
 
 
+                    <div class="panel-heading" style="background-color:#222 ;color:#fff">
+                        <h3 class="panel-title text-center"><b>Popular Questions</b></h3>
+                    </div>
+
+                    <div class="panel-body" style="word-break: break-all">
+                        <ul>
+                            @foreach($questionList as $question)
+                                <a href="{{url('questions/'.$question->id)}}"><li class="text-primary">{{$question->title}}</li></a>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12 col-sm-12">
+                <div class="panel panel-info">
+
+
+                    <div class="panel-heading" style="background-color:#222 ;color:#fff">
+                        <h3 class="panel-title text-center"><b>Top Comparisons</b></h3>
+                    </div>
+
+                    <div class="panel-body" style="word-break: break-all">
+                        <ul>
+                            @foreach($comparisonList as $comparison)
+                                <a href="{{url('questions/'.$comparison->name)}}"><li class="text-primary">{{$comparison->name}}</li></a>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12 col-sm-12">
+                <div class="panel panel-info">
+
+
+                    <div class="panel-heading" style="background-color:#222 ;color:#fff">
+                        <h3 class="panel-title text-center"><b>Top Reviews</b></h3>
+                    </div>
+
+                    <div class="panel-body" style="word-break: break-all">
+                        <ul>
+                            @foreach($reviewList as $review)
+                                <a href="{{url('questions/'.$review->title)}}"><li class="text-primary">{{$review->title}}</li></a>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
 
 
 

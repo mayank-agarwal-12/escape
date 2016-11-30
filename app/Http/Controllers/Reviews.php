@@ -19,7 +19,7 @@ class Reviews extends Controller
     public function index()
     {
         $reviewModel = new ReviewsModel();
-        $reviewObj = $reviewModel->latest()->paginate(10);
+        $reviewObj = $reviewModel->inRandomOrder()->paginate(10);
         $popularReview = $this->getPopularReviews();
         return view('pages.reviews.reviews',compact('reviewObj'),['popularReview'=>$popularReview]);
     }
