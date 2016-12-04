@@ -25,11 +25,11 @@
                     </div>
                 @else
                     <div class="panel panel-default">
-                        <div class="panel-body text-center">
+                        <div class="panel-body text-center1">
 
                            
                             <div class="panel-right1 col-md-12 col-xs-12 col-sm-12" style="display: table-cell; vertical-align: top;padding-left: 10px;word-break: break-all">
-                                <a class="text-primary"><h3>{{$question->title}}</h3></a>
+                                <h3>{{$question->title}}</h3>
                                 <ul class="list-inline">
                                     <li class="fa fa-filter">{{$question->category->name}}</li>
                                     <li class="fa fa-user"> {{$question->user->name}} </li>
@@ -39,10 +39,9 @@
                             </div>
 
 
-                        </div>
-                    </div>
-                            <div class="page-header">
-                                <h1><small class="pull-right">{{count($answers)}} answers</small> Answers </h1>
+
+                            <div class="page-header" style="padding-top: 100px">
+                                <h1>{{--<small class="pull-right">{{count($answers)}} answer</small>--}}<b>Answer</b> </h1>
                             </div>
 
                             @foreach($answers as $answer)
@@ -61,6 +60,8 @@
                                 </div>
                             </div>
                                 @endforeach
+            </div>
+                    </div>
             </div>
             <div class="col-md-3 col-xs-12 col-sm-12">
                 <div class="panel panel-info">

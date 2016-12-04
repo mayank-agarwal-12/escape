@@ -6,29 +6,29 @@
 
 <!-- Image
 ================================================== -->
-<div class="container-fluid ">
+<div class="container-fluid hidden-xs hidden-sm">
     <div class="hidden-xs hidden-sm">
 
 
-<img class="img-responsive" src="images/img5-main-page.png" id="bg" alt="" usemap="#mainmap">
+<img class="img-responsive1" src="images/img6-main-page.png" id="bg" alt="" usemap="#mainmap">
 <style>
 #bg {
-position: relative;
+position: absolute;
 
-top: 0px;
+top: 75px;
 left: 0%;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 
 
 
 /* Preserve aspect ratio */
 min-width: 100%;
-max-height: 500px;
+max-height: 540px;
 }
 
 
 .img-circle {
-    border-radius: 90%;
+    border-radius: 5%;
     box-shadow: 0px 0px 9px #444;
     border: 2px solid #fff;
 }
@@ -40,7 +40,7 @@ max-height: 500px;
     </map>--}}
 
     </div>
-    {{--<div style="bottom: 0px; min-height:550px"></div>--}}
+    <div style="bottom: 0px; min-height:550px"></div>
 </div>
 
 
