@@ -3,14 +3,14 @@
 @extends('pages.header')
 
 @section('content')
-    <ol class="breadcrumb">
+    <ol class="breadcrumb full-width">
         <li><a href="{{ url('/') }}">Home</a></li>
         <li><a href="{{ url('/reviews') }}">Reviews</a></li>
         <li class="active">Create a review</li>
     </ol>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-12">
+            <div class="col-md-10 col-md-offset-1 col-xs-12 col-sm-12 full-width">
                 <div class="panel panel-primary">
 
                     <div class="panel-heading text-center">
@@ -95,7 +95,7 @@
 
 
                                 <div class="form-group">
-                                    <div class="col-md-6 col-md-offset-4 col-xs-12 col-sm-12">
+                                    <div class="col-md-6 col-md-offset-4 col-xs-12 col-sm-12 ">
                                         <button type="submit" class="btn btn-primary">
                                             Submit
                                         </button>

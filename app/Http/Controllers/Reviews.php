@@ -75,7 +75,7 @@ class Reviews extends Controller
     {
         return Validator::make($data, [
             'title' => 'required|max:255|min:5|unique:reviews',
-            'content' => 'required|max:255|min:10',
+            'content' => 'required|max:800|min:10',
             'category_id'=>'required|not_in:0',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);

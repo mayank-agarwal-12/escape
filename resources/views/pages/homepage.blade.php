@@ -202,7 +202,7 @@ max-height: 540px;
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4 col-xs-12 col-sm-12">
+            <div class="col-md-4 col-xs-12 col-sm-12 full-width">
                 <div class="panel panel-info">
 
 
@@ -219,7 +219,7 @@ max-height: 540px;
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-12">
+            <div class="col-md-4 col-xs-12 col-sm-12 full-width">
                 <div class="panel panel-info">
 
 
@@ -236,7 +236,7 @@ max-height: 540px;
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-12">
+            <div class="col-md-4 col-xs-12 col-sm-12 full-width">
                 <div class="panel panel-info">
 
 

@@ -8,7 +8,7 @@
             fieldset { display: table-cell; }
         }
     </style>
-    <ol class="breadcrumb">
+    <ol class="breadcrumb full-width">
         <li><a href="{{ url('/') }}">Home</a></li>
         <li><a href="{{ url('/comparisons') }}">Comparisons</a></li>
         <li class="active">@if($comparisonObj) {{$comparisonObj->name}} @else NULL @endif</li>

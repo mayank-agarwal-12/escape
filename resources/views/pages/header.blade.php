@@ -20,7 +20,7 @@
     <link href="/vendor/iron-summit-media/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template -->
-    <link href="/css/carousel.css" rel="stylesheet">
+   {{-- <link href="/css/carousel.css" rel="stylesheet">--}}
     <style>
         body {
             padding: 75px;
@@ -28,6 +28,13 @@
             box-sizing: border-box;
             background-color: lightgrey;
         }
+        @media (max-width: 992px) {.full-width {
+            width:100vw;
+            margin-left: -50vw;
+            left:50%;
+            position: relative;
+
+        }}
     </style>
 
     <script>

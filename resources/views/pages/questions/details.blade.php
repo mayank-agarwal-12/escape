@@ -3,14 +3,14 @@
 @extends('pages.header')
 
 @section('content')
-    <ol class="breadcrumb">
+    <ol class="breadcrumb full-width">
         <li><a href="{{ url('/') }}">Home</a></li>
         <li><a href="{{ url('/questions') }}">Questions</a></li>
         <li class="active">@if($question ) {{$question->title}} @else NULL @endif</li>
     </ol>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-9 col-xs-12 col-sm-12">
+            <div class="col-md-9 col-xs-12 col-sm-12 full-width">
 
 
 
@@ -63,7 +63,7 @@
             </div>
                     </div>
             </div>
-            <div class="col-md-3 col-xs-12 col-sm-12">
+            <div class="col-md-3 col-xs-12 col-sm-12 full-width">
                 <div class="panel panel-info">
 
 

@@ -3,14 +3,14 @@
 @extends('pages.header')
 
 @section('content')
-    <ol class="breadcrumb">
+    <ol class="breadcrumb full-width">
         <li><a href="{{ url('/') }}">Home</a></li>
         <li><a href="{{ url('/reviews') }}">Reviews</a></li>
         <li class="active">@if($review) {{$review->title}} @else NULL @endif</li>
     </ol>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-9 col-xs-12 col-sm-12">
+            <div class="col-md-9 col-xs-12 col-sm-12 full-width">
 
 
 
@@ -95,11 +95,11 @@
                             </div>
                                 @endforeach
             </div>
-            <div class="col-md-3 col-xs-12 col-sm-12 ">
-                <div class="panel panel-info">
+            <div class="col-md-3 col-xs-12 col-sm-12 full-width">
+                <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class=" text-center"><b>
-                                <a href="{{url('reviews/create')}}">Post a Review!!</a></b></h3>
+                                <a style="color: #ffffff" href="{{url('reviews/create')}}">Post a Review!!</a></b></h3>
                     </div>
                 </div>
 

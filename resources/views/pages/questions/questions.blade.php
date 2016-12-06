@@ -3,13 +3,13 @@
 @extends('pages.header')
 
 @section('content')
-    <ol class="breadcrumb">
+    <ol class="breadcrumb full-width">
         <li><a href="{{ url('/') }}">Home</a></li>
         <li class="active">Questions</li>
     </ol>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3 col-xs-12 col-sm-12">
+            <div class="col-md-3 col-xs-12 col-sm-12 full-width">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class=" text-center"><b>
@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-9 col-xs-12 col-sm-12">
+            <div class="col-md-9 col-xs-12 col-sm-12 full-width">
 
 
 

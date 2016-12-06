@@ -3,14 +3,14 @@
 @extends('pages.header')
 
 @section('content')
-    <ol class="breadcrumb">
+    <ol class="breadcrumb full-width">
         <li><a href="{{ url('/') }}">Home</a></li>
         <li class="active">Application Assistant</li>
     </ol>
     <div class="container-fluid">
         <!-- /.row -->
         <div class="row">
-            <div class="col-md-8 col-xs-12 col-sm-12 col-md-offset-2">
+            <div class="col-md-10 col-xs-12 col-sm-12 col-md-offset-1 full-width">
                 <div class="panel panel-primary" style="font-size: 16px">
                     <div class="panel-heading">
                         <h4><b>Application Assistant</b></h4>
@@ -21,7 +21,7 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                 <tr>
-                                    <th>S No</th>
+                                    {{--<th>S No</th>--}}
                                     <th>Name</th>
                                 </tr>
                                 </thead>
@@ -29,7 +29,7 @@
                                 @if($deviceList)
                                     @foreach($deviceList as $device)
                                         <tr>
-                                            <td>{{$device->id}}</td>
+                                            {{--<td>{{$device->id}}</td>--}}
                                             <td><a href="{{url('applicationassistant/'.$device->name)}}">{{$device->name}}</a></td>
 
 

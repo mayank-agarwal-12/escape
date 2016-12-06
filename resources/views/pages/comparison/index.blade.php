@@ -3,14 +3,14 @@
 @extends('pages.header')
 
 @section('content')
-    <ol class="breadcrumb">
+    <ol class="breadcrumb full-width">
         <li><a href="{{ url('/') }}">Home</a></li>
         <li class="active">Comparisons</li>
     </ol>
     <div class="container-fluid">
         <!-- /.row -->
         <div class="row">
-            <div class="col-md-8 col-xs-12 col-sm-12">
+            <div class="col-md-8 col-xs-12 col-sm-12 full-width">
                 <div class="panel panel-primary" style="font-size: 16px">
                     <div class="panel-heading text-center">
                         <h3><b>Comparisons</b></h3>
@@ -62,7 +62,7 @@
             </div>
             <!-- /.col-lg-12 -->
 
-            <div class="col-md-4 col-xs-12 col-sm-12">
+            <div class="col-md-4 col-xs-12 col-sm-12 full-width">
                 <div class="panel panel-info">
 
 

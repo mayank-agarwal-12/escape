@@ -3,13 +3,13 @@
 @extends('pages.header')
 
 @section('content')
-    <ol class="breadcrumb">
+    <ol class="breadcrumb full-width">
         <li><a href="{{ url('/') }}">Home</a></li>
         <li class="active">Contact Us</li>
     </ol>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-12">
+            <div class="col-md-10 col-md-offset-1 col-xs-12 col-sm-12 full-width">
                 <div class="panel panel-primary">
 
                     @if (session('status'))

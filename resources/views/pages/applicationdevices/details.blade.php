@@ -3,7 +3,7 @@
 @extends('pages.header')
 
 @section('content')
-    <ol class="breadcrumb">
+    <ol class="breadcrumb full-width">
         <li><a href="{{ url('/') }}">Home</a></li>
         <li><a href="{{ url('/applicationassistant')}}">Application Assistant</a></li>
         <li class="active"> @if($device) {{$device->name}} @else NULL @endif</li>
@@ -11,7 +11,7 @@
     <div class="container-fluid">
         <!-- /.row -->
         <div class="row">
-            <div class="col-md-8 col-xs-12 col-sm-12 col-md-offset-2">
+            <div class="col-md-10 col-xs-12 col-sm-12 col-md-offset-1 full-width">
                 <div class="panel panel-primary" style="font-size: 16px">
                     <div class="panel-heading">
                         <h3><b>Application Assistant</b></h3>
