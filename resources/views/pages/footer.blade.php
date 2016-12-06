@@ -14,7 +14,7 @@
 
 <div class="row ">
 
-    <div class="nav-default navbar-fixed-bottom1 panel-footer">
+    <div class="nav-default navbar-fixed-bottom1 panel-footer full-width">
         <div class="pull-left">&copy;2016. Instreview Company.All Rights Reserved.</div>&nbsp;&nbsp;
         <p class="">  <a href="/contact">Contact Us</a> &middot; <a href="/disclaimer">Terms</a></p>
     </div>

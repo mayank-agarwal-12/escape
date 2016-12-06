@@ -5,7 +5,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-1 full-width">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2><b>Reset Password</b></h2>

@@ -30,7 +30,7 @@
                                     @foreach($deviceList as $device)
                                         <tr>
                                             {{--<td>{{$device->id}}</td>--}}
-                                            <td><a href="{{url('applicationassistant/'.$device->name)}}">{{$device->name}}</a></td>
+                                            <td><a href="{{url('applicationassistant/'.$device->id)}}">{{$device->name}}</a></td>
 
 
                                             @endforeach

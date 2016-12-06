@@ -21,9 +21,9 @@ class ApplicationDevices extends Controller
 
     }
 
-    public function show($name)
+    public function show($id)
     {
-        $deviceList = ApplicationDevicesModel::where('name',$name)->get();
+        $deviceList = ApplicationDevicesModel::where('id',$id)->get();
         $device = [];
         foreach($deviceList as $deviceRow)
         {

@@ -41,7 +41,7 @@ Route::get('/about', function () {
     Route::get('/reviews/{name}', 'Reviews@show');
     Route::post('/comments', 'Comments@store');
     Route::get('/applicationassistant', 'ApplicationDevices@index');
-    Route::get('/applicationassistant/{name}', 'ApplicationDevices@show');
+    Route::get('/applicationassistant/{id}', 'ApplicationDevices@show');
 
     Route::get('/questions', 'Questions@index');
     Route::post('/questions', 'Questions@store');
