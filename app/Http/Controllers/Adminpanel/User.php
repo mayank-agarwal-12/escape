@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Adminpanel;
 
 use App\Http\Controllers\Controller;
+use App\Models\SocialAccountModel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
 
 class User extends Controller
 {
@@ -103,4 +105,17 @@ class User extends Controller
         \App\User::findorFail($id)->delete();
         return redirect('adminpanel/user');
     }
+
+    public static function getUserRegisteredData()
+    {
+        return;
+        $userData = [];
+        $userData['totalUsers'] = count(\App\User::all());
+        //$socialObj = new SocialAccountModel();
+        $socialAccounts = SocialAccountModel::query('provider');
+        print_r($socialAccounts);die;
+        $userData = array_merge($userData,$socialAccounts);
+        return $userData;
+    }
+
 }

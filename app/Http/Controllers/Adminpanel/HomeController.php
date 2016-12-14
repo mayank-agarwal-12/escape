@@ -28,6 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.adminpanel.index');
+//        $userData = User::getUserRegisteredData();
+        return view('pages.adminpanel.index',['userData']);
     }
 }

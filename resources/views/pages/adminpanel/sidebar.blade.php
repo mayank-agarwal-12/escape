@@ -6,6 +6,9 @@
         <ul class="nav" id="side-menu">
 
             <li>
+                <a href="\adminpanel"><i class="fa fa-edit fa-fw"></i> Dashboard</a>
+            </li>
+            <li>
                 <a href="\adminpanel\category"><i class="fa fa-edit fa-fw"></i> Category</a>
             </li>
 

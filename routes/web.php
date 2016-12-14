@@ -86,7 +86,6 @@ Route::get('/about', function () {
         Route::post('adminpanel/logout', 'Auth\LoginController@logout');
 
 
-
         Route::resource('adminpanel/category','Category');
         Route::resource('adminpanel/experts','Experts');
         Route::resource('adminpanel/reviews','Reviews');

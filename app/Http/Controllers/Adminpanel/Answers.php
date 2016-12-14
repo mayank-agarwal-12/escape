@@ -9,6 +9,7 @@ use App\Models\QuestionsModel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
 
 class Answers extends Controller
 {
@@ -112,5 +113,20 @@ class Answers extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public static function getUnansweredQuestion()
+    {
+        $dbObj = DB::table('questions')->leftJoin('answers','questions.id','=','answers.question_id')
+            ->select('questions.id','answers.content')
+            ->where('answers.content','=',NULL)
+            ->get();
+
+        $questionList = [];
+        foreach($dbObj as $questionId)
+        {
+            $questionList[] = $questionId->id;
+        }
+        return $questionList;
     }
 }
