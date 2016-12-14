@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Adminpanel;
 use App\Http\Controllers\Controller;
 use App\Models\CategoryModel;
 use App\Models\KnowledgeBaseModel;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -20,13 +21,19 @@ class KnowledgeBase extends Controller
     {
         $knowledgeBaseList = KnowledgeBaseModel::all();
         $categoryArr = CategoryModel::all();
+        $userObj = User::all();
+        $userLists = [];
         $catLists = [];
 
+        foreach($userObj as $user)
+        {
+            $userLists[$user->id] = $user->name;
+        }
         foreach($categoryArr as $cat)
         {
             $catLists[$cat->id] = $cat->name;
         }
-        return view('pages.adminpanel.knowledgebase.index',compact('knowledgeBaseList'),['catLists'=>$catLists]);
+        return view('pages.adminpanel.knowledgebase.index',compact('knowledgeBaseList'),['catLists'=>$catLists,'userLists'=>$userLists]);
     }
 
     /**
@@ -51,6 +58,10 @@ class KnowledgeBase extends Controller
         if(empty($input['category_id']))
         {
             return back()->with('status', trans('Please select Category'));
+        }
+        if(empty($input['user_id']))
+        {
+            return back()->with('status', trans('Please select User'));
         }
         KnowledgeBaseModel::create($input);
         return redirect('adminpanel\knowledgebase');
@@ -78,12 +89,18 @@ class KnowledgeBase extends Controller
         $knowledgeBaseList = KnowledgeBaseModel::findorFail($id);
         $categoryArr = CategoryModel::all();
         $catLists = [];
+        $userObj = User::all();
+        $userLists = [];
 
+        foreach($userObj as $user)
+        {
+            $userLists[$user->id] = $user->name;
+        }
         foreach($categoryArr as $cat)
         {
             $catLists[$cat->id] = $cat->name;
         }
-        return view('pages.adminpanel.knowledgebase.edit',compact('knowledgeBaseList'),['catLists'=>$catLists]);
+        return view('pages.adminpanel.knowledgebase.edit',compact('knowledgeBaseList'),['catLists'=>$catLists,'userLists'=>$userLists]);
     }
 
     /**
@@ -100,6 +117,10 @@ class KnowledgeBase extends Controller
         if(empty($input['category_id']))
         {
             return back()->with('status', trans('Please select Category'));
+        }
+        if(empty($input['user_id']))
+        {
+            return back()->with('status', trans('Please select User'));
         }
         $knowledgeBaseObj->update($input);
         return redirect('adminpanel\knowledgebase');

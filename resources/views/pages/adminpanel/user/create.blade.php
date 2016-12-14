@@ -41,6 +41,10 @@
                                     {!! Form::label('status','Status') !!}
                                     {!! Form::select('status',['Active','Inactive'],null,['class'=>'form-control']) !!}
                                 </div>
+                                <div class="form-group">
+                                    {!! Form::label('roles','Roles') !!}
+                                    {!! Form::select('roles',['None','Writer','Reader'],null,['class'=>'form-control']) !!}
+                                </div>
 
 
                                 <div class="form-group">

@@ -11,6 +11,11 @@
                         Knowledge Base Edit
                     </div>
                     <!-- /.panel-heading -->
+                    @if (session('status'))
+                        <div class="alert alert-danger">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
@@ -27,6 +32,10 @@
                                 <div class="form-group">
                                     {!! Form::label('category_id','Category') !!}
                                     {!! Form::select('category_id',['0'=>'Select Category']+$catLists,null,['class'=>'form-control']) !!}
+                                </div>
+                                <div class="form-group">
+                                    {!! Form::label('user_id','User') !!}
+                                    {!! Form::select('user_id',['0'=>'Select User']+$userLists,null,['class'=>'form-control']) !!}
                                 </div>
                                 <div class="form-group">
                                     {!! Form::label('link','Link') !!}

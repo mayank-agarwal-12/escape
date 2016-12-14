@@ -36,7 +36,7 @@
                                     @foreach($questionObj as $question)
                                         <tr>
                                             <td>{{$question->id}}</td>
-                                            <td><a href="#">Ques: {{$question->title}}</a><br>{{$question->content}}</td>
+                                            <td><a href="#">Ques: {{$question->title}}</a></td>
                                             <td>{{$question->category->name}}</td>
                                             <td>{{$question->user->name}}</td>
                                             @if(!empty($answerArr) && !empty($answerArr[$question->id]))

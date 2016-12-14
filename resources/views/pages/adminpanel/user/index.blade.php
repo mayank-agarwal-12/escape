@@ -26,6 +26,7 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Status</th>
+                                    <th>Roles</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -37,6 +38,7 @@
                                     <td><a href="{{route('user.edit',$user->id)}}">{{$user->name}}</a></td>
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->status}}</td>
+                                    <td>{{$user->roles}}</td>
 
 
                                     <td> {!! Form::open(['method'=>'DELETE' , 'action'=>['Adminpanel\User@destroy',$user->id]]) !!}

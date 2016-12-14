@@ -26,6 +26,7 @@
                                     <th>Title</th>
                                     <th>Description</th>
                                     <th>Category</th>
+                                    <th>User</th>
                                     <th>Link</th>
                                     <th>Action</th>
                                 </tr>
@@ -38,6 +39,7 @@
                                             <td><a href="{{route('knowledgebase.edit',$knowledgeBase->id)}}">{{$knowledgeBase->title}}</a></td>
                                             <td>{{$knowledgeBase->description}}</td>
                                             <td>{{$knowledgeBase->category->name}}</td>
+                                            <td>{{$knowledgeBase->user->name}}</td>
                                             <td>{{$knowledgeBase->link}}</td>
 
                                             <td> {!! Form::open(['method'=>'DELETE' , 'action'=>['Adminpanel\KnowledgeBase@destroy',$knowledgeBase->id]]) !!}
@@ -74,6 +76,11 @@
                       Knowledge Base Details
                     </div>
                     <!-- /.panel-heading -->
+                    @if (session('status'))
+                        <div class="alert alert-danger">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
@@ -90,6 +97,10 @@
                                 <div class="form-group">
                                     {!! Form::label('category_id','Category') !!}
                                     {!! Form::select('category_id',['0'=>'Select Category']+$catLists,null,['class'=>'form-control']) !!}
+                                </div>
+                                <div class="form-group">
+                                    {!! Form::label('user_id','User') !!}
+                                    {!! Form::select('user_id',['0'=>'Select User']+$userLists,null,['class'=>'form-control']) !!}
                                 </div>
                                 <div class="form-group">
                                     {!! Form::label('link','Link') !!}

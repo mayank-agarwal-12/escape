@@ -12,7 +12,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Escape Admin Panel</title>
+    <title>Admin Panel</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/vendor/iron-summit-media/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -63,7 +63,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/adminpanel">Escape Admin 1.0</a>
+            <a class="navbar-brand" href="/adminpanel">Admin 1.0</a>
         </div>
         <!-- /.navbar-header -->
 

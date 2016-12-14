@@ -9,6 +9,9 @@ use App\Http\Requests;
 
 class User extends Controller
 {
+    static $rolesMapping = ['none','writer','reader'];
+
+
     /**
      * Display a listing of the resource.
      *
@@ -41,6 +44,7 @@ class User extends Controller
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
         $input['status'] = $input['status'] == 0 ? 'active' : 'inactive';
+        $input['roles'] = self::$rolesMapping[$input['roles']];
         \App\User::create($input);
         return redirect('adminpanel/user');
     }
@@ -66,6 +70,8 @@ class User extends Controller
     {
         $userObj = \App\User::findorFail($id);
         $userObj->status = $userObj->status == 'active' ? 0 : 1;
+        $userObj->roles = array_keys(self::$rolesMapping,$userObj->roles);
+
         return view('pages.adminpanel.user.edit',compact('userObj'));
     }
 
@@ -81,6 +87,7 @@ class User extends Controller
         $userObj = \App\User::findorFail($id);
         $input = $request->all();
         $input['status'] = $input['status'] == 0 ? 'active' : 'inactive';
+        $input['roles'] = self::$rolesMapping[$input['roles']];
         $userObj->update($input);
         return redirect('adminpanel/user');
     }
