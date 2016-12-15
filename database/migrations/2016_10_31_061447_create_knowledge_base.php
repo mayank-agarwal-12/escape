@@ -14,11 +14,11 @@ class CreateKnowledgeBase extends Migration
     public function up()
     {
         Schema::create('knowledgebase', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('title')->unique();
-            $table->string('description');
-            $table->string('link')->unique();
-            $table->bigInteger('category_id')->index();
+            $table->string('description',2048);
+            $table->bigInteger('user_id')->index('user_id','user_id');
         });
     }
 
