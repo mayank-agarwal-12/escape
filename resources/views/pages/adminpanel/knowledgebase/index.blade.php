@@ -25,9 +25,7 @@
                                     <th>S No</th>
                                     <th>Title</th>
                                     <th>Description</th>
-                                    <th>Category</th>
                                     <th>User</th>
-                                    <th>Link</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -38,9 +36,8 @@
                                             <td>{{$knowledgeBase->id}}</td>
                                             <td><a href="{{route('knowledgebase.edit',$knowledgeBase->id)}}">{{$knowledgeBase->title}}</a></td>
                                             <td>{{$knowledgeBase->description}}</td>
-                                            <td>{{$knowledgeBase->category->name}}</td>
+
                                             <td>{{$knowledgeBase->user->name}}</td>
-                                            <td>{{$knowledgeBase->link}}</td>
 
                                             <td> {!! Form::open(['method'=>'DELETE' , 'action'=>['Adminpanel\KnowledgeBase@destroy',$knowledgeBase->id]]) !!}
                                                 {{csrf_field()}}
@@ -70,7 +67,7 @@
         </div>
         <!-- /.row -->
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                       Knowledge Base Details
@@ -83,7 +80,7 @@
                     @endif
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 {!! Form::open(['method'=>'POST' , 'action'=>'Adminpanel\KnowledgeBase@store']) !!}
                                     {{csrf_field()}}
                                     <div class="form-group">
@@ -94,18 +91,12 @@
                                     {!! Form::label('description','Description') !!}
                                     {!! Form::textarea('description',null,['class'=>'form-control','placeholder'=>'Description']) !!}
                                 </div>
-                                <div class="form-group">
-                                    {!! Form::label('category_id','Category') !!}
-                                    {!! Form::select('category_id',['0'=>'Select Category']+$catLists,null,['class'=>'form-control']) !!}
-                                </div>
+
                                 <div class="form-group">
                                     {!! Form::label('user_id','User') !!}
                                     {!! Form::select('user_id',['0'=>'Select User']+$userLists,null,['class'=>'form-control']) !!}
                                 </div>
-                                <div class="form-group">
-                                    {!! Form::label('link','Link') !!}
-                                    {!! Form::url('link',null,['class'=>'form-control','placeholder'=>'https://abc.com']) !!}
-                                </div>
+
 
                                 <div class="form-group">
 

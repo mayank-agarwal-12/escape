@@ -20,20 +20,15 @@ class KnowledgeBase extends Controller
     public function index()
     {
         $knowledgeBaseList = KnowledgeBaseModel::all();
-        $categoryArr = CategoryModel::all();
         $userObj = User::all();
         $userLists = [];
-        $catLists = [];
 
         foreach($userObj as $user)
         {
             $userLists[$user->id] = $user->name;
         }
-        foreach($categoryArr as $cat)
-        {
-            $catLists[$cat->id] = $cat->name;
-        }
-        return view('pages.adminpanel.knowledgebase.index',compact('knowledgeBaseList'),['catLists'=>$catLists,'userLists'=>$userLists]);
+
+        return view('pages.adminpanel.knowledgebase.index',compact('knowledgeBaseList'),['userLists'=>$userLists]);
     }
 
     /**
@@ -55,10 +50,7 @@ class KnowledgeBase extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        if(empty($input['category_id']))
-        {
-            return back()->with('status', trans('Please select Category'));
-        }
+
         if(empty($input['user_id']))
         {
             return back()->with('status', trans('Please select User'));
@@ -87,8 +79,7 @@ class KnowledgeBase extends Controller
     public function edit($id)
     {
         $knowledgeBaseList = KnowledgeBaseModel::findorFail($id);
-        $categoryArr = CategoryModel::all();
-        $catLists = [];
+
         $userObj = User::all();
         $userLists = [];
 
@@ -96,11 +87,8 @@ class KnowledgeBase extends Controller
         {
             $userLists[$user->id] = $user->name;
         }
-        foreach($categoryArr as $cat)
-        {
-            $catLists[$cat->id] = $cat->name;
-        }
-        return view('pages.adminpanel.knowledgebase.edit',compact('knowledgeBaseList'),['catLists'=>$catLists,'userLists'=>$userLists]);
+
+        return view('pages.adminpanel.knowledgebase.edit',compact('knowledgeBaseList'),['userLists'=>$userLists]);
     }
 
     /**
@@ -114,10 +102,7 @@ class KnowledgeBase extends Controller
     {
         $knowledgeBaseObj = KnowledgeBaseModel::findorFail($id);
         $input = $request->all();
-        if(empty($input['category_id']))
-        {
-            return back()->with('status', trans('Please select Category'));
-        }
+
         if(empty($input['user_id']))
         {
             return back()->with('status', trans('Please select User'));
