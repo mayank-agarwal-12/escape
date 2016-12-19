@@ -19,6 +19,7 @@ class CreateKnowledgeBase extends Migration
             $table->string('title')->unique();
             $table->string('description',2048);
             $table->bigInteger('user_id')->index('user_id','user_id');
+            $table->timestamps();
         });
     }
 

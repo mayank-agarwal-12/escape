@@ -50,6 +50,11 @@ Route::get('/about', function () {
     Route::get('/comparisons', 'Comparison@index');
     Route::get('/comparisons/{name}', 'Comparison@show');
 
+    Route::get('/knowledgebase','KnowledgeBase@index');
+    Route::post('/knowledgebase','KnowledgeBase@store');
+    Route::get('/knowledgebase/create','KnowledgeBase@create');
+    Route::get('/knowledgebase/{id}','KnowledgeBase@show');
+
     Auth::routes();
     Route::get('/redirect/{provider}', 'Auth\SocialAuth@redirectToProvider');
     Route::get('/callback/{provider}', 'Auth\SocialAuth@handleProviderCallback');

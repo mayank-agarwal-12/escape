@@ -11,7 +11,6 @@ class KnowledgeBaseModel extends Model
     ];
 
     protected $table = 'knowledgebase';
-    public $timestamps = false;
 
     public function user()
     {

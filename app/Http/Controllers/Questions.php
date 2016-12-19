@@ -78,8 +78,6 @@ class Questions extends Controller
 
     public function show($id)
     {
-
-
         $questionObj = QuestionsModel::where('id',$id)->get();
         if(empty($questionObj->first()))
         {

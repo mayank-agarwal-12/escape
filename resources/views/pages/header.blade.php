@@ -96,6 +96,9 @@
                     <li >
                         <a  href="/about" style="color: #ffffff">What are we?</a>
                     </li>
+                    <li >
+                        <a  href="/knowledgebase" style="color: #ffffff">Knowledge Base</a>
+                    </li>
 
                     <!-- Authentication Links -->
                     @if (Auth::guest())
