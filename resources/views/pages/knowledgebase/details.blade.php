@@ -43,7 +43,7 @@ $knowledgeBase->description=nl2br(str_replace('  ', ' &nbsp;', htmlspecialchars(
                                 ?></p>
                             </div>
 
-
+                            <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Ftheinstreview.com%2Fknowledgebase%2F{{$knowledgeBase->id}}&layout=button&size=small&mobile_iframe=true&appId=1409061219355287&width=59&height=20" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 
                             {{--<div class="page-header" style="padding-top: 100px">
                                 <h1>--}}{{--<small class="pull-right">{{count($answers)}} answer</small>--}}{{--<b>Answer</b> </h1>
