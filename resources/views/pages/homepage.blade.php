@@ -16,13 +16,13 @@
 position: absolute;
 
 top: 75px;
-left: 0%;
+left: 10%;
     padding-bottom: 30px;
 
 
 
 /* Preserve aspect ratio */
-min-width: 100%;
+min-width: 80%;
 max-height: 540px;
 }
 
@@ -32,6 +32,16 @@ max-height: 540px;
     box-shadow: 0px 0px 9px #444;
     border: 2px solid #fff;
 }
+
+.fixed-right{
+    position:fixed;
+    top:85%;
+    right:8px;
+    z-index:1030;
+    padding:0px;
+    border: solid 1px;
+
+    }
 </style>
 
    {{-- <map name="mainmap">
@@ -58,7 +68,7 @@ max-height: 540px;
 <!-- Marketing messaging and featurettes
 ================================================== -->
 <!-- Wrap the rest of the page in another container to center all the content. -->
-<a href="{{url('reviews/create')}}" style="position:fixed;
+{{--<a href="{{url('reviews/create')}}" style="position:fixed;
     top:90%;
     right:5px;
     z-index:1030;
@@ -68,7 +78,9 @@ max-height: 540px;
     width: auto;
     color:#ffffff;
     font-size: large;
-    background-color:#222222">Post a Review</a>
+    background-color:#222222">Post a Review</a>--}}
+
+<iframe class=" fixed-right" src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Ftheinstreview%2F&width=63&layout=box_count&action=like&size=large&show_faces=true&share=true&height=65&appId=1409061219355287" width="63" height="100" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 
 <div class="container-fluid marketing" style="position: relative;display: block">
 
