@@ -11,38 +11,7 @@
 
 
 <img class="img-responsive1" src="images/img6-main-page.png" id="bg" alt="" usemap="#mainmap">
-<style>
-#bg {
-position: absolute;
 
-top: 75px;
-left: 10%;
-    padding-bottom: 30px;
-
-
-
-/* Preserve aspect ratio */
-min-width: 80%;
-max-height: 540px;
-}
-
-
-.img-circle {
-    border-radius: 5%;
-    box-shadow: 0px 0px 9px #444;
-    border: 2px solid #fff;
-}
-
-.fixed-right{
-    position:fixed;
-    top:85%;
-    right:8px;
-    z-index:1030;
-    padding:0px;
-    border: solid 1px;
-
-    }
-</style>
 
    {{-- <map name="mainmap">
         <area shape="rect" coords="0,0,508,315" alt="" href="/comparisons">
