@@ -17,8 +17,7 @@ class Comparison extends Controller
      */
     public function index()
     {
-        $comparisonModel = new ComparisonModel();
-        $comparisonObj = $comparisonModel->inRandomOrder();
+        $comparisonObj = ComparisonModel::all();
         $iterator = 1;
         $popularComparison = $this->getPopularComparisons();
         return view('pages.comparison.index',compact('comparisonObj'),['popularComparison'=>$popularComparison]);
