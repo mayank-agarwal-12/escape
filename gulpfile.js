@@ -31,3 +31,14 @@ Elixir.webpack.mergeConfig({
         }]
     }
 });
+
+const gulp = require('gulp');
+const imagemin = require('gulp-imagemin');
+
+gulp.task('default',function() {
+        gulp.src('storage/app/images/*')
+            .pipe(imagemin())
+            .pipe(gulp.dest('public/images'))
+    }
+);
+
