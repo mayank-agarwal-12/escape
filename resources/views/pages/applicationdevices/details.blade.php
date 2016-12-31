@@ -29,7 +29,6 @@
                             <table width="100%" class="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th>S No</th>
                                     <th>Name</th>
                                     <th>Test Cases</th>
                                 </tr>
@@ -37,7 +36,6 @@
                                 <tbody>
                                 @if($device)
                                         <tr>
-                                            <td>{{$device->id}}</td>
                                             <td>{{$device->name}}</td>
                                             @if($device->testcases->count())
 
