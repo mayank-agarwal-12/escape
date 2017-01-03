@@ -16,12 +16,12 @@
 
 //});
 
+Route::group(['domain' => 'www.'.env('APP_DOMAIN')], function () {
+
+
 Route::get('/about', function () {
     return view('pages.about');
 });
-
-
-
 
 
     Route::get('/', 'HomeController@index');
@@ -58,8 +58,9 @@ Route::get('/about', function () {
     Auth::routes();
     Route::get('/redirect/{provider}', 'Auth\SocialAuth@redirectToProvider');
     Route::get('/callback/{provider}', 'Auth\SocialAuth@handleProviderCallback');
+});
 
-
+    Route::group(['domain' => 'adminpanel.'.env('APP_DOMAIN')], function () {
 
 
 
@@ -88,6 +89,7 @@ Route::get('/about', function () {
         Route::group(['middleware' => 'auth.adminpanel'], function () {
 
         Route::get('/adminpanel', 'HomeController@index');
+        Route::get('/', 'HomeController@index');
         Route::post('adminpanel/logout', 'Auth\LoginController@logout');
 
 
@@ -95,14 +97,15 @@ Route::get('/about', function () {
         Route::resource('adminpanel/experts','Experts');
         Route::resource('adminpanel/reviews','Reviews');
         Route::resource('adminpanel/adminuser','AdminPanelUser');
-        Route::resource('adminpanel/user','User');
+
         Route::resource('adminpanel/testcases','TestCases');
         Route::resource('adminpanel/applicationdevices','ApplicationDevices');
         Route::resource('adminpanel/knowledgebase','KnowledgeBase');
         Route::resource('adminpanel/comparison','Comparison');
         Route::resource('adminpanel/answers','Answers');
+            Route::resource('adminpanel/user','User');
 
-
+        });
     });
 
 });
