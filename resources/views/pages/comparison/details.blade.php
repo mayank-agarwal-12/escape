@@ -42,6 +42,13 @@
                                     @endforeach
                             </tr>
                             </thead>
+                            @if (Auth::guest())
+                                <div class="alert alert-warning text-center" role="alert">
+                                    Please
+                                    <a href="{{ url('/login') }}">Login/</a>
+                                    <a href="{{ url('/register') }}">Register</a> to view
+                                </div>
+                            @else
                             <tbody>
                             </tbody>
 
@@ -54,7 +61,7 @@
                                 </tr>
                                     @endforeach
 
-
+                            @endif
                             </table>
 
                         @endif

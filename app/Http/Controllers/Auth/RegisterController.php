@@ -68,4 +68,13 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function update(Request $request, $id)
+    {
+        $userObj = User::findorFail($id);
+        $input = $request->all();
+        print_r($input);die;
+        $userObj->update($input);
+        return redirect('/profile');
+    }
 }

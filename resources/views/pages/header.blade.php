@@ -142,11 +142,13 @@
                             </a>
 
                             <ul class="dropdown-menu navbar-inverse" role="menu">
+                                {{--<li><a href="{{url('/profile/')}}" style="color: #ffffff"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                                </li>--}}
                                 <li>
                                     <a href="{{ url('/logout') }}"
                                        onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();" style="color: #ffffff">
-                                        Logout
+                                        <i class="fa fa-sign-out fa-fw"></i> Logout
                                     </a>
 
                                     <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">

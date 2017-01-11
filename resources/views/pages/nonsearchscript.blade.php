@@ -12,6 +12,7 @@
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>--}}
 
 <script src="{{ elixir('js/app.js') }}"></script>
+
 {{--
 <script src="/vendor/iron-summit-media/bower_components/jquery/dist/jquery.min.js"></script>
 

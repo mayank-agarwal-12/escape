@@ -24,6 +24,13 @@
                         <a href="{{ url('/questions') }}">Go Back</a>
                     </div>
                 @else
+                    @if (Auth::guest())
+                        <div class="alert alert-warning text-center" role="alert">
+                            Please
+                            <a href="{{ url('/login') }}">Login/</a>
+                            <a href="{{ url('/register') }}">Register</a> to view
+                        </div>
+                    @else
                     <div class="panel panel-default">
                         <div class="panel-body text-center1">
 
@@ -62,6 +69,7 @@
                                 @endforeach
             </div>
                     </div>
+                    @endif
             </div>
             <div class="col-md-3 col-xs-12 col-sm-12 full-width">
                 <div class="panel panel-info">

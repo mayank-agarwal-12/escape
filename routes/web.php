@@ -56,6 +56,9 @@ Route::get('/about', function () {
     Route::get('/knowledgebase/{id}','KnowledgeBase@show');
 
     Auth::routes();
+    Route::post('/user/{user}','Auth\RegisterController@update');
+    Route::get('/profile','Profile@show');
+    Route::get('/profile/reviews','Profile@showReviews');
     Route::get('/redirect/{provider}', 'Auth\SocialAuth@redirectToProvider');
     Route::get('/callback/{provider}', 'Auth\SocialAuth@handleProviderCallback');
 });
@@ -79,7 +82,7 @@ Route::get('/about', function () {
         // Password Reset Routes...
         Route::get('adminpanel/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
         Route::post('adminpanel/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
-        Route::get('adminpanel/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+        Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
         Route::post('adminpanel/password/reset', 'Auth\ResetPasswordController@reset');
 
 

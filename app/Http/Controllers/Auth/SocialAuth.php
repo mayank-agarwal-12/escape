@@ -52,7 +52,7 @@ class SocialAuth extends Controller
         $service = new SocialAccountService();
         $user = $service->createOrGetUser(Socialite::driver($provider)->stateless());
 
-        Auth::login($user);
+        Auth::login($user,true);
         //auth()->login($user);
 
         return redirect()->to('/');

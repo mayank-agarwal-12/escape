@@ -33,9 +33,11 @@ const imagemin = require('gulp-imagemin');
 
     elixir(function(mix)  {
         mix.sass('app.scss')
-            .webpack('app.js');
+            .webpack('app.js')
+            .scripts('myaccount.js');
         mix.task('images');
         mix.version('js/app.js');
+        mix.version('js/myaccount.js');
         mix.version('css/app.css');
 //mix.copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts/bootstrap');
 });

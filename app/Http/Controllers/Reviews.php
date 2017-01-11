@@ -39,6 +39,10 @@ class Reviews extends Controller
 
     public function store(Request $request)
     {
+        if(empty(Auth::user()->id))
+        {
+            return back()->with('status', trans('You need to logged in'));
+        }
         $this->validator($request->all())->validate();
         $uploadId = 0;
         if($request->file('image'))
@@ -56,10 +60,7 @@ class Reviews extends Controller
 
         $input = $request->all();
         $input['upload_id'] = $uploadId;
-        if(empty(Auth::user()->id))
-        {
-            return back()->with('status', trans('You need to logged in'));
-        }
+
         $input['user_id'] = Auth::user()->id;
         ReviewsModel::create($input);
         return back()->with('status', trans('Thanks for sharing the review'));
@@ -83,6 +84,7 @@ class Reviews extends Controller
 
     public function show($title)
     {
+        $popularReview = $this->getPopularReviews();
         $reviewObj = ReviewsModel::where('title',$title)->get();
         if(empty($reviewObj->first()))
         {
@@ -92,15 +94,40 @@ class Reviews extends Controller
         {
             $review = $reviewRow;
         }
-        $reviewObj = ReviewsModel::paginate(10);
+        if(empty(Auth::user()->id))
+        {
+            return view('pages.reviews.details',compact('popularReview'),['review'=>$review]);
+        }
+       // $reviewObj = ReviewsModel::paginate(10);
         $comments = CommentsModel::where('review_id',$review->id)->orderBy('created_at','desc')->get();
-        $popularReview = $this->getPopularReviews();
-        return view('pages.reviews.details',compact('reviewObj'),['review'=>$review,'comments'=>$comments,'popularReview'=>$popularReview]);
+
+
+        return view('pages.reviews.details',compact('popularReview'),['review'=>$review,'comments'=>$comments]);
     }
 
     protected function getPopularReviews()
     {
         $reviewModel = new ReviewsModel();
         return $reviewModel->orderBy('created_at','asc')->take(5)->get();
+    }
+
+    public function softDelete(Request $request)
+    {
+        $input = $request->all();
+        print_r(Auth::user()->id);die;
+        if (empty(Auth::user()->id)) {
+            return back()->with('status', trans('You need to be logged in'));
+        }
+        $reviewObj = ReviewsModel::where('id',$input['id'])->where('user_id',Auth::user()->id)->get();
+        print_r($reviewObj);die;
+        if(empty($reviewObj->first()))
+        {
+            return back()->with('status', trans('This Review not attached to the user'));
+        }
+        $review = ReviewsModel::findorFail($input['id']);
+        $review->delete();
+        return response()->json([
+            'status'=>'success',
+            'msg'=>'Successfully marked private']);
     }
 }

@@ -33,7 +33,15 @@
                                     <th>Test Cases</th>
                                 </tr>
                                 </thead>
-                                <tbody>
+
+                                @if (Auth::guest())
+                                    <div class="alert alert-warning text-center" role="alert">
+                                        Please
+                                        <a href="{{ url('/login') }}">Login/</a>
+                                        <a href="{{ url('/register') }}">Register</a> to view
+                                    </div>
+                                @else
+                                    <tbody>
                                 @if($device)
                                         <tr>
                                             <td>{{$device->name}}</td>
@@ -60,7 +68,9 @@
 
                                         </tr>
                                         @endif
-                                </tbody>
+                                    </tbody>
+                                    @endif
+
                             </table>
                         </div>
                         <!-- /.table-responsive -->

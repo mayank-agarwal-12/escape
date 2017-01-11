@@ -13,6 +13,15 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+Route::group(['domain' => 'www.'.env('APP_DOMAIN')], function ()
+{
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    })->middleware('auth:api');
+
+    Route::post('/reviews/softDelete','Reviews@softDelete')->middleware('auth:api');
+
+
+});
+
+

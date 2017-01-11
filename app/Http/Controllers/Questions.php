@@ -78,6 +78,7 @@ class Questions extends Controller
 
     public function show($id)
     {
+        $popularObj = $this->getPopularQuestions();
         $questionObj = QuestionsModel::where('id',$id)->get();
         if(empty($questionObj->first()))
         {
@@ -87,10 +88,15 @@ class Questions extends Controller
         {
             $question = $questionRow;
         }
-        $questionObj = QuestionsModel::paginate(10);
+       // $questionObj = QuestionsModel::paginate(10);
+        if(empty(Auth::user()->id))
+        {
+            return view('pages.questions.details',compact('popularObj'),['question'=>$question]);
+        }
         $answers = AnswersModel::where('question_id',$question->id)->orderBy('created_at','desc')->get();
-        $popularObj = $this->getPopularQuestions();
-        return view('pages.questions.details',compact('questionObj'),['question'=>$question,'answers'=>$answers,'popularObj'=>$popularObj]);
+
+
+        return view('pages.questions.details',compact('popularObj'),['question'=>$question,'answers'=>$answers]);
     }
 
     protected function getPopularQuestions()
