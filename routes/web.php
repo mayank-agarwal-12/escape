@@ -16,7 +16,7 @@
 
 //});
 
-Route::group(['domain' => 'www.'.env('APP_DOMAIN')], function () {
+
 
 
 Route::get('/about', function () {
@@ -61,7 +61,7 @@ Route::get('/about', function () {
     Route::get('/profile/reviews','Profile@showReviews');
     Route::get('/redirect/{provider}', 'Auth\SocialAuth@redirectToProvider');
     Route::get('/callback/{provider}', 'Auth\SocialAuth@handleProviderCallback');
-});
+
 
     Route::group(['domain' => 'adminpanel.'.env('APP_DOMAIN')], function () {
 
