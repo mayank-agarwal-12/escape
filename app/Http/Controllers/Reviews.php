@@ -82,10 +82,10 @@ class Reviews extends Controller
         ]);
     }
 
-    public function show($title)
+    public function show($id)
     {
         $popularReview = $this->getPopularReviews();
-        $reviewObj = ReviewsModel::where('title',$title)->get();
+        $reviewObj = ReviewsModel::where('id',$id)->get();
         if(empty($reviewObj->first()))
         {
             return back()->with('status', trans('No Reviews found'));
