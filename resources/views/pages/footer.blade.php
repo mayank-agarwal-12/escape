@@ -1,5 +1,5 @@
 <!-- FOOTER -->
-<div class="container-fluid nav-default navbar-fixed-bottom1" style="
+{{--<div class="container-fluid nav-default navbar-fixed-bottom1" style="
 
    left:0px;
    bottom:0px;
@@ -10,75 +10,46 @@
    display: block;
 
 
-  ">
+  ">--}}
 
+{{--<div class="nav-default navbar-fixed-bottom1 panel-footer full-width">
+           <div class="pull-left">&copy;2016. Instreview Company.All Rights Reserved.</div>&nbsp;&nbsp;
+           <p class="">  <a href="/contact">Contact Us</a> &middot; <a href="/disclaimer">Terms</a></p>
+       </div>--}}
+
+
+
+<div class="container-fluid panel panel-footer full-width">
 <div class="row ">
 
-    <div class="nav-default navbar-fixed-bottom1 panel-footer full-width">
-        <div class="pull-left">&copy;2016. Instreview Company.All Rights Reserved.</div>&nbsp;&nbsp;
-        <p class="">  <a href="/contact">Contact Us</a> &middot; <a href="/disclaimer">Terms</a></p>
-    </div>
-{{--<div class="col-md-12  col-sm-12 col-xs-12 panel panel-default">
+        <div class="panel-left1 col-lg-3 col-md-3 col-xs-12 col-sm-3 " >
+                    <ul >
+                        <li > <a href="/about">About Us</a> </li>
+                        <li> <a href="/contact">Contact Us</a> </li>
+                        <li> <a href="/disclaimer">Terms</a> </li>
+                        <li> <a href="mailto:contact@theinstreview.com" target="_top">Mail Us</a> </li>
+                        2016. Instreview Company.All Rights Reserved.
 
-</div>--}}
-
-      {{--<div class="col-md-3  col-sm-4 col-xs-4 col-md-offset-2">
-      <ul>
-          <li >
-              <a class="nav-link" href="/">Home
-              </a>
-          </li>
-          <li >
-              <a class="nav-link" href="/reviews">Reviews</a>
-          </li>
-          <li >
-              <a class="nav-link" href="/questions">Ask an Expert</a>
-          </li>
-          <li >
-              <a class="nav-link" href="/comparisons">Comparisons</a>
-          </li>
-          <li >
-              <a class="nav-link" href="/applicationassistant">Application Helper</a>
-          </li>
-          </ul>
-
+                    </ul>
 </div>
+   {{-- <div class="panel-right1 col-md-4 col-xs-12 col-sm-3 hidden-xs">
 
-    <div class="col-md-3  col-sm-4 col-xs-4 ">
-        <ul>
-            <li >
-                <a class="nav-link" href="/about">About</a>
-            </li>
-            <li >
-                <a class="nav-link" href="/contact">Contact Us</a>
-            </li>
-            <li >
-                <a class="nav-link" href="/disclaimer">Terms</a>
-            </li>
-        </ul>
-
-    </div>
-    <div class="col-xs-2 col-md-2 col-sm-2 col-lg-2">
-
-
-
-        --}}{{--<a class="navbar-brand1" href="/">
-            <img alt="Brand" src="/images/logo-2.jpg" height="110px" width="auto">
-        </a>--}}{{--
-    </div>--}}
-
-
-      {{--<div class="col-md-3 col-md-offset-1 col-sm-4 col-xs-12">
-            &middot; <a href="/about">About</a>&middot;
-        </div>
-        <div class="col-md-3 col-md-offset-1 col-sm-4 col-xs-12">
-            &middot;<a href="/contact">Contact Us</a>&middot;
-        </div>
-        <div class="col-md-3 col-md-offset-1 col-sm-4 col-xs-12">
-            &middot;<a href="/disclaimer">Terms</a>&middot;
         </div>--}}
+    <div class="panel-right1 col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-xs-12 col-sm-6 pull-right1">
+
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftheinstreview&tabs&width=450&height=200&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1409061219355287" width="450" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+        {{--<div class="col-xs-12 hidden-md hidden-lg hidden-sm">
+            2016. Instreview Company.All Rights Reserved.
+        </div>--}}
+
+
 </div>
-    {{--<div class="pull-left">&copy;2016. Instreview Company.All Rights Reserved.</div>--}}
-    </div>
+</div>
+   {{-- <div class="row ">
+    <div class="text-center col-md-12">2016. Instreview Company.All Rights Reserved.</div>
+</div>
+--}}
+
+        </div>
 
 
