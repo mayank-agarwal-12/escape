@@ -63,7 +63,7 @@
                                             <li class="fa fa-user"> {{$review->user->name}} </li>
                                             <li class="fa fa-clock-o"> {{$review->updated_at}} </li>
                                         </ul>
-                                        <p>{{$review->content}}</p>
+                                       {{-- <p>{{$review->content}}</p>--}}
                                     </div>
 
 

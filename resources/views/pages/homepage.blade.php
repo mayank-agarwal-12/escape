@@ -228,7 +228,7 @@
                     <div class="panel-body" style="word-break: break-all">
                         <ul>
                             @foreach($reviewList as $review)
-                                <a href="{{url('reviews/'.$review->title)}}"><li class="text-primary">{{$review->title}}</li></a>
+                                <a href="{{url('reviews/'.$review->id)}}"><li class="text-primary">{{$review->title}}</li></a>
                             @endforeach
                         </ul>
                     </div>
