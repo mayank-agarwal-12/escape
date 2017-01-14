@@ -37,12 +37,12 @@
         </div>--}}
         <div class="panel-right1 col-lg-offset-0 col-lg-4 col-md-offset-0 col-md-4 col-xs-6 col-sm-4 text-center" >
             
-            <a class="social" href="/about">
+            <a class="social" href="https://www.facebook.com/theinstreview" target="_blank">
                <i class="fa fa-facebook-square"></i>
             </a>
             </div>
          <div class="panel-right1 col-lg-offset-0 col-lg-4 col-md-offset-0 col-md-4 col-xs-6 col-sm-4 text-center" >
-             <a class="social" href="/about">
+             <a class="social" href="https://www.linkedin.com/company/the-instreview" target="_blank">
                <i class="fa fa-linkedin-square"></i>
             </a>
 
