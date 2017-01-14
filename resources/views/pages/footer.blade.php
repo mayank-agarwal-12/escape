@@ -19,11 +19,11 @@
 
 
 
-<div class="container-fluid panel panel-footer full-width">
+<div class="container-fluid panel panel-footer full-width" >
 <div class="row ">
-
-        <div class="panel-left1 col-lg-3 col-md-3 col-xs-12 col-sm-3 " >
-                    <ul >
+   
+        <div class="panel-left1 col-lg-4 col-md-4 col-xs-12 col-sm-4 text-center" >
+                    <ul style="list-style-type: none;font-size: 18px;">
                         <li > <a href="/about">About Us</a> </li>
                         <li> <a href="/contact">Contact Us</a> </li>
                         <li> <a href="/disclaimer">Terms</a> </li>
@@ -35,13 +35,16 @@
    {{-- <div class="panel-right1 col-md-4 col-xs-12 col-sm-3 hidden-xs">
 
         </div>--}}
-    <div class="panel-right1 col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-xs-12 col-sm-6 pull-right1">
-
-            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftheinstreview&tabs&width=450&height=200&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1409061219355287" width="450" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-        {{--<div class="col-xs-12 hidden-md hidden-lg hidden-sm">
-            2016. Instreview Company.All Rights Reserved.
-        </div>--}}
-
+        <div class="panel-right1 col-lg-offset-0 col-lg-4 col-md-offset-0 col-md-4 col-xs-6 col-sm-4 text-center" >
+            
+            <a class="social" href="/about">
+               <i class="fa fa-facebook-square"></i>
+            </a>
+            </div>
+         <div class="panel-right1 col-lg-offset-0 col-lg-4 col-md-offset-0 col-md-4 col-xs-6 col-sm-4 text-center" >
+             <a class="social" href="/about">
+               <i class="fa fa-linkedin-square"></i>
+            </a>
 
 </div>
 </div>
@@ -52,4 +55,26 @@
 
         </div>
 
+       <style>
+           .social {
+               text-align: center;
+background-color: #ffffff;
+color: #4b4c4d;
 
+text-decoration: none;
+
+
+               font-size: 45px;
+width: 100px;
+height: 100px;
+line-height: 100px;
+display: inline-block;
+text-align: center;
+border-radius: 50%;
+border: 1px solid #ccc;
+margin: 0 8px;
+
+opacity: 0.75;
+    
+           }
+           </style>

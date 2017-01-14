@@ -1,5 +1,5 @@
 @extends('pages.nonsearchscript')
-@extends('pages.footer')
+
 @extends('pages.header')
 
 @section('content')
