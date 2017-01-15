@@ -22,14 +22,12 @@
 <div class="container-fluid panel panel-footer full-width" >
 <div class="row ">
    
-        <div class="panel-left1 col-lg-4 col-md-4 col-xs-12 col-sm-4 text-center" >
+        <div class="panel-left1 col-lg-4 col-md-4 col-xs-11 col-sm-4 text-center" >
                     <ul style="list-style-type: none;font-size: 18px;">
                         <li > <a href="/about">About Us</a> </li>
                         <li> <a href="/contact">Contact Us</a> </li>
                         <li> <a href="/disclaimer">Terms</a> </li>
                         <li> <a href="mailto:contact@theinstreview.com" target="_top">Mail Us</a> </li>
-                        2016. Instreview Company.All Rights Reserved.
-
                     </ul>
 </div>
    {{-- <div class="panel-right1 col-md-4 col-xs-12 col-sm-3 hidden-xs">
@@ -48,10 +46,9 @@
 
 </div>
 </div>
-   {{-- <div class="row ">
+    <div class="row ">
     <div class="text-center col-md-12">2016. Instreview Company.All Rights Reserved.</div>
 </div>
---}}
 
         </div>
 
