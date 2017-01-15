@@ -6,8 +6,8 @@ $(document).ready(function(){
     });
 
 
-    $(".softDel").click(function(){
-        $(".softDel").unbind("click");
+    $(".softDelReview").click(function(){
+        $(".softDelReview").unbind("click");
         $.ajax({
 
                 // The URL for the request
@@ -50,8 +50,8 @@ $(document).ready(function(){
             })
     });
 
-    $(".disableSoftDel").click(function(){
-        $(".disableSoftDel").unbind("click");
+    $(".disableSoftDelReview").click(function(){
+        $(".disableSoftDelReview").unbind("click");
         $.ajax({
 
                 // The URL for the request
