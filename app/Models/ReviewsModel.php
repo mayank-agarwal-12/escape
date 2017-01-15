@@ -27,5 +27,11 @@ class ReviewsModel extends Model
         return $this->belongsTo('App\Models\UploadModel','upload_id');
     }
 
+    public function comments()
+    {
+        return $this->hasMany('App\Models\CommentsModel','review_id','id');
+    }
+
+
 
 }

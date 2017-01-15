@@ -13,6 +13,7 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpFoundation\Response;
 
 class Reviews extends Controller
 {
@@ -114,20 +115,60 @@ class Reviews extends Controller
     public function softDelete(Request $request)
     {
         $input = $request->all();
-        print_r(Auth::user()->id);die;
         if (empty(Auth::user()->id)) {
-            return back()->with('status', trans('You need to be logged in'));
+            return response()->json([
+                    'status'=>'failed',
+                    'msg'=>'You need to logged in',
+                    'id'=>$input['id']
+                ]
+            );
         }
         $reviewObj = ReviewsModel::where('id',$input['id'])->where('user_id',Auth::user()->id)->get();
-        print_r($reviewObj);die;
         if(empty($reviewObj->first()))
         {
-            return back()->with('status', trans('This Review not attached to the user'));
+            return
+                response()->json([
+                        'status'=>'failed',
+                        'msg'=>'This Review not attached to the user',
+                        'id'=>$input['id']
+                    ]
+                );
         }
         $review = ReviewsModel::findorFail($input['id']);
         $review->delete();
         return response()->json([
             'status'=>'success',
-            'msg'=>'Successfully marked private']);
+            'msg'=>'Successfully marked hidden',
+            'id'=>$input['id']]);
+    }
+
+    public function removeSoftDelete(Request $request)
+    {
+        $input = $request->all();
+        if (empty(Auth::user()->id)) {
+            return response()->json([
+                    'status'=>'failed',
+                    'msg'=>'You need to logged in',
+                    'id'=>$input['id']
+                ]
+            );
+        }
+        $reviewObj = ReviewsModel::onlyTrashed()->where('id',$input['id'])->get();
+        if(empty($reviewObj->first()) && $reviewObj->first()->user_id !=Auth::user()->id )
+        {
+            return
+                response()->json([
+                        'status'=>'failed',
+                        'msg'=>'This Review not attached to the user',
+                        'id'=>$input['id']
+                    ]
+                );
+        }
+        $review = ReviewsModel::onlyTrashed()->findorFail($input['id']);
+        $review->restore();
+        return response()->json([
+            'status'=>'success',
+            'msg'=>'Successfully made visible',
+            'id'=>$input['id']]);
     }
 }

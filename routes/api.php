@@ -19,7 +19,7 @@ Route::group(['domain' => 'www.'.env('APP_DOMAIN')], function ()
         return $request->user();
     })->middleware('auth:api');
 
-    Route::post('/reviews/softDelete','Reviews@softDelete')->middleware('auth:api');
+   // Route::post('/reviews/softDelete','Reviews@softDelete')->middleware('auth:api');
 
 
 });

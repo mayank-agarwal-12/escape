@@ -56,9 +56,18 @@ Route::get('/about', function () {
     Route::get('/knowledgebase/{id}','KnowledgeBase@show');
 
     Auth::routes();
-    Route::post('/user/{user}','Auth\RegisterController@update');
-    Route::get('/profile','Profile@show');
-    Route::get('/profile/reviews','Profile@showReviews');
+
+    Route::group(['middleware' => 'auth'], function ()
+    {
+        Route::get('/profile','Profile@show');
+        Route::get('/profile/reviews','Profile@showReviews');
+        Route::get('/profile/questions','Profile@showQuestions');
+        Route::post('/reviews/softDelete','Reviews@softDelete');
+        Route::post('/reviews/removeSoftDelete','Reviews@removeSoftDelete');
+        Route::post('/user/update','Profile@update');
+        Route::post('/user/updatePassword','Profile@updatePassword');
+    });
+
     Route::get('/redirect/{provider}', 'Auth\SocialAuth@redirectToProvider');
     Route::get('/callback/{provider}', 'Auth\SocialAuth@handleProviderCallback');
 

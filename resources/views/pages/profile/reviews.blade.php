@@ -21,7 +21,7 @@
                 <ul class="nav nav-tabs ">
                     <li role="presentation"><a href="/profile">Profile</a></li>
                     <li role="presentation" class="active"><a href="/profile/reviews">Reviews</a></li>
-                    <li role="presentation"><a href="#">Expert's Corner</a></li>
+                    <li role="presentation"><a href="/profile/questions">Expert's Corner</a></li>
                 </ul>
             </div>
             </div>
@@ -38,13 +38,15 @@
                     <div class="panel-heading">
                         <h2><b>Review Section</b></h2>
                         <ul class="list-inline">
-                            <li class="active" data-toggle="tooltip" data-placement="top" title="Reviews Posted"><a href="/profile/reviews">Reviews</a></li>
-                            <li data-toggle="tooltip" data-placement="top" title="Commented on Reviews"><a href="/profile/comments">Comments</a></li>
+                            <li id="toggleReview" data-toggle="tooltip" data-placement="top" title="Reviews Posted"><a href="#reviews">Reviews <span class="badge">{{count($reviewObj)}}</span></a></li> /
+                            <li id="toggleComments" data-toggle="tooltip" data-placement="top" title="Commented on Reviews"><a href="#comments">Comments <span class="badge">{{count($commentObj)}}</span></a></li>
                         </ul>
                     </div>
-                    <div class="panel-body ">
+
+                    <div class="panel-body " id="reviewSection">
+                        <h4><b>Reviews Posted</b></h4>
                 @foreach($reviewObj as $review)
-                    <div class="panel panel-deafult">
+                    <div class="panel panel-default" style="padding-left: 10px">
 
 
                             {{--<div class="panel-left col-md-4 col-xs-12 col-sm-12 " style="display: table-cell;vertical-align: middle;padding-right: 10px">
@@ -58,23 +60,74 @@
                                     </div>
                                 @endif
                             </div>--}}
-                                <a href="{{url('reviews/'.$review->title)}}" class="text-primary"><h3>{{$review->title}}</h3></a>
+                                <a href="{{url('reviews/'.$review->id)}}" class="text-primary"><h3>{{$review->title}}</h3></a>
                                 <ul class="list-inline">
                                     <li class="fa fa-filter">{{$review->category->name}}</li>
                                     <li class="fa fa-clock-o"> {{$review->updated_at}} </li>
-                                    <li class="fa fa-unlock"> Visible to Public </li>
+                                    @if($review->trashed())
+                                        <li class="fa fa-lock"> Hidden from Public </li>
+                                        @else
+                                        <li class="fa fa-unlock"> Visible to Public </li>
+                                        @endif
+
                                 </ul>
-                        <li class="fa fa-lock softDel" data-toggle="tooltip" data-placement="top" title="Review will be disabled from the site" value="{{$review->id}}" > <a href="#">Mark as Private</a> </li>
+                        <meta name="csrf-token" content="{{ csrf_token() }}">
+                        @if($review->trashed())
+                            <li class="fa fa-unlock disableSoftDelReview" data-toggle="tooltip" data-placement="top" title="Review will be visible on the site" value="{{$review->id}}" > <a>Mark as Visible</a> </li>
+                            @else
+                            <li class="fa fa-lock softDelReview" data-toggle="tooltip" data-placement="top" title="Review will get hidden from the site" value="{{$review->id}}" > <a >Mark as Hidden</a> </li>
+                            @endif
+                        <div class="alert" id="{{'review_'.$review->id}}" style="display: none">
+
+                        </div>
 
                     </div>
                 @endforeach
                     </div>
 
 
-</div>
 
+
+    <div class="panel-body " id="commentSection" style="display: none">
+        <h4><b>Comments Posted</b></h4>
+        @foreach($commentObj as $comment)
+            <div class="panel panel-default" style="padding-left: 10px">
+
+
+                {{$comment->content}}
+                <ul class="list-inline">
+                    @if($comment->reviews)
+                    <li class="fa fa-folder"><a href="{{url('reviews/'.$review->id)}}"> {{$comment->reviews->title}} </a></li>
+                    @else
+                    <li class="fa fa-warning">Review Deleted or Marked as Hidden</li>
+                    @endif
+                    <li class="fa fa-clock-o"> {{$comment->updated_at}} </li>
+                    @if($comment->trashed())
+                        <li class="fa fa-lock"> Hidden from Public </li>
+                    @else
+                        <li class="fa fa-unlock"> Visible to Public </li>
+                    @endif
+
+                </ul>
+                {{--<meta name="csrf-token" content="{{ csrf_token() }}">
+                @if($comment->trashed())
+                    <li class="fa fa-unlock disableSoftDelComments" data-toggle="tooltip" data-placement="top" title="Comment is visible on the site" value="{{$comment->id}}" > <a >Mark as Visible</a> </li>
+                @else
+                    <li class="fa fa-lock softDelComments" data-toggle="tooltip" data-placement="top" title="Comment will get hidden from the site" value="{{$comment->id}}" > <a >Mark as Hidden</a> </li>
+                @endif
+                <div class="alert" id="{{'review_'.$comment->id}}" style="display: none">--}}
+
+                </div>
+        @endforeach
             </div>
-        </div>
-        </div>
+
+    </div>
+
+
+    </div>
+
+    </div>
+    </div>
+
 
     @endsection

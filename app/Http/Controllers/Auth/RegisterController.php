@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -69,12 +70,5 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id)
-    {
-        $userObj = User::findorFail($id);
-        $input = $request->all();
-        print_r($input);die;
-        $userObj->update($input);
-        return redirect('/profile');
-    }
+
 }

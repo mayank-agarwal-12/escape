@@ -1,3 +1,4 @@
+@extends('pages.myaccountscript')
 @extends('pages.nonsearchscript')
 @extends('pages.footer')
 @extends('pages.header')
@@ -20,7 +21,7 @@
                 <ul class="nav nav-tabs ">
                     <li role="presentation" class="active"><a href="{{url('/profile')}}">Profile</a></li>
                     <li role="presentation"><a href="{{url('/profile/reviews')}}">Reviews</a></li>
-                    <li role="presentation"><a href="#">Expert's Corner</a></li>
+                    <li role="presentation"><a href="/profile/questions">Expert's Corner</a></li>
                 </ul>
             </div>
             </div>
@@ -35,8 +36,13 @@
                     <div class="panel-heading">
                         <h2><b>Profile Details</b></h2>
                     </div>
+                    @if(session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                    @endif
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/user/'.Auth::user()->id ) }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/user/update') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -57,13 +63,8 @@
                                 <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ Auth::user()->email }}" required>
+                                    <input id="email" type="email" class="form-control" name="email" value="{{ Auth::user()->email }}" disabled>
 
-                                    @if ($errors->has('email'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                    @endif
                                 </div>
                             </div>
 
@@ -109,64 +110,7 @@
                             </div>
 
 
-                            <div class="modal fade" id="passwordChange" tabindex="-1" role="dialog" aria-labelledby="passwordChangeLabel">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title" id="passwordChangeLabel">Change Password</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form>
-                                                <div class="form-group{{ $errors->has('old_password') ? ' has-error' : '' }}">
-                                                    <label for="old_password" class="col-md-4 control-label">Old Password</label>
 
-                                                    <div class="col-md-6">
-                                                        <input id="old_password" type="password" class="form-control" name="old_password" required>
-
-                                                        @if ($errors->has('old_password'))
-                                                            <span class="help-block">
-                                        <strong>{{ $errors->first('old_password') }}</strong>
-                                    </span>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                                    <label for="password" class="col-md-4 control-label">New Password</label>
-
-                                                    <div class="col-md-6">
-                                                        <input id="password" type="password" class="form-control" name="password" required>
-
-                                                        @if ($errors->has('password'))
-                                                            <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                                        @endif
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                                                    <label for="password-confirm" class="col-md-4 control-label">Confirm New Password</label>
-
-                                                    <div class="col-md-6">
-                                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-
-                                                        @if ($errors->has('password_confirmation'))
-                                                            <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Change Password</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
 
 
@@ -231,10 +175,72 @@
                                 </div>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>
         </div>
         </div>
+    <div class="modal fade" id="passwordChange" tabindex="-1" role="dialog" aria-labelledby="passwordChangeLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="passwordChangeLabel">Change Password</h4>
+                </div>
+                    <div class="alert chngPassAlert" style="display: none">
+                    </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="chngPassword">
+                        {{csrf_field()}}
+                        {{--<div class="form-group{{ $errors->has('old_password') ? ' has-error' : '' }}">
+                            <label for="old_password" class="col-md-4 control-label">Old Password</label>
 
+                            <div class="col-md-6">
+                                <input id="old_password" type="password" class="form-control" name="old_password" required>
+
+                                @if ($errors->has('old_password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('old_password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>--}}
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">New Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                            <label for="password-confirm" class="col-md-4 control-label">Confirm New Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+
+                                @if ($errors->has('password_confirmation'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary submitPasswd">Change Password</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
     @endsection
