@@ -29,7 +29,7 @@
                                             <div class="col-lg-3">
                                                 <a href="{{url('reviews/'.$review->id)}}">
                                                     @if($review->image)
-                                                        <img class="img-circle  center-block" src="{{$review->image->url}}" alt="instrument reviews" width="270px" height="170" max-width="270px">
+                                                        <img class="img-circle  center-block" src="{{$review->image->url}}" alt="instrument reviews" width="270px" height="170" style="max-width:100%">
                                                     @else
                                                         <div class="img-circle" style="height:170px;width:270px;border:1px solid #000;display: inline-block">
                                                             <span class="glyphicon glyphicon-search text-center" aria-hidden="true"></span>
@@ -58,7 +58,7 @@
                             <div class="panel-left col-md-4 col-xs-12 col-sm-12 text-center" style="display: table-cell;vertical-align: middle;padding-right: 10px">
 
                                 <a href="/questions">
-                                    <img class="img-circle  center-block" src="images/questions.jpeg" alt="instrument questions queries" width="auto" height="170">
+                                    <img class="img-circle  center-block" src="images/questions.jpeg" alt="instrument questions queries" width="auto" height="170" style="max-width: 100%;">
                                 </a>
                                 <h2><a  href="/questions" >Query/Expert Section</a></h2>
                                 <p  style="word-break: keep-all">Do you have a query about your test
@@ -104,7 +104,7 @@
                         <div class="panel-left col-md-4 col-xs-12 col-sm-12 text-center" style="display: table-cell;vertical-align: middle;padding-right: 10px">
 
                             <a href="/questions">
-                                <img class="img-circle  center-block" src="images/comparisons.jpg" alt="instrument questions queries" width="auto" height="170" style="max-width: 270px">
+                                <img class="img-circle  center-block" src="images/comparisons.jpg" alt="instrument questions queries" width="auto" height="170" style="max-width: 100%">
                             </a>
                             <h2><a  href="/questions" >Instrument Comparison</a></h2>
                             <p style="word-break: keep-all">Planning to buy a T&amp;M instrument?
