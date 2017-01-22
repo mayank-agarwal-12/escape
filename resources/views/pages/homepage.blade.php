@@ -104,7 +104,7 @@
                         <div class="panel-left col-md-4 col-xs-12 col-sm-12 text-center" style="display: table-cell;vertical-align: middle;padding-right: 10px">
 
                             <a href="/questions">
-                                <img class="img-circle  center-block" src="images/comparisons.jpg" alt="instrument questions queries" width="auto" height="170">
+                                <img class="img-circle  center-block" src="images/comparisons.jpg" alt="instrument questions queries" width="auto" height="170" style="max-width: 270px">
                             </a>
                             <h2><a  href="/questions" >Instrument Comparison</a></h2>
                             <p style="word-break: keep-all">Planning to buy a T&amp;M instrument?
