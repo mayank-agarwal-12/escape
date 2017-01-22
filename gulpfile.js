@@ -1,6 +1,6 @@
 const elixir = require('laravel-elixir');
 
-require('laravel-elixir-vue-2');
+//require('laravel-elixir-vue-2');
 
 var paths = {
     'bootstrap': './node_modules/bootstrap-sass/assets/'
@@ -34,11 +34,13 @@ const imagemin = require('gulp-imagemin');
     elixir(function(mix)  {
         mix.sass('app.scss')
             .webpack('app.js')
-            .scripts('myaccount.js');
+            .scripts('myaccount.js')
+           .styles('common.css');
         mix.task('images');
         mix.version('js/app.js');
         mix.version('js/myaccount.js');
         mix.version('css/app.css');
+        mix.version('css/common.css');
 //mix.copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts/bootstrap');
 });
 

@@ -1,247 +1,204 @@
-@extends('pages.nonsearchscript')
-@extends('pages.footer')
-@extends('pages.header')
+    @extends('pages.nonsearchscript')
+    @extends('pages.footer')
+    @extends('pages.header')
 
-@section('content')
-
-<!-- Image
-================================================== -->
-<div class="container-fluid hidden-xs hidden-sm">
-    <div class="hidden-xs hidden-sm">
+    @section('content')
 
 
-<img class="img-responsive1" src="images/img6-main-page.png" id="bg" alt="" usemap="#mainmap">
+    <iframe class=" fixed-right" src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Ftheinstreview%2F&width=63&layout=box_count&action=like&size=large&show_faces=true&share=true&height=65&appId=1409061219355287" width="63" height="100" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 
 
-   {{-- <map name="mainmap">
-        <area shape="rect" coords="0,0,508,315" alt="" href="/comparisons">
+    <div class="container-fluid marketing" style="position: relative;display: block">
 
-    </map>--}}
-
-    </div>
-    <div style="bottom: 0px; min-height:550px"></div>
-</div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 full-width">
+                    <div class="panel panel-info">
 
 
-{{--<div class="container" xmlns:color="http://www.w3.org/1999/xhtml">
-<div class="row">
-    <div class="col-xs-12 col-md-12 col-sm-12 col-md-offset-0 col-lg-12">
-        <a href="/" class="thumbnail">
-            <img src="images/img4-main-page.png" >
-        </a>
-    </div>
-</div>
-    </div>--}}
+                        <div class="panel-heading" style="background-color:darkcyan ;color:#fff">
+                            <h3 class="panel-title text-center"><a href="/reviews"><b>Reviews</b></a></h3>
+                        </div>
+
+                        <div class="panel-body" style="word-break: break-all">
+                            <p class="text-center" style="word-break: keep-all">Excited about a product? Go ahead and use our platform to write about your experience. Keep Reviewing,Keep Inst-Reviewing.</p>
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        @foreach($reviewList as $review)
+                                            <div class="col-lg-3">
+                                                <a href="{{url('reviews/'.$review->id)}}">
+                                                    @if($review->image)
+                                                        <img class="img-circle  center-block" src="{{$review->image->url}}" alt="instrument reviews" width="270px" height="170" max-width="270px">
+                                                    @else
+                                                        <div class="img-circle" style="height:170px;width:270px;border:1px solid #000;display: inline-block">
+                                                            <span class="glyphicon glyphicon-search text-center" aria-hidden="true"></span>
+                                                        </div>
+                                                    @endif
+
+                                                    <p class="text-primary text-center" style="margin-top: 10px">{{$review->title}}</p></a>
+                                            </div>
+                                        @endforeach
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 full-width">
+                    <div class="panel panel-info">
 
 
-<!-- Marketing messaging and featurettes
-================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
-{{--<a href="{{url('reviews/create')}}" style="position:fixed;
-    top:90%;
-    right:5px;
-    z-index:1030;
-    padding:5px;
-    border: solid 1px;
-    height: auto;
-    width: auto;
-    color:#ffffff;
-    font-size: large;
-    background-color:#222222">Post a Review</a>--}}
+                        <div class="panel-heading" style="background-color:darkcyan ;color:#fff">
+                            <h3 class="panel-title text-center"><a href="/questions"><b>Questions & Answers</b></a></h3>
+                        </div>
 
-<iframe class=" fixed-right" src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Ftheinstreview%2F&width=63&layout=box_count&action=like&size=large&show_faces=true&share=true&height=65&appId=1409061219355287" width="63" height="100" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                        <div class="panel-body" style="word-break: break-all">
+                            <div class="panel-left col-md-4 col-xs-12 col-sm-12 text-center" style="display: table-cell;vertical-align: middle;padding-right: 10px">
 
-<div class="container-fluid marketing" style="position: relative;display: block">
+                                <a href="/questions">
+                                    <img class="img-circle  center-block" src="images/questions.jpeg" alt="instrument questions queries" width="auto" height="170">
+                                </a>
+                                <h2><a  href="/questions" >Query/Expert Section</a></h2>
+                                <p  style="word-break: keep-all">Do you have a query about your test
+
+                                    application or your Electronic T&amp;M
+
+                                    instrument? Ask our experts!</p>
+
+
+                            </div>
+
+                            <div class="panel-right col-md-8 col-xs-12 col-sm-12 " style="display: table-cell; vertical-align: top;padding-left: 10px ;word-break: break-all">
+                                <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title ">Popular Questions</h3>
+                                </div>
+                                <div class="panel-body">
+                            <ul>
+                                @foreach($questionList as $question)
+                                    <a href="{{url('questions/'.$question->id)}}"><li class="text-primary">{{$question->title}}</li></a>
+                                @endforeach
+                            </ul>
+                                </div>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 full-width">
+                <div class="panel panel-info">
+
+
+                    <div class="panel-heading" style="background-color:darkcyan ;color:#fff">
+                        <h3 class="panel-title text-center"><a href="/comparisons"><b>Comparisons</b></a></h3>
+                    </div>
+
+                    <div class="panel-body" style="word-break: break-all">
+                        <div class="panel-left col-md-4 col-xs-12 col-sm-12 text-center" style="display: table-cell;vertical-align: middle;padding-right: 10px">
+
+                            <a href="/questions">
+                                <img class="img-circle  center-block" src="images/comparisons.jpg" alt="instrument questions queries" width="auto" height="170">
+                            </a>
+                            <h2><a  href="/questions" >Instrument Comparison</a></h2>
+                            <p style="word-break: keep-all">Planning to buy a T&amp;M instrument?
+
+                                Compare instruments from multiple
+
+                                vendors before making a decision</p>
+
+
+                        </div>
+
+                        <div class="panel-right col-md-8 col-xs-12 col-sm-12 " style="display: table-cell; vertical-align: top;padding-left: 10px ;word-break: keep-all">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title ">Popular Comparisons</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <ul>
+                                        @foreach($comparisonList as $comparison)
+                                            <a href="{{url('comparisons/'.$comparison->name)}}"><li class="text-primary">{{$comparison->name}}</li></a>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+                </div>
+
+
+
 
     <!-- Three columns of text below the carousel -->
     <div class="row" style="top: 685px">
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
+        <div class="panel panel-info">
+
+
+            <div class="panel-heading" style="background-color:darkcyan ;color:#fff">
+                <h3 class="panel-title text-center"><b>Our Products</b></h3>
+            </div>
+
+            <div class="panel-body" style="word-break: break-all">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 text-center">
             <a href="/questions">
-            <img class="img-circle  center-block" src="images/img-expert.jpg" alt="Generic placeholder image" width="170" height="170">
-                </a>
+                <img class="img-circle  center-block" src="images/img-expert.jpg" alt="instrument questions queries" width="170" height="170">
+            </a>
             <h2><a  href="/questions" >Expert's Corner</a></h2>
-            <p>Do you have a query about your test
 
-                application or your Electronic T&amp;M
 
-                instrument? Ask our experts!</p>
-            <p><a class="btn btn-secondary" href="/questions" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 text-center">
             <a href="/reviews">
-            <img class="img-circle  center-block" src="/images/img-reviews.jpg" alt="Generic placeholder image" width="170" height="170"></a>
+                <img class="img-circle  center-block" src="/images/img-reviews.jpg" alt="instrument review" width="170" height="170"></a>
             <h2><a href="/reviews">Instrument Reviews</a></h2>
-            <p>Excited about a product? Go ahead
 
-                and use our platform to write about
-
-                your experience. Keep Reviewing,
-
-                Keep Inst-Reviewing.</p>
-            <p><a class="btn btn-secondary" href="/reviews" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
 
-
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
-            <a href="/comparisons">
-            <img class="img-circle  center-block" src="images/img-comparison.jpg" alt="Generic placeholder image" width="170" height="170">
-                </a>
-            <h2><a href="/comparisons">Instrument Comparison</a></h2>
-            <p>Planning to buy a T&amp;M instrument?
-
-                Compare instruments from multiple
-
-                vendors before making a decision</p>
-            <p><a class="btn btn-secondary" href="/comparisons" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 text-center">
             <a href="/applicationassistant">
-            <img class="img-circle  center-block" src="/images/img-application-helper.jpg" alt="Generic placeholder image" width="170" height="170">
-                </a>
+                <img class="img-circle  center-block" src="/images/img-application-helper.jpg" alt="instrument testing" width="170" height="170">
+            </a>
             <h2><a href="/applicationassistant">Application Assistant</a></h2>
-            <p>There are some tests absolutely
+            {{--   <p>There are some tests absolutely
 
-                required before your product is ready
+                   required before your product is ready
 
-                for the market. Know what they are!</p>
-            <p><a class="btn btn-secondary" href="/applicationassistant" role="button">View details &raquo;</a></p>
+                   for the market. Know what they are!</p>
+               <p><a class="btn btn-secondary" href="/applicationassistant" role="button">View details &raquo;</a></p>--}}
         </div><!-- /.col-lg-4 -->
 
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 text-center">
+            <a href="/comparisons">
+                <img class="img-circle  center-block" src="images/img-comparison.jpg" alt="instrument comparison" width="170" height="170">
+            </a>
+            <h2><a href="/comparisons">Instrument Comparison</a></h2>
+
+        </div><!-- /.col-lg-4 -->
+
+</div>
+            </div>
 
     </div><!-- /.row -->
 
-   {{-- <div class="container-fluid panel panel-default text-center">
-        <div class="panel-heading">
-            <h3>Top Comparisons</h3>
-        </div>
 
 
 
-    <div class="row panel-body">
-        @foreach($comparisonList as $comparison)
-        <div class="col-sm-12 col-md-4 col-xs-12 ">
-            <div class="thumbnail1">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    </div><!-- /.container -->
 
-                <div class="caption text-center text-primary">
-                    <h5 style="word-wrap: break-word;"><a href="{{url('comparisons/'.$comparison->name)}}"> {{$comparison->name}}</a></h5>
-                </div>
-            </div>
-        </div>
-            @endforeach
-    </div>
-    </div>
-
-    <div class="container-fluid panel panel-default text-center" style="margin-top: 22px">
-        <div class="panel-heading">
-            <h3>Top Questions</h3>
-        </div>
-
-
-
-        <div class="row panel-body">
-            @foreach($questionList as $key=>$question)
-                <div class="col-sm-12 col-md-4 col-xs-12">
-                    <div class="thumbnail1 ">
-                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-
-                        <div class="caption text-center text-primary ">
-                            <h5 style="word-wrap: break-word;"><a href="{{url('questions/'.$question->id)}}"> {{$question->title}}</a></h5>
-                            --}}{{--<p class="collapse" id="{{"viewdetails".$key}}" style="word-wrap: break-word;"><a href="{{url('questions/'.$question->id)}}"> {{$question->title}}</a></p>
-                            <p ><a class="btn" data-toggle="collapse" data-target="{{"#viewdetails".$key}}">Query&raquo;</a></p>--}}{{--
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>
-
-    <div class="container-fluid panel panel-default text-center" style="margin-top: 22px">
-        <div class="panel-heading">
-            <h3>Top Reviews</h3>
-        </div>
-
-
-
-        <div class="row panel-body">
-            @foreach($reviewList as $review)
-                <div class="col-sm-12 col-md-4 col-xs-12">
-                    <div class="thumbnail1 ">
-                        @if($review->image)
-                        <img  height="175px" width="100%" src="{{$review->image->url}}" alt="...">
-                        @else
-                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                        @endif
-                        <div class="caption text-center text-primary">
-                            <h5><a href="{{url('reviews/'.$review->title)}}"> {{$review->title}}</a></h5>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>--}}
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4 col-xs-12 col-sm-12 full-width">
-                <div class="panel panel-info">
-
-
-                    <div class="panel-heading" style="background-color:#222 ;color:#fff">
-                        <h3 class="panel-title text-center"><b>Popular Questions</b></h3>
-                    </div>
-
-                    <div class="panel-body" style="word-break: break-all">
-                        <ul>
-                            @foreach($questionList as $question)
-                                <a href="{{url('questions/'.$question->id)}}"><li class="text-primary">{{$question->title}}</li></a>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-xs-12 col-sm-12 full-width">
-                <div class="panel panel-info">
-
-
-                    <div class="panel-heading" style="background-color:#222 ;color:#fff">
-                        <h3 class="panel-title text-center"><b>Top Comparisons</b></h3>
-                    </div>
-
-                    <div class="panel-body" style="word-break: break-all">
-                        <ul>
-                            @foreach($comparisonList as $comparison)
-                                <a href="{{url('comparisons/'.$comparison->name)}}"><li class="text-primary">{{$comparison->name}}</li></a>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-xs-12 col-sm-12 full-width">
-                <div class="panel panel-info">
-
-
-                    <div class="panel-heading" style="background-color:#222 ;color:#fff">
-                        <h3 class="panel-title text-center"><b>Top Reviews</b></h3>
-                    </div>
-
-                    <div class="panel-body" style="word-break: break-all">
-                        <ul>
-                            @foreach($reviewList as $review)
-                                <a href="{{url('reviews/'.$review->id)}}"><li class="text-primary">{{$review->title}}</li></a>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-
-
-
-</div><!-- /.container -->
-
-@endsection
+    @endsection
 
 
 

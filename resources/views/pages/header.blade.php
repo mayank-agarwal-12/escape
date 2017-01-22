@@ -15,60 +15,16 @@
     <!-- Bootstrap core CSS
     <link href="/vendor/iron-summit-media/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
     <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
+    <link href="{{ elixir('css/common.css') }}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="/vendor/iron-summit-media/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template -->
    {{-- <link href="/css/carousel.css" rel="stylesheet">--}}
-    <style>
-        body {
-            padding: 75px;
-            min-height: 100%;
-            box-sizing: border-box;
-            background-color: lightgrey;
-        }
-        @media (max-width: 992px) {.full-width {
-            width:100vw;
-            margin-left: -50vw;
-            left:50%;
-            position: relative;
-
-        }}
-
-        #bg {
-            position: absolute;
-
-            top: 75px;
-            left: 10%;
-            padding-bottom: 30px;
 
 
-
-            /* Preserve aspect ratio */
-            min-width: 80%;
-            max-height: 540px;
-        }
-
-
-        .img-circle {
-            border-radius: 5%;
-            box-shadow: 0px 0px 9px #444;
-            border: 2px solid #fff;
-        }
-
-        .fixed-right{
-            position:fixed;
-            top:85%;
-            right:8px;
-            z-index:1030;
-            padding:0px;
-            border: solid 1px;
-
-        }
-    </style>
-
-    <script>
+   {{-- <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -77,11 +33,30 @@
         ga('create', 'UA-88270812-1', 'auto');
         ga('send', 'pageview');
 
-    </script>
+    </script>--}}
 </head>
 <body>
+<div class="container-fluid">
+    <div class="row">
+        <div class=" hidden-xs hidden-sm col-lg-6 col-md-6 ">
+    <a href="/">
+        <img class="img-circle  center-block1" src="{{url('images/logo-2.jpg')}}" width="auto" height="80vh">
+    </a>
+        </div>
+        <div class="hidden-xs hidden-sm col-lg-offset-4 col-lg-2 col-md-offset-4 col-md-2 text-center" >
 
-<nav class="navbar navbar-default1  navbar-inverse navbar-fixed-top">
+            <a class="social" href="https://www.facebook.com/theinstreview" target="_blank" style="color:#3b5998">
+                <i class="fa fa-facebook-square"></i>
+            </a>
+            <a class="social" href="https://www.linkedin.com/company/the-instreview" target="_blank">
+                <i class="fa fa-linkedin-square"></i>
+            </a>
+        </div>
+
+</div>
+</div>
+
+<nav class="navbar navbar-default1  navbar-inverse navbar-fixed-top1">
     <div class="container-fluid">
         <div class="navbar-header">
         {{--<div class="row navbar-header navbar-fixed-top">

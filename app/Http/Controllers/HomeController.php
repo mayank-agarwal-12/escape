@@ -32,13 +32,13 @@ class HomeController extends Controller
     public function index()
     {
         $comparisonObj = new ComparisonModel();
-        $comparisonList = $comparisonObj->orderBy('id','asc')->take(5)->get();
+        $comparisonList = $comparisonObj->orderBy('id','asc')->take(7)->get();
 
         $questionModel = new QuestionsModel();
         $questionList =  $questionModel->orderBy('created_at','asc')->take(5)->get();
 
         $reviewModel = new ReviewsModel();
-        $reviewList = $reviewModel->orderBy('created_at','asc')->take(5)->get();
+        $reviewList = $reviewModel->orderBy('created_at','asc')->has('image')->take(4)->get();
 
         return view('pages.homepage',[],['comparisonList'=>$comparisonList,'questionList'=>$questionList,'reviewList'=>$reviewList]);
     }
