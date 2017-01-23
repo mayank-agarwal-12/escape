@@ -24,13 +24,13 @@
                     <a href="{{ url('/reviews') }}">Go Back</a>
                 </div>
                 @else
-                    @if (Auth::guest())
+                   {{-- @if (Auth::guest())
                         <div class="alert alert-warning text-center" role="alert">
                             Please
                             <a href="{{ url('/login') }}">Login/</a>
                             <a href="{{ url('/register') }}">Register</a> to view
                         </div>
-                    @else
+                    @else--}}
                     <div class="panel panel-default">
                         <div class="panel-body text-center">
 
@@ -101,7 +101,7 @@
                                 </div>
                             </div>
                                 @endforeach
-                    @endif
+                  {{--  @endif--}}
             </div>
 
 
