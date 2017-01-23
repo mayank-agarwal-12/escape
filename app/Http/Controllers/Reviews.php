@@ -95,10 +95,10 @@ class Reviews extends Controller
         {
             $review = $reviewRow;
         }
-        if(empty(Auth::user()->id))
+       /* if(empty(Auth::user()->id))
         {
             return view('pages.reviews.details',compact('popularReview'),['review'=>$review]);
-        }
+        }*/
        // $reviewObj = ReviewsModel::paginate(10);
         $comments = CommentsModel::where('review_id',$review->id)->orderBy('created_at','desc')->get();
 
