@@ -103,10 +103,10 @@
                     <div class="panel-body" style="word-break: break-all">
                         <div class="panel-left col-md-4 col-xs-12 col-sm-12 text-center" style="display: table-cell;vertical-align: middle;padding-right: 10px">
 
-                            <a href="/questions">
+                            <a href="/comparisons">
                                 <img class="img-circle  center-block" src="images/comparisons.jpg" alt="instrument questions queries" width="auto" height="170" style="max-width: 100%">
                             </a>
-                            <h2><a  href="/questions" >Instrument Comparison</a></h2>
+                            <h2><a  href="/comparisons" >Instrument Comparison</a></h2>
                             <p style="word-break: keep-all">Planning to buy a T&amp;M instrument?
 
                                 Compare instruments from multiple
