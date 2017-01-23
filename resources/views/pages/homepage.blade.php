@@ -29,9 +29,9 @@
                                             <div class="col-lg-3">
                                                 <a href="{{url('reviews/'.$review->id)}}">
                                                     @if($review->image)
-                                                        <img class="img-circle  center-block" src="{{$review->image->url}}" alt="instrument reviews" width="270px" height="170" style="max-width:100%">
+                                                        <img class="img-circle1  center-block" src="{{$review->image->url}}" alt="instrument reviews" width="auto" height="170px" style="max-width:100%">
                                                     @else
-                                                        <div class="img-circle" style="height:170px;width:270px;border:1px solid #000;display: inline-block">
+                                                        <div class="img-circle1" style="height:170px;width:270px;border:1px solid #000;display: inline-block">
                                                             <span class="glyphicon glyphicon-search text-center" aria-hidden="true"></span>
                                                         </div>
                                                     @endif
@@ -58,7 +58,7 @@
                             <div class="panel-left col-md-4 col-xs-12 col-sm-12 text-center" style="display: table-cell;vertical-align: middle;padding-right: 10px">
 
                                 <a href="/questions">
-                                    <img class="img-circle  center-block" src="images/questions.jpeg" alt="instrument questions queries" width="auto" height="170" style="max-width: 100%;">
+                                    <img class="img-circle1  center-block" src="images/questions.jpeg" alt="instrument questions queries" width="auto" height="170" style="max-width: 100%;">
                                 </a>
                                 <h2><a  href="/questions" >Query/Expert Section</a></h2>
                                 <p  style="word-break: keep-all">Do you have a query about your test
@@ -75,7 +75,7 @@
                                 <div class="panel-heading">
                                     <h3 class="panel-title ">Popular Questions</h3>
                                 </div>
-                                <div class="panel-body">
+                                <div class="panel-body" style="font-size: large;">
                             <ul>
                                 @foreach($questionList as $question)
                                     <a href="{{url('questions/'.$question->id)}}"><li class="text-primary">{{$question->title}}</li></a>
@@ -104,7 +104,7 @@
                         <div class="panel-left col-md-4 col-xs-12 col-sm-12 text-center" style="display: table-cell;vertical-align: middle;padding-right: 10px">
 
                             <a href="/comparisons">
-                                <img class="img-circle  center-block" src="images/comparisons.jpg" alt="instrument questions queries" width="auto" height="170" style="max-width: 100%">
+                                <img class="img-circle1  center-block" src="images/comparisons.jpg" alt="instrument questions queries" width="auto" height="170" style="max-width: 100%">
                             </a>
                             <h2><a  href="/comparisons" >Instrument Comparison</a></h2>
                             <p style="word-break: keep-all">Planning to buy a T&amp;M instrument?
@@ -154,7 +154,7 @@
             <div class="panel-body" style="word-break: break-all">
         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 text-center">
             <a href="/questions">
-                <img class="img-circle  center-block" src="images/img-expert.jpg" alt="instrument questions queries" width="170" height="170">
+                <img class="img-circle1  center-block" src="images/img-expert.jpg" alt="instrument questions queries" width="250" height="170">
             </a>
             <h2><a  href="/questions" >Expert's Corner</a></h2>
 
@@ -162,14 +162,14 @@
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 text-center">
             <a href="/reviews">
-                <img class="img-circle  center-block" src="/images/img-reviews.jpg" alt="instrument review" width="170" height="170"></a>
-            <h2><a href="/reviews">Instrument Reviews</a></h2>
+                <img class="img-circle1  center-block" src="/images/img-reviews.jpg" alt="instrument review" width="250" height="170"></a>
+            <h2><a href="/reviews">Reviews</a></h2>
 
         </div><!-- /.col-lg-4 -->
 
         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 text-center">
             <a href="/applicationassistant">
-                <img class="img-circle  center-block" src="/images/img-application-helper.jpg" alt="instrument testing" width="170" height="170">
+                <img class="img-circle1  center-block" src="/images/img-application-helper.jpg" alt="instrument testing" width="250" height="170">
             </a>
             <h2><a href="/applicationassistant">Application Assistant</a></h2>
             {{--   <p>There are some tests absolutely
@@ -182,9 +182,9 @@
 
         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 text-center">
             <a href="/comparisons">
-                <img class="img-circle  center-block" src="images/img-comparison.jpg" alt="instrument comparison" width="170" height="170">
+                <img class="img-circle1  center-block" src="images/img-comparison.jpg" alt="instrument comparison" width="250" height="170">
             </a>
-            <h2><a href="/comparisons">Instrument Comparison</a></h2>
+            <h2><a href="/comparisons">Comparisons</a></h2>
 
         </div><!-- /.col-lg-4 -->
 

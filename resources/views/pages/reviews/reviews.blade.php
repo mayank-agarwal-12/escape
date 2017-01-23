@@ -45,13 +45,13 @@
                         <div class="panel panel-default">
                                 <div class="panel-body text-center">
 
-                                    <div class="panel-left col-md-4 col-xs-12 col-sm-12 " style="display: table-cell;vertical-align: middle;padding-right: 10px">
+                                    <div class="panel-left col-md-4 col-xs-12 col-sm-12 " style="display: table-cell;vertical-align: middle;padding-right: 10px;max-width: 100%">
                                         @if($review->image)
 
-                                        <img  height="175px" width="125px" src="{{$review->image->url}}" alt="...">
+                                        <img  height="175px" width="auto" src="{{$review->image->url}}" alt="..." style="max-width: 100%">
 
                                             @else
-                                        <div style="height:175px;width:125px;border:1px solid #000;display: inline-block">
+                                        <div style="height:175px;width:175px;border:1px solid #000;display: inline-block;max-width: 100%">
                                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                                         </div>
                                         @endif
