@@ -40,7 +40,7 @@
     <div class="row">
         <div class=" hidden-xs hidden-sm col-lg-6 col-md-6 ">
     <a href="/">
-        <img class="img-circle1  center-block1" src="{{url('images/logo-2.jpg')}}" width="auto" height="80vh" style="max-width: 100%">
+        <img class="img-circle1  center-block1" src="{{url('images/logo-2.png')}}" width="auto" height="80vh" style="max-width: 100%">
     </a>
         </div>
         <div class="hidden-xs hidden-sm col-lg-offset-4 col-lg-2 col-md-offset-4 col-md-2 text-center" >
