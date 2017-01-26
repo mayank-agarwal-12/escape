@@ -23,7 +23,7 @@
 <div class="row ">
    
         <div class=" col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-xs-11 col-sm-11 text-center" >
-                    <ul class="list-inline" style="list-style-type: none;font-size: 18px;">
+                    <ul class="list-inline" style="list-style-type: none;font-size: 16px;">
                         <li > <a href="/about">About Us</a> </li>
                         <li> <a href="/contact">Contact Us</a> </li>
                         <li> <a href="/disclaimer">Terms</a> </li>

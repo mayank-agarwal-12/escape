@@ -60,7 +60,7 @@
                                 <a href="/questions">
                                     <img class="img-circle1  center-block" src="images/questions.jpeg" alt="instrument questions queries" width="auto" height="170" style="max-width: 100%;">
                                 </a>
-                                <h2><a  href="/questions" >Query/Expert Section</a></h2>
+                                <h3><a  href="/questions" >Query/Expert Section</a></h3>
                                 <p  style="word-break: keep-all">Do you have a query about your test
 
                                     application or your Electronic T&amp;M
@@ -106,7 +106,7 @@
                             <a href="/comparisons">
                                 <img class="img-circle1  center-block" src="images/comparisons.jpg" alt="instrument questions queries" width="auto" height="170" style="max-width: 100%">
                             </a>
-                            <h2><a  href="/comparisons" >Instrument Comparison</a></h2>
+                            <h3><a  href="/comparisons" >Instrument Comparison</a></h3>
                             <p style="word-break: keep-all">Planning to buy a T&amp;M instrument?
 
                                 Compare instruments from multiple
@@ -156,14 +156,14 @@
             <a href="/questions">
                 <img class="img-circle1  center-block" src="images/img-expert.jpg" alt="instrument questions queries" width="250" height="170">
             </a>
-            <h2><a  href="/questions" >Expert's Corner</a></h2>
+            <h3><a  href="/questions" >Expert's Corner</a></h3>
 
 
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 text-center">
             <a href="/reviews">
                 <img class="img-circle1  center-block" src="/images/img-reviews.jpg" alt="instrument review" width="250" height="170"></a>
-            <h2><a href="/reviews">Reviews</a></h2>
+            <h3><a href="/reviews">Reviews</a></h3>
 
         </div><!-- /.col-lg-4 -->
 
@@ -171,7 +171,7 @@
             <a href="/applicationassistant">
                 <img class="img-circle1  center-block" src="/images/img-application-helper.jpg" alt="instrument testing" width="250" height="170">
             </a>
-            <h2><a href="/applicationassistant">Application Assistant</a></h2>
+            <h3><a href="/applicationassistant">Application Assistant</a></h3>
             {{--   <p>There are some tests absolutely
 
                    required before your product is ready
@@ -184,7 +184,7 @@
             <a href="/comparisons">
                 <img class="img-circle1  center-block" src="images/img-comparison.jpg" alt="instrument comparison" width="250" height="170">
             </a>
-            <h2><a href="/comparisons">Comparisons</a></h2>
+            <h3><a href="/comparisons">Comparisons</a></h3>
 
         </div><!-- /.col-lg-4 -->
 
