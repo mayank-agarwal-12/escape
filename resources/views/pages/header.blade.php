@@ -83,7 +83,7 @@
 
 
             <div class="collapse navbar-collapse navbar-default1 navbar-inverse" id="collapse-header">
-                <ul class="nav navbar-nav navbar-right" >
+                <ul class="nav navbar-nav navbar-right " >
                     <li>
                         <a href="/" style="color: #ffffff">Home</a>
                     </li>

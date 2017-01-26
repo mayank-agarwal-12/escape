@@ -71,11 +71,11 @@
                             </div>
 
                             <div class="panel-right col-md-8 col-xs-12 col-sm-12 " style="display: table-cell; vertical-align: top;padding-left: 10px ;word-break: break-all">
-                                <div class="panel panel-default">
+                                <div class="panel1 panel-default">
                                 <div class="panel-heading">
                                     <h3 class="panel-title ">Popular Questions</h3>
                                 </div>
-                                <div class="panel-body" style="font-size: large;">
+                                <div class="panel-body">
                             <ul>
                                 @foreach($questionList as $question)
                                     <a href="{{url('questions/'.$question->id)}}"><li class="text-primary">{{$question->title}}</li></a>
@@ -117,7 +117,7 @@
                         </div>
 
                         <div class="panel-right col-md-8 col-xs-12 col-sm-12 " style="display: table-cell; vertical-align: top;padding-left: 10px ;word-break: keep-all">
-                            <div class="panel panel-default">
+                            <div class="panel1 panel-default">
                                 <div class="panel-heading">
                                     <h3 class="panel-title ">Popular Comparisons</h3>
                                 </div>
