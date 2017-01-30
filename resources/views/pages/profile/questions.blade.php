@@ -17,11 +17,12 @@
     border-style: solid;
     padding: 0px;
     padding-bottom: 2px;
+     background-color:darkcyan ;
 ">
-                <ul class="nav nav-tabs ">
-                    <li role="presentation"><a href="/profile">Profile</a></li>
-                    <li role="presentation" ><a href="/profile/reviews">Reviews</a></li>
-                    <li role="presentation" class="active"><a href="/profile/questions">Expert's Corner</a></li>
+                <ul class="nav navbar-nav" >
+                    <li><a href="{{url('/profile')}}" style="color:#ffffff;">Profile</a></li>
+                    <li ><a href="{{url('/profile/reviews')}}" style="color:#ffffff;">Reviews</a></li>
+                    <li ><a href="/profile/questions" style="background-color:cadetblue ;color:#ffffff;">Expert's Corner</a></li>
                 </ul>
             </div>
         </div>
