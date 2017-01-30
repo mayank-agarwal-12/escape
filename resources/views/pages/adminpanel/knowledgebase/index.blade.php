@@ -18,26 +18,32 @@
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
-                        <div class="dataTable_wrapper">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <div class="dataTable_wrapper table-responsive" >
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                 <tr>
-                                    <th>S No</th>
-                                    <th>Title</th>
-                                    <th>Description</th>
-                                    <th>User</th>
-                                    <th>Action</th>
+                                    <th class="col-lg-1">S No</th>
+                                    <th class="col-lg-1">Title</th>
+                                    <th class="col-lg-1">User</th>
+                                    <th class="col-lg-1">Image</th>
+                                    <th class="col-lg-1">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @if($knowledgeBaseList)
                                     @foreach($knowledgeBaseList as $knowledgeBase)
                                         <tr>
-                                            <td>{{$knowledgeBase->id}}</td>
+                                            <td >{{$knowledgeBase->id}}</td>
                                             <td><a href="{{route('knowledgebase.edit',$knowledgeBase->id)}}">{{$knowledgeBase->title}}</a></td>
-                                            <td>{{$knowledgeBase->description}}</td>
 
                                             <td>{{$knowledgeBase->user->name}}</td>
+                                            @if($knowledgeBase->upload_id)
+                                                <td>
+                                                    {!! Form::image($knowledgeBase->image->url,'Image',['height'=>'125px','width'=>'90px']) !!}
+                                                </td>
+                                            @else
+                                                <td>NULL</td>
+                                            @endif
 
                                             <td> {!! Form::open(['method'=>'DELETE' , 'action'=>['Adminpanel\KnowledgeBase@destroy',$knowledgeBase->id]]) !!}
                                                 {{csrf_field()}}
@@ -81,7 +87,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                {!! Form::open(['method'=>'POST' , 'action'=>'Adminpanel\KnowledgeBase@store']) !!}
+                                {!! Form::open(['method'=>'POST' , 'action'=>'Adminpanel\KnowledgeBase@store','enctype'=>"multipart/form-data"]) !!}
                                     {{csrf_field()}}
                                     <div class="form-group">
                                         {!! Form::label('title','Title') !!}
@@ -96,6 +102,11 @@
                                     {!! Form::label('user_id','User') !!}
                                     {!! Form::select('user_id',['0'=>'Select User']+$userLists,null,['class'=>'form-control']) !!}
                                 </div>
+                                <div class="form-group">
+                                    {!! Form::label('image','Image Uploader') !!}
+                                    {!! Form::file('image',['class'=>'form-control']) !!}
+                                </div>
+
 
 
                                 <div class="form-group">

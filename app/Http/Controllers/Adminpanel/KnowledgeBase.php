@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Adminpanel;
 use App\Http\Controllers\Controller;
 use App\Models\CategoryModel;
 use App\Models\KnowledgeBaseModel;
+use App\Models\UploadModel;
 use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Storage;
 
 class KnowledgeBase extends Controller
 {
@@ -49,12 +51,27 @@ class KnowledgeBase extends Controller
      */
     public function store(Request $request)
     {
+        $uploadId = 0;
         $input = $request->all();
-
         if(empty($input['user_id']))
         {
             return back()->with('status', trans('Please select User'));
         }
+        if($request->file('image'))
+        {
+            $path = $request->file('image')->storePublicly('kb_image','public');
+
+            $uploadArr = [
+                'url'=> Storage::url($path),
+                'type'=>'image',
+                'storage'=>'filesystem\public',
+                'path'=>$path
+            ];
+            $uploadId = UploadModel::firstOrCreate($uploadArr)->id;
+        }
+        $input = $request->all();
+        $input['upload_id'] = $uploadId;
+
         KnowledgeBaseModel::create($input);
         return redirect('adminpanel\knowledgebase');
     }
@@ -101,12 +118,32 @@ class KnowledgeBase extends Controller
     public function update(Request $request, $id)
     {
         $knowledgeBaseObj = KnowledgeBaseModel::findorFail($id);
+        $uploadId= $knowledgeBaseObj->upload_id;
         $input = $request->all();
 
         if(empty($input['user_id']))
         {
             return back()->with('status', trans('Please select User'));
         }
+        if(!empty($input['remove_image']))
+        {
+            $uploadId = 0;
+            unset($input['remove_image']);
+        }
+        if($request->file('image'))
+        {
+            $path = $request->file('image')->storePublicly('kb_image','public');
+
+            $uploadArr = [
+                'url'=> Storage::url($path),
+                'type'=>'image',
+                'storage'=>'filesystem\public',
+                'path'=>$path
+            ];
+            $uploadId = UploadModel::firstOrCreate($uploadArr)->id;
+        }
+        $input['upload_id'] = $uploadId;
+
         $knowledgeBaseObj->update($input);
         return redirect('adminpanel\knowledgebase');
     }

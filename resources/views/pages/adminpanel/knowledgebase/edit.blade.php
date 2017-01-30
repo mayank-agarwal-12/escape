@@ -19,7 +19,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                {!! Form::model ($knowledgeBaseList,['method'=>'PATCH' , 'action'=>['Adminpanel\KnowledgeBase@update',$knowledgeBaseList->id]]) !!}
+                                {!! Form::model ($knowledgeBaseList,['method'=>'PATCH' , 'action'=>['Adminpanel\KnowledgeBase@update',$knowledgeBaseList->id],'enctype'=>"multipart/form-data"]) !!}
                                 {{csrf_field()}}
                                 <div class="form-group">
                                     {!! Form::label('title','Title') !!}
@@ -35,6 +35,18 @@
                                     {!! Form::select('user_id',['0'=>'Select User']+$userLists,null,['class'=>'form-control']) !!}
                                 </div>
 
+
+                                @if($knowledgeBaseList->upload_id)
+                                    <div class="form-group " >
+                                        {!! Form::image($knowledgeBaseList->image->url,'Image',['height'=>'150px','width'=>'auto']) !!}
+                                        {!! Form::label('remove_image','Remove Image') !!}
+                                        {!! Form::checkbox('remove_image','1',null,[]) !!}
+                                    </div>
+                                @endif
+                                <div class="form-group">
+                                    {!! Form::label('image','Image Uploader') !!}
+                                    {!! Form::file('image',['class'=>'form-control']) !!}
+                                </div>
 
                                 <div class="form-group">
 
