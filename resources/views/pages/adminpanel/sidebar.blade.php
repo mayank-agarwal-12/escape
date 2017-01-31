@@ -89,6 +89,20 @@
                     </li>
                     </ul>
             </li>
+            <li>
+                <a href="#"><i class="fa fa-star fa-fw arrow"></i>Events</a>
+                <ul class="nav nav-third-level">
+                    <li>
+                        <a href="\adminpanel\partners"><i class="fa fa-edit fa-fw"></i>Partners</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-eye fa-fw"></i>View Event</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-edit   fa-fw"></i>Create Event</a>
+                    </li>
+                </ul>
+            </li>
 
 
         </ul>

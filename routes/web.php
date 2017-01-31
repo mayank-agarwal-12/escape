@@ -116,6 +116,8 @@ Route::get('/about', function () {
         Route::resource('adminpanel/comparison','Comparison');
         Route::resource('adminpanel/answers','Answers');
             Route::resource('adminpanel/user','User');
+            Route::resource('adminpanel/events','Events');
+            Route::resource('adminpanel/partners','Partners');
 
         });
     });

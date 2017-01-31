@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers\Adminpanel;
 
-use App\Http\Controllers\Controller;
-use App\Models\CategoryModel;
-use App\Models\KnowledgeBaseModel;
+use App\Models\PartnersModel;
 use App\Models\UploadModel;
-use App\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Storage;
 
-class KnowledgeBase extends Controller
+class Partners extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,16 +19,8 @@ class KnowledgeBase extends Controller
      */
     public function index()
     {
-        $knowledgeBaseList = KnowledgeBaseModel::all();
-        $userObj = User::all();
-        $userLists = [];
-
-        foreach($userObj as $user)
-        {
-            $userLists[$user->id] = $user->name;
-        }
-
-        return view('pages.adminpanel.knowledgebase.index',compact('knowledgeBaseList'),['userLists'=>$userLists]);
+        $partnerList = PartnersModel::all();
+        return view('pages.adminpanel.partners.index',compact('partnerList'));
     }
 
     /**
@@ -53,13 +43,10 @@ class KnowledgeBase extends Controller
     {
         $uploadId = 0;
         $input = $request->all();
-        if(empty($input['user_id']))
-        {
-            return back()->with('status', trans('Please select User'));
-        }
+
         if($request->file('image'))
         {
-            $path = $request->file('image')->storePublicly('kb_image','public');
+            $path = $request->file('image')->storePublicly('partners_logo','public');
 
             $uploadArr = [
                 'url'=> Storage::url($path),
@@ -69,10 +56,10 @@ class KnowledgeBase extends Controller
             ];
             $uploadId = UploadModel::firstOrCreate($uploadArr)->id;
         }
-        $input['upload_id'] = $uploadId;
+        $input['logo_id'] = $uploadId;
 
-        KnowledgeBaseModel::create($input);
-        return redirect('adminpanel\knowledgebase');
+        PartnersModel::create($input);
+        return redirect('adminpanel\partners');
     }
 
     /**
@@ -94,17 +81,8 @@ class KnowledgeBase extends Controller
      */
     public function edit($id)
     {
-        $knowledgeBaseList = KnowledgeBaseModel::findorFail($id);
-
-        $userObj = User::all();
-        $userLists = [];
-
-        foreach($userObj as $user)
-        {
-            $userLists[$user->id] = $user->name;
-        }
-
-        return view('pages.adminpanel.knowledgebase.edit',compact('knowledgeBaseList'),['userLists'=>$userLists]);
+        $partnerList = PartnersModel::findorFail($id);
+        return view('pages.adminpanel.partners.edit',compact('partnerList'));
     }
 
     /**
@@ -116,14 +94,10 @@ class KnowledgeBase extends Controller
      */
     public function update(Request $request, $id)
     {
-        $knowledgeBaseObj = KnowledgeBaseModel::findorFail($id);
-        $uploadId= $knowledgeBaseObj->upload_id;
+        $partnerList = PartnersModel::findorFail($id);
+        $uploadId= $partnerList->logo_id;
         $input = $request->all();
 
-        if(empty($input['user_id']))
-        {
-            return back()->with('status', trans('Please select User'));
-        }
         if(!empty($input['remove_image']))
         {
             $uploadId = 0;
@@ -131,7 +105,7 @@ class KnowledgeBase extends Controller
         }
         if($request->file('image'))
         {
-            $path = $request->file('image')->storePublicly('kb_image','public');
+            $path = $request->file('image')->storePublicly('partners_logo','public');
 
             $uploadArr = [
                 'url'=> Storage::url($path),
@@ -141,10 +115,10 @@ class KnowledgeBase extends Controller
             ];
             $uploadId = UploadModel::firstOrCreate($uploadArr)->id;
         }
-        $input['upload_id'] = $uploadId;
+        $input['logo_id'] = $uploadId;
 
-        $knowledgeBaseObj->update($input);
-        return redirect('adminpanel\knowledgebase');
+        $partnerList->update($input);
+        return redirect('adminpanel\partners');
     }
 
     /**
@@ -155,7 +129,7 @@ class KnowledgeBase extends Controller
      */
     public function destroy($id)
     {
-        KnowledgeBaseModel::findorFail($id)->delete();
-        return redirect('adminpanel\knowledgebase');
+        PartnersModel::findorFail($id)->delete();
+        return redirect('adminpanel\partners');
     }
 }
