@@ -17,7 +17,8 @@ class CreateEvents extends Migration
             $table->increments('id');
             $table->string('title');
             $table->longText('description');
-            $table->timestamp('event_date');
+            $table->date('event_date');
+            $table->time('event_time');
             $table->string('address');
             $table->bigInteger('partner_id');
             $table->timestamps();

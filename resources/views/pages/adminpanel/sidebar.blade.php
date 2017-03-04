@@ -96,10 +96,10 @@
                         <a href="\adminpanel\partners"><i class="fa fa-edit fa-fw"></i>Partners</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-eye fa-fw"></i>View Event</a>
+                        <a href="\adminpanel\events"><i class="fa fa-eye fa-fw"></i>View Event</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-edit   fa-fw"></i>Create Event</a>
+                        <a href="\adminpanel\events\create"><i class="fa fa-edit   fa-fw"></i>Create Event</a>
                     </li>
                 </ul>
             </li>
