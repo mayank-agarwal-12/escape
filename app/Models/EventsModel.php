@@ -14,4 +14,10 @@ class EventsModel extends Model
     {
         return $this->belongsTo('App\Models\PartnersModel','partner_id');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\UserEventsModel','user_event','event_id','user_id');
+    }
+
 }

@@ -22,7 +22,8 @@
 Route::get('/about', function () {
     return view('pages.about');
 });
-
+Route::get('/events','Events@index');
+Route::get('/events/{id}','Events@show');
 
     Route::get('/', 'HomeController@index');
     Route::get('/contact', function () {
@@ -66,16 +67,17 @@ Route::get('/about', function () {
         Route::post('/reviews/removeSoftDelete','Reviews@removeSoftDelete');
         Route::post('/user/update','Profile@update');
         Route::post('/user/updatePassword','Profile@updatePassword');
+        Route::post('/events/signUp','Events@signUp');
+
     });
 
     Route::get('/redirect/{provider}', 'Auth\SocialAuth@redirectToProvider');
     Route::get('/callback/{provider}', 'Auth\SocialAuth@handleProviderCallback');
 
 
+
+
     Route::group(['domain' => 'adminpanel.'.env('APP_DOMAIN')], function () {
-
-
-
 
     Route::group(['namespace' => 'Adminpanel'], function () {
 
@@ -123,6 +125,20 @@ Route::get('/about', function () {
     });
 
 });
+
+
+/*Route::group(['domain' => 'events.'.env('APP_DOMAIN')], function () {
+
+    Route::resource('/','Events@index');
+    Route::get('/events','Events@index');
+    Route::get('/events/{id}','Events@show');
+    Route::group(['middleware' => 'auth'], function ()
+    {
+        Route::post('/events/signUp','Events@signUp');
+    }
+    );
+
+});*/
 
 
 

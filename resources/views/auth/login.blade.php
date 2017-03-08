@@ -59,12 +59,12 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-12 text-center">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-md-6 col-md-offset-4 col-xs-12 col-sm-12 text-center ">
+                                <button type="submit" class="btn btn-primary" style="width: 100%">
                                     Login
                                 </button>
                                 </div>
-                            <div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-12 text-center">
+                            <div class="col-md-6 col-md-offset-4 col-xs-12 col-sm-12 text-center">
                                 <a class="btn btn-link" style="padding-right: 1px" href="{{ url('/password/reset') }}">
                                     Forgot Your Password/
                                 </a>
@@ -76,23 +76,25 @@
                     </form>
 
                     <div class="row text-center" style="padding-bottom: 10px">
+                        <div class="col-md-6 col-md-offset-4 col-xs-12 col-sm-12 text-center" style="padding-bottom: 10px;">
                         <h4>OR</h4>
+                            </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-12 text-center" style="padding-bottom: 10px">
+                        <div class="col-md-6 col-md-offset-4 col-xs-12 col-sm-12 text-center" style="padding-bottom: 10px;">
                             <a href="{{url('/redirect/facebook')}}" title="Login with facebook">
-                                <div class="icon-facebook">
+                                <div class=" icon-facebook" style="width: 100%">
                                     <i class="fa fa-facebook"></i>
-                                    <span>Login</span>
+                                    <span>Login with Facebook</span>
                                 </div>
                             </a>
                             </div>
-                        <div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-12 text-center">
+                        <div class="col-md-6 col-md-offset-4 col-xs-12 col-sm-12 text-center" >
                             <a href="/redirect/google" title="Login with google">
-                                <div class="icon-google">
+                                <div class="icon-google" style="width: 100%">
                                     <i class="fa fa-google"></i>
-                                    <span >Login</span>
+                                    <span >Login with Gmail</span>
                                 </div>
                             </a>
                             </div>

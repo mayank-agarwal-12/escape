@@ -35,10 +35,12 @@ const imagemin = require('gulp-imagemin');
         mix.sass('app.scss')
             .webpack('app.js')
             .scripts('myaccount.js')
+            .scripts('events.js')
            .styles('common.css');
         mix.task('images');
         mix.version('js/app.js');
         mix.version('js/myaccount.js');
+        mix.version('js/events.js');
         mix.version('css/app.css');
         mix.version('css/common.css');
 //mix.copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts/bootstrap');

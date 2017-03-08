@@ -34,7 +34,7 @@
                                     @foreach($eventList as $event)
                                 <tr>
                                     <td>{{$event->id}}</td>
-                                    <td><a href="{{route('events.edit',$event->id)}}">{{$event->title}}</a></td>
+                                    <td><a href="/adminpanel/events/{{$event->id}}/edit">{{$event->title}}</a></td>
                                     <td>{{$event->event_date}}  {{$event->event_time}}</td>
                                     <td>{{$event->partners->name}}</td>
 
