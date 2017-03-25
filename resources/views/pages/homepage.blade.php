@@ -12,7 +12,8 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 full-width">
+
+                <div class="col-lg-8 col-md-8 col-xs-12 col-sm-12 full-width">
                     <div class="panel panel-info">
 
 
@@ -45,8 +46,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 full-width">
+
                     <div class="panel panel-info">
 
 
@@ -72,26 +72,41 @@
 
                             <div class="panel-right col-md-8 col-xs-12 col-sm-12 " style="display: table-cell; vertical-align: top;padding-left: 10px ;word-break: break-all">
                                 <div class="panel1 panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title ">Popular Questions</h3>
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title ">Popular Questions</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <ul>
+                                            @foreach($questionList as $question)
+                                                <a href="{{url('questions/'.$question->id)}}"><li class="text-primary">{{$question->title}}</li></a>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="panel-body">
-                            <ul>
-                                @foreach($questionList as $question)
-                                    <a href="{{url('questions/'.$question->id)}}"><li class="text-primary">{{$question->title}}</li></a>
-                                @endforeach
-                            </ul>
-                                </div>
-                                </div>
-                                </div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
+                <div class="col-md-4 col-xs-12 col-sm-12 full-width">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" style="background-color:darkcyan ;color:#fff"> <span class="glyphicon glyphicon-list-alt"></span><b> News </b></div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <ul class="demo1" style="overflow-y: hidden; height: 210px;">
+                                        @foreach($feed->get_items(0,20) as $item)
+                                            <li style="" class="news-item">
+                                                <a target="_blank" href="{{$item->get_link()}}"> {{ $item->get_title() }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
 
-
-
-
-
+                    </div>
+                </div>
             <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 full-width">
                 <div class="panel panel-info">
 

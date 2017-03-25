@@ -5,10 +5,11 @@
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.3.*",
-        "iron-summit-media/startbootstrap-sb-admin-2": "^3.3",
+        "iron-summit-media/startbootstrap-sb-admin-2": "3.3.7",
         "laravelcollective/html": "^5.3",
-        "maatwebsite/excel": "^2.1",
-        "laravel/socialite": "^2.0"
+        "maatwebsite/excel": "^2.1.0",
+        "laravel/socialite": "^2.0",
+        "simplepie/simplepie": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

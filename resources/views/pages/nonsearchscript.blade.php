@@ -20,3 +20,19 @@
 <script src="/vendor/iron-summit-media/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>--}}
 
 
+<script src="http://www.jqueryscript.net/demo/Responsive-jQuery-News-Ticker-Plugin-with-Bootstrap-3-Bootstrap-News-Box/scripts/jquery.bootstrap.newsbox.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+        $(function () {
+                $(".demo1").bootstrapNews({
+                        newsPerPage: 10,
+                        autoplay: true,
+                        pauseOnHover: true,
+                        direction: 'up',
+                        newsTickerInterval: 5000,
+                        onToDo: function () {
+//console.log(this);
+                        }
+                })
+        });
+</script>
